@@ -22,7 +22,7 @@ The reasons for these changes are to better support frameworks like Laravel and 
 Either with composer or by cloning.
 
 ### 2.1a - Add to your project with composer
-`composer require autumndev/cdiscount-sdkphpapi`
+`composer require mobi-market/cdiscount-sdkphpapi`
 
 ### 2.1b - Clone the Git repository in your root project folder
 
