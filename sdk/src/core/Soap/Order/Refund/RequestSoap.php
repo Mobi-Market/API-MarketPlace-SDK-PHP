@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Order\Refund;
 
-
 use Sdk\Soap\BaliseTool;
 
 class RequestSoap extends BaliseTool
 {
-
     private $_OrderNumberTAG = 'OrderNumber';
     private $_SellerRefundRequestListTAG = 'SellerRefundRequestList';
     private $_SellerRefundRequestTAG = 'SellerRefundRequest';

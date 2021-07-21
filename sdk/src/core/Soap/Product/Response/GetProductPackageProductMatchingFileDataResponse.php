@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Product\Response;
-
 
 use Sdk\Product\Product;
 use Sdk\Product\ProductMatching;
@@ -53,8 +54,7 @@ class GetProductPackageProductMatchingFileDataResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check For error message
@@ -68,7 +68,7 @@ class GetProductPackageProductMatchingFileDataResponse extends iResponse
             /**
              * Product List
              */
-            $this->_productMatchingList = array();
+            $this->_productMatchingList = [];
 
             /** Parse product matching list from XML */
             $this->_getProductMatchingList($this->_dataResponse['s:Body']['GetProductPackageProductMatchingFileDataResponse']['GetProductPackageProductMatchingFileDataResult']);
@@ -78,7 +78,7 @@ class GetProductPackageProductMatchingFileDataResponse extends iResponse
     /**
      * Set Token ID and Seller Login from XML response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetProductPackageProductMatchingFileDataResponse']['GetProductPackageProductMatchingFileDataResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -95,7 +95,6 @@ class GetProductPackageProductMatchingFileDataResponse extends iResponse
         $objError = $this->_dataResponse['s:Body']['GetProductPackageProductMatchingFileDataResponse']['GetProductPackageProductMatchingFileDataResult']['ErrorMessage'];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             return true;
@@ -106,11 +105,10 @@ class GetProductPackageProductMatchingFileDataResponse extends iResponse
     /**
      * @param $result
      */
-    private function _getProductMatchingList($result)
+    private function _getProductMatchingList($result): void
     {
         if (isset($result['ProductMatchingList']) && !SoapTools::isSoapValueNull($result['ProductMatchingList']) && isset($result['ProductMatchingList']['ProductMatching'])) {
             foreach ($result['ProductMatchingList']['ProductMatching'] as $productXML) {
-
                 $product = new ProductMatching($productXML['SKU']);
 
                 if (isset($productXML['Color']) && !SoapTools::isSoapValueNull($productXML['Color'])) {

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Driss Kelmous
  * Created by Driss Kelmous
@@ -10,7 +12,7 @@ namespace Sdk\Fulfilment;
 
 class WarehouseType
 {
-    const CEM = 'CEM';
-    const ANZ = 'ANZ';
-    const SMD = 'SMD';
+    public const CEM = 'CEM';
+    public const ANZ = 'ANZ';
+    public const SMD = 'SMD';
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Offer;
 
-
 use Sdk\Soap\BaliseTool;
 
 class GetOfferPackageSubmissionResult extends BaliseTool
 {
-
     private $_productPackageFilterTAG = 'offerPackageFilter';
 
     private $_PackageIDTAG = 'PackageID';
@@ -35,7 +35,7 @@ class GetOfferPackageSubmissionResult extends BaliseTool
      */
     public function generatePackageFilterXML($packageId)
     {
-        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->_productPackageFilterTAG, array('xmlns:i="http://www.w3.org/2001/XMLSchema-instance"'));
+        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->_productPackageFilterTAG, ['xmlns:i="http://www.w3.org/2001/XMLSchema-instance"']);
 
         $xml .= $this->_xmlUtil->generateBalise($this->_PackageIDTAG, $packageId);
 

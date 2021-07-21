@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Product;
 
-
 use Sdk\Soap\BaliseTool;
 
 class GetAllModelList extends BaliseTool
 {
-
     public function __construct($xmlns = 'xmlns="http://www.cdiscount.com"')
     {
         $this->_xmlns = $xmlns;

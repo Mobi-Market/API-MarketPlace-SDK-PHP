@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -13,7 +15,8 @@ use SoapClient;
 
 class SoapClientDebug extends SoapClient
 {
-    public function __doRequest($request, $location, $action, $version, $one_way = 0) {
+    public function __doRequest($request, $location, $action, $version, $one_way = 0)
+    {
         // Add code to inspect/dissect/debug/adjust the XML given in $request here
         $doc = new DomDocument('1.0');
         $doc->preserveWhiteSpace = false;
@@ -24,6 +27,5 @@ class SoapClientDebug extends SoapClient
         // Uncomment the following line, if you actually want to do the request
         // return parent::__doRequest($request, $location, $action, $version, $one_way);
         return ""; # avoids the PHP Fatal error:  Uncaught SoapFault exception: [Client] SoapClient::__doRequest() returned non string value in .../__thisfile__.php:32
-
     }
 }

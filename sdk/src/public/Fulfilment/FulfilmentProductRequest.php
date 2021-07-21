@@ -1,9 +1,12 @@
 <?php
-/* 
+
+declare(strict_types=1);
+/*
  * Created by Cdiscount
  * Date : 26/04/2017
  * Time : 11:12
  */
+
 namespace Sdk\Fulfilment;
 
 class FulfilmentProductRequest
@@ -35,28 +38,27 @@ class FulfilmentProductRequest
     }
 
     /**
-     * @param $string string  
+     * @param $string string
      */
-    public function addBarCodeList($string)
+    public function addBarCodeList($string): void
     {
-		if($string != null && !empty($string))
-		{
-			array_push($this->_barCodeList, $string);
-		}
+        if ($string != null && !empty($string)) {
+            array_push($this->_barCodeList, $string);
+        }
     }
 
-     /**
-     * FulfillmentProductRequest constructor
-     */
-    public function __construct() 
+    /**
+    * FulfillmentProductRequest constructor
+    */
+    public function __construct()
     {
-        $this->_barCodeList = array();
+        $this->_barCodeList = [];
     }
 
     /**
      * @param $fbcReferencementFilter string
      */
-    public function setFulfilmentReferencement($fbcReferencementFilter)
+    public function setFulfilmentReferencement($fbcReferencementFilter): void
     {
         $this->_fulfilmentReferencement = $fbcReferencementFilter;
     }

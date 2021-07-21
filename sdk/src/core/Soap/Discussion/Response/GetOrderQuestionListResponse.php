@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Discussion\Response;
-
 
 use Sdk\Discussion\Message;
 use Sdk\Discussion\OrderQuestion;
@@ -39,8 +40,7 @@ class GetOrderQuestionListResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check For error message
@@ -51,7 +51,7 @@ class GetOrderQuestionListResponse extends iResponse
              */
             $this->_setGlobalInformations();
 
-            $this->_orderQuestionList = array();
+            $this->_orderQuestionList = [];
 
             $this->_generateOrderQuestionListFromXML($this->_dataResponse['s:Body']['GetOrderQuestionListResponse']['GetOrderQuestionListResult']['OrderQuestionList']);
         }
@@ -60,7 +60,7 @@ class GetOrderQuestionListResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetOrderQuestionListResponse']['GetOrderQuestionListResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -74,10 +74,9 @@ class GetOrderQuestionListResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['GetOrderQuestionListResponse']['GetOrderQuestionListResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -89,10 +88,9 @@ class GetOrderQuestionListResponse extends iResponse
     /**
      * @param $orderQuestionList
      */
-    private function _generateOrderQuestionListFromXML($orderQuestionList)
+    private function _generateOrderQuestionListFromXML($orderQuestionList): void
     {
         foreach ($orderQuestionList['OrderQuestion'] as $questionXML) {
-
             $orderQuestion = new OrderQuestion($questionXML['Id']);
 
             $orderQuestion->setCloseDate($questionXML['CloseDate']);
@@ -110,7 +108,6 @@ class GetOrderQuestionListResponse extends iResponse
 
             $manyMessage = true;
             foreach ($questionXML['Messages']['Message'] as $messageXML) {
-
                 if (!isset($messageXML['Content'])) {
                     $manyMessage = false;
                     break;
@@ -129,7 +126,6 @@ class GetOrderQuestionListResponse extends iResponse
             }
 
             if (!$manyMessage) {
-
                 $message = new Message();
                 if (isset($questionXML['Messages']['Message']['Content'])) {
                     $message->setContent($questionXML['Messages']['Message']['Content']);
@@ -147,6 +143,4 @@ class GetOrderQuestionListResponse extends iResponse
             array_push($this->_orderQuestionList, $orderQuestion);
         }
     }
-
-
 }

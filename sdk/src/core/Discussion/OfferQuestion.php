@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Discussion;
 
-
 use Sdk\Soap\Common\SoapTools;
 
 class OfferQuestion extends GenericQuestion
 {
-
     /**
      * @var string
      */
@@ -30,7 +30,7 @@ class OfferQuestion extends GenericQuestion
     /**
      * @param string $productEAN
      */
-    public function setProductEAN($productEAN)
+    public function setProductEAN($productEAN): void
     {
         if (!SoapTools::isSoapValueNull($productEAN)) {
             $this->_productEAN = $productEAN;
@@ -53,7 +53,7 @@ class OfferQuestion extends GenericQuestion
     /**
      * @param string $productSellerReference
      */
-    public function setProductSellerReference($productSellerReference)
+    public function setProductSellerReference($productSellerReference): void
     {
         if (!SoapTools::isSoapValueNull($productSellerReference)) {
             $this->_productSellerReference = $productSellerReference;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Created by CDiscount
  * Date: 01/02/2017
@@ -7,29 +9,31 @@
  */
 
 namespace Sdk\Order\Refund;
+
 use Sdk\Common\CommonResult;
+
 /**
  * Class contains the motive and amount for commercial gesture response
  * @author mohammed.sajid
  */
-class RefundInformationMessage extends CommonResult 
+class RefundInformationMessage extends CommonResult
 {
     /*
      * @var decimal
      */
     private $_amount = null;
-    
+
     /*
      * @var int
      */
     private $_motiveId = null;
-    
+
     /*
      * RefundInformationMessage constructor to initialize errorList array of the commonResult
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_errorList = array();
+        $this->_errorList = [];
     }
 
     /*
@@ -39,15 +43,15 @@ class RefundInformationMessage extends CommonResult
     {
         return $this->_amount;
     }
-    
+
     /*
      * @param $amount
      */
-    public function setAmountResult($amount)
+    public function setAmountResult($amount): void
     {
         $this->_amount = $amount;
     }
-    
+
     /*
      * @return int
      */
@@ -55,11 +59,11 @@ class RefundInformationMessage extends CommonResult
     {
         return $this->_motiveId;
     }
-    
+
     /*
      * @param $motiveId
      */
-    public function setMotiveIdResult($motiveId)
+    public function setMotiveIdResult($motiveId): void
     {
         $this->_motiveId = $motiveId;
     }

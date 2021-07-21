@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Discussion\Response;
-
 
 use Sdk\Discussion\Message;
 use Sdk\Discussion\OfferQuestion;
@@ -39,8 +40,7 @@ class GetOfferQuestionListResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check For error message
@@ -51,9 +51,9 @@ class GetOfferQuestionListResponse extends iResponse
              */
             $this->_setGlobalInformations();
 
-            $this->_offerQuestionList = array();
+            $this->_offerQuestionList = [];
 
-            if(isset($this->_dataResponse['s:Body']['GetOfferQuestionListResponse']['GetOfferQuestionListResult']['OfferQuestionList'])
+            if (isset($this->_dataResponse['s:Body']['GetOfferQuestionListResponse']['GetOfferQuestionListResult']['OfferQuestionList'])
             && isset($this->_dataResponse['s:Body']['GetOfferQuestionListResponse']['GetOfferQuestionListResult']['OfferQuestionList']['OfferQuestion'])) {
                 $this->_generateOfferQuestionListFromXML($this->_dataResponse['s:Body']['GetOfferQuestionListResponse']['GetOfferQuestionListResult']['OfferQuestionList']);
             }
@@ -63,7 +63,7 @@ class GetOfferQuestionListResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetOfferQuestionListResponse']['GetOfferQuestionListResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -77,10 +77,9 @@ class GetOfferQuestionListResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['GetOfferQuestionListResponse']['GetOfferQuestionListResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -92,10 +91,9 @@ class GetOfferQuestionListResponse extends iResponse
     /**
      * @param $offerQuestionListXML
      */
-    private function _generateOfferQuestionListFromXML($offerQuestionListXML)
+    private function _generateOfferQuestionListFromXML($offerQuestionListXML): void
     {
         foreach ($offerQuestionListXML['OfferQuestion'] as $questionXML) {
-
             $offerQuestion = new OfferQuestion($questionXML['Id']);
 
             $offerQuestion->setCloseDate($questionXML['CloseDate']);
@@ -116,7 +114,6 @@ class GetOfferQuestionListResponse extends iResponse
 
             $manyMessage = true;
             foreach ($questionXML['Messages']['Message'] as $messageXML) {
-
                 if (!isset($messageXML['Content'])) {
                     $manyMessage = false;
                     break;
@@ -135,7 +132,6 @@ class GetOfferQuestionListResponse extends iResponse
             }
 
             if (!$manyMessage) {
-
                 $message = new Message();
                 $message->setContent($questionXML['Messages']['Message']['Content']);
                 $message->setSender($questionXML['Messages']['Message']['Sender']);

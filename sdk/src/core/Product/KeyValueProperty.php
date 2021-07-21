@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Product;
 
-
 class KeyValueProperty
 {
-
     /**
      * @var string
      */
@@ -20,7 +20,7 @@ class KeyValueProperty
     /**
      * @var array|null
      */
-    private $_values = array();
+    private $_values = [];
 
     /**
      * KeyValueProperty constructor.
@@ -42,7 +42,8 @@ class KeyValueProperty
     /**
      * @param $value string
      */
-    public function addValue($value) {
+    public function addValue($value): void
+    {
         array_push($this->_values, $value);
     }
 

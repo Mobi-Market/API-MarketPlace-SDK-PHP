@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Discussion\Response;
-
 
 use Sdk\Discussion\CloseDiscussionResult;
 use Sdk\Soap\Common\iResponse;
@@ -39,8 +40,7 @@ class CloseDiscussionListResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check For error message
@@ -51,7 +51,7 @@ class CloseDiscussionListResponse extends iResponse
              */
             $this->_setGlobalInformations();
 
-            $this->_closeDiscussionResultList = array();
+            $this->_closeDiscussionResultList = [];
 
             if (isset($this->_dataResponse['s:Body']['CloseDiscussionListResponse']['CloseDiscussionListResult']['CloseDiscussionResultList']) &&
                 !SoapTools::isSoapValueNull($this->_dataResponse['s:Body']['CloseDiscussionListResponse']['CloseDiscussionListResult']['CloseDiscussionResultList'])
@@ -64,7 +64,7 @@ class CloseDiscussionListResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['CloseDiscussionListResponse']['CloseDiscussionListResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -78,10 +78,9 @@ class CloseDiscussionListResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['CloseDiscussionListResponse']['CloseDiscussionListResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -90,10 +89,9 @@ class CloseDiscussionListResponse extends iResponse
         return false;
     }
 
-    private function _generateCloseDiscussionResultList($closeDiscussionResultListXML)
+    private function _generateCloseDiscussionResultList($closeDiscussionResultListXML): void
     {
         foreach ($closeDiscussionResultListXML['CloseDiscussionResult'] as $closeDiscussionXML) {
-
             $closeDiscussionResult = new CloseDiscussionResult(intval($closeDiscussionXML['DiscussionId']));
             $closeDiscussionResult->setOperationStatus($closeDiscussionXML['OperationStatus']);
         }

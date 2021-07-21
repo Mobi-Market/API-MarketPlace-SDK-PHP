@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,7 +10,6 @@
 
 namespace Sdk\Soap\Product\Response;
 
-
 use Sdk\Product\KeyValueProperty;
 use Sdk\Product\ProductModel;
 use Sdk\Soap\Common\iResponse;
@@ -16,7 +17,6 @@ use Sdk\Soap\Common\SoapTools;
 
 class ModelListResponse extends iResponse
 {
-
     /**
      * @var array
      */
@@ -55,13 +55,13 @@ class ModelListResponse extends iResponse
         $this->_tagXML = $tagXML;
         $this->_tagResultXML = $tagResultXML;
 
-        $this->_modelList = array();
+        $this->_modelList = [];
     }
 
     /**
      *
      */
-    protected function _setGlobalInformations()
+    protected function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body'][$this->_tagXML][$this->_tagResultXML];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -73,12 +73,9 @@ class ModelListResponse extends iResponse
      */
     protected function _hasErrorMessage()
     {
-
-
         $objError = $this->_dataResponse['s:Body'][$this->_tagXML][$this->_tagResultXML]['ErrorMessage'];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             return true;
@@ -89,7 +86,7 @@ class ModelListResponse extends iResponse
     /**
      * @param $productModelXML
      */
-    protected function _addProductModel($productModelXML)
+    protected function _addProductModel($productModelXML): void
     {
         $productModel = new ProductModel(intval($productModelXML['ModelId']));
 
@@ -97,7 +94,6 @@ class ModelListResponse extends iResponse
         $productModel->setName($productModelXML['Name']);
 
         foreach ($productModelXML['Definition']['ListProperties']['a:KeyValueOfstringArrayOfstringty7Ep6D1'] as $keyValueXml) {
-
             $keyvalueObj = new KeyValueProperty($keyValueXml['a:Key']);
 
             foreach ($keyValueXml['a:Value']['a:string'] as $value) {
@@ -109,7 +105,6 @@ class ModelListResponse extends iResponse
 
         if (isset($productModelXML['Definition']['MandatoryModelProperties']) && !SoapTools::isSoapValueNull($productModelXML['Definition']['MandatoryModelProperties'])
             && isset($productModelXML['Definition']['MandatoryModelProperties']['a:string'])) {
-
             var_dump($productModelXML['Definition']['MandatoryModelProperties']);
 
             foreach ($productModelXML['Definition']['MandatoryModelProperties']['a:string'] as $mandatoryModelProperty) {

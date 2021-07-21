@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Soap\Offer\Response;
 
-
 class GetOfferListPaginatedResponse extends GetOfferListGenericResponse
 {
-
     /**
      * @var int
      */
@@ -60,7 +60,7 @@ class GetOfferListPaginatedResponse extends GetOfferListGenericResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetOfferListPaginatedResponse']['GetOfferListPaginatedResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -79,7 +79,6 @@ class GetOfferListPaginatedResponse extends GetOfferListGenericResponse
         $objError = $this->_dataResponse['s:Body']['GetOfferListPaginatedResponse']['GetOfferListPaginatedResult']['ErrorMessage'];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             return true;

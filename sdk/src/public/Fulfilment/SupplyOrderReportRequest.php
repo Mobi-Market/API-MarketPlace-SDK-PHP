@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 04/05/2017
@@ -12,7 +14,7 @@ class SupplyOrderReportRequest
      * @var string
      */
     private $_beginCreationDate = null;
-    
+
     /*
      * @var array
      */
@@ -32,7 +34,7 @@ class SupplyOrderReportRequest
      * @var int
      */
     private $_pageSize = null;
-    
+
     /*
      * @return string
      */
@@ -40,26 +42,26 @@ class SupplyOrderReportRequest
     {
         return $this->_beginCreationDate;
     }
-    
-     /*
-     * @return array
-     */
+
+    /*
+    * @return array
+    */
     public function getDepositIdList()
     {
         return $this->_depositIdList;
     }
-    
+
     /*
      * @param $depositIdList
      */
-    public function addDepositIdList($depositIdList)
+    public function addDepositIdList($depositIdList): void
     {
         array_push($this->_depositIdList, $depositIdList);
     }
 
-     /*
-     * @return string
-     */
+    /*
+    * @return string
+    */
     public function getEndCreationDate()
     {
         return $this->_endCreationDate;
@@ -72,10 +74,10 @@ class SupplyOrderReportRequest
     {
         return $this->_pageNumber;
     }
-   
-   /*
-     * @return int
-     */
+
+    /*
+      * @return int
+      */
     public function getPageSize()
     {
         return $this->_pageSize;
@@ -88,12 +90,12 @@ class SupplyOrderReportRequest
      * @param $pageNumber
      * @param $pageSize
      */
-    public function __construct($beginCreationDate, $depositIdList, $endCreationDate, $pageNumber, $pageSize) 
+    public function __construct($beginCreationDate, $depositIdList, $endCreationDate, $pageNumber, $pageSize)
     {
         $this->_beginCreationDate = $beginCreationDate;
         $this->_depositIdList = $depositIdList;
         $this->_endCreationDate = $endCreationDate;
         $this->_pageNumber = $pageNumber;
         $this->_pageSize = $pageSize;
-    } 
+    }
 }

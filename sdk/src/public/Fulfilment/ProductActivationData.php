@@ -1,9 +1,11 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 04/05/2017
  */
- 
+
 namespace Sdk\Fulfilment;
 
 class ProductActivationData
@@ -12,7 +14,7 @@ class ProductActivationData
      * @var string
      */
     private $_productEAN = null;
-    
+
     /*
      * @return string
      */
@@ -24,16 +26,16 @@ class ProductActivationData
     /*
      * @param $productEAN
      */
-    public function setProductEAN($productEAN)
+    public function setProductEAN($productEAN): void
     {
         $this->_productEAN=$productEAN;
-    }   
-    
+    }
+
     /*
      * @var string
      */
     private $_sellerProductReference = null;
-    
+
     /*
      * @return string
      */
@@ -45,16 +47,16 @@ class ProductActivationData
     /*
      * @param $sellerProductReference
      */
-    public function setSellerProductReference($sellerProductReference)
+    public function setSellerProductReference($sellerProductReference): void
     {
         $this->_sellerProductReference=$sellerProductReference;
     }
-    
+
     /*
      * @var enum
      */
     private $_action = null;
-    
+
     /*
      * @return enum
      */
@@ -66,7 +68,7 @@ class ProductActivationData
     /*
      * @param $action
      */
-    public function setAction($action)
+    public function setAction($action): void
     {
         $this->_action=$action;
     }
@@ -75,7 +77,7 @@ class ProductActivationData
      * @var int
      */
     private $_length = null;
-    
+
     public function getLength()
     {
         return $this->_length;
@@ -84,7 +86,7 @@ class ProductActivationData
     /*
      * @param $length
      */
-    public function setLength($length)
+    public function setLength($length): void
     {
         $this->_length=$length;
     }
@@ -93,10 +95,10 @@ class ProductActivationData
      * @var int
      */
     private $_width = null;
-    
-     /*
-     * @return int
-     */
+
+    /*
+    * @return int
+    */
     public function getWidth()
     {
         return $this->_width;
@@ -105,7 +107,7 @@ class ProductActivationData
     /*
      * @param $width
      */
-    public function setWidth($width)
+    public function setWidth($width): void
     {
         $this->_width=$width;
     }
@@ -114,10 +116,10 @@ class ProductActivationData
      * @var int
      */
     private $_height = null;
-    
-     /*
-     * @return int
-     */
+
+    /*
+    * @return int
+    */
     public function getHeight()
     {
         return $this->_height;
@@ -126,7 +128,7 @@ class ProductActivationData
     /*
      * @param $height
      */
-    public function setHeight($height)
+    public function setHeight($height): void
     {
         $this->_height = $height;
     }
@@ -135,10 +137,10 @@ class ProductActivationData
      * @var int
      */
     private $_weight = null;
-    
-     /*
-     * @return int
-     */
+
+    /*
+    * @return int
+    */
     public function getWeight()
     {
         return $this->_weight;
@@ -147,8 +149,8 @@ class ProductActivationData
     /*
      * @param $weight
      */
-    public function setWeight($weight)
+    public function setWeight($weight): void
     {
         $this->_weight = $weight;
-    }      
+    }
 }

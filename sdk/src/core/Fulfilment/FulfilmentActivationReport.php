@@ -1,9 +1,11 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by EQUIPE-SQLI
  * Date: 15/05/2017
  */
- 
+
 namespace Sdk\Fulfilment;
 
 class FulfilmentActivationReport
@@ -12,56 +14,56 @@ class FulfilmentActivationReport
      * @var int
      */
     private $_depositId = null;
-    
+
     /*
      * @var array
      */
-    private $_fulfilmentActivationReportDetails = array();
+    private $_fulfilmentActivationReportDetails = [];
 
     /*
      * @var int
      */
     private $_numberOfActivatedProducts = null;
 
-     /*
-     * @var int
-     */
+    /*
+    * @var int
+    */
     private $_numberOfDeactivatedProducts = null;
 
-     /*
-     * @var int
-     */
+    /*
+    * @var int
+    */
     private $_numberOfProcessedProducts = null;
 
-     /*
-     * @var int
-     */
+    /*
+    * @var int
+    */
     private $_numberOfProducts = null;
 
-     /*
-     * @var int
-     */
+    /*
+    * @var int
+    */
     private $_numberOfProductsInError = null;
 
-     /*
-     * @var int
-     */
+    /*
+    * @var int
+    */
     private $_numberOfRemainingProductsToProcess = null;
 
-      /*
+    /*
      * @var date
      */
     private $_reportDate = null;
 
 
-     /*
-     * @return array
-     */
+    /*
+    * @return array
+    */
     public function getFulfilmentActivationReportDetails()
     {
         return $this->_fulfilmentActivationReportDetails;
     }
-    
+
     /*
      * @return int
      */
@@ -69,19 +71,19 @@ class FulfilmentActivationReport
     {
         return $this->_depositId;
     }
-    
-     /*
-     * @param $depositId
-     */
-    public function setDepositId($depositId)
+
+    /*
+    * @param $depositId
+    */
+    public function setDepositId($depositId): void
     {
         $this->_depositId=$depositId;
     }
-    
+
     /*
      * @param $fulfilmentActivationReportDetails
      */
-    public function addFulfilmentActivationReportDetails($fulfilmentActivationReportDetails)
+    public function addFulfilmentActivationReportDetails($fulfilmentActivationReportDetails): void
     {
         array_push($this->_fulfilmentActivationReportDetails, $fulfilmentActivationReportDetails);
     }
@@ -93,11 +95,11 @@ class FulfilmentActivationReport
     {
         return $this->_numberOfActivatedProducts;
     }
-    
-     /*
-     * @param $numberOfActivatedProducts
-     */
-    public function setNumberOfActivatedProducts($numberOfActivatedProducts)
+
+    /*
+    * @param $numberOfActivatedProducts
+    */
+    public function setNumberOfActivatedProducts($numberOfActivatedProducts): void
     {
         $this->_numberOfActivatedProducts=$numberOfActivatedProducts;
     }
@@ -109,27 +111,27 @@ class FulfilmentActivationReport
     {
         return $this->_numberOfDeactivatedProducts;
     }
-    
-     /*
-     * @param $numberOfDeactivatedProducts
-     */
-    public function setNumberOfDeactivatedProducts($numberOfDeactivatedProducts)
+
+    /*
+    * @param $numberOfDeactivatedProducts
+    */
+    public function setNumberOfDeactivatedProducts($numberOfDeactivatedProducts): void
     {
         $this->_numberOfDeactivatedProducts=$numberOfDeactivatedProducts;
     }
 
-     /*
-     * @return int
-     */
+    /*
+    * @return int
+    */
     public function getNumberOfProcessedProducts()
     {
         return $this->_numberOfProcessedProducts;
     }
-    
-     /*
-     * @param $_numberOfProcessedProducts
-     */
-    public function setNumberOfProcessedProducts($numberOfProcessedProducts)
+
+    /*
+    * @param $_numberOfProcessedProducts
+    */
+    public function setNumberOfProcessedProducts($numberOfProcessedProducts): void
     {
         $this->_numberOfProcessedProducts=$numberOfProcessedProducts;
     }
@@ -141,11 +143,11 @@ class FulfilmentActivationReport
     {
         return $this->_numberOfProducts;
     }
-    
-     /*
-     * @param $numberOfProducts
-     */
-    public function setNumberOfProducts($numberOfProducts)
+
+    /*
+    * @param $numberOfProducts
+    */
+    public function setNumberOfProducts($numberOfProducts): void
     {
         $this->_numberOfProducts=$numberOfProducts;
     }
@@ -157,11 +159,11 @@ class FulfilmentActivationReport
     {
         return $this->_numberOfProductsInError;
     }
-    
-     /*
-     * @param $numberOfProductsInError
-     */
-    public function setNumberOfProductsInError($numberOfProductsInError)
+
+    /*
+    * @param $numberOfProductsInError
+    */
+    public function setNumberOfProductsInError($numberOfProductsInError): void
     {
         $this->_numberOfProductsInError=$numberOfProductsInError;
     }
@@ -173,27 +175,27 @@ class FulfilmentActivationReport
     {
         return $this->_numberOfRemainingProductsToProcess;
     }
-    
-     /*
-     * @param $numberOfRemainingProductsToProcess
-     */
-    public function setNumberOfRemainingProductsToProcess($numberOfRemainingProductsToProcess)
+
+    /*
+    * @param $numberOfRemainingProductsToProcess
+    */
+    public function setNumberOfRemainingProductsToProcess($numberOfRemainingProductsToProcess): void
     {
         $this->_numberOfRemainingProductsToProcess=$numberOfRemainingProductsToProcess;
     }
 
-     /*
-     * @return int
-     */
+    /*
+    * @return int
+    */
     public function getReportDate()
     {
         return $this->_reportDate;
     }
-    
-     /*
-     * @param $reportDate
-     */
-    public function setReportDate($reportDate)
+
+    /*
+    * @param $reportDate
+    */
+    public function setReportDate($reportDate): void
     {
         $this->_reportDate=$reportDate;
     }

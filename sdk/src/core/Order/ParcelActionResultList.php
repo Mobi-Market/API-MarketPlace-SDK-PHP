@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /**
  * Description of ParcelActionResultList method
  * @Mail mohammed.sajid@ext.cdiscount.com
@@ -14,15 +16,15 @@ class ParcelActionResultList
      * @var array
      */
     private $_parcelActionResultList = null;
-    
+
     /*
      * ParcelActionResultList constructor
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_parcelActionResultList = array();
+        $this->_parcelActionResultList = [];
     }
-    
+
     /*
      * return array
      */
@@ -30,11 +32,11 @@ class ParcelActionResultList
     {
         return $this->_parcelActionResultList;
     }
-    
+
     /**
      * @param $parcelActionResult
      */
-    public function addParcelActionResultToArray($parcelActionResult)
+    public function addParcelActionResultToArray($parcelActionResult): void
     {
         array_push($this->_parcelActionResultList, $parcelActionResult);
     }

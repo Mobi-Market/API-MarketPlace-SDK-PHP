@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Common;
-
 
 use Sdk\Soap\Common\SoapTools;
 
@@ -29,7 +30,7 @@ class ReportLog
     /**
      * @param string $logDate
      */
-    public function setLogDate($logDate)
+    public function setLogDate($logDate): void
     {
         if (!SoapTools::isSoapValueNull($logDate)) {
             $this->_logDate = $logDate;
@@ -52,7 +53,7 @@ class ReportLog
     /**
      * @param string $SKU
      */
-    public function setSKU($SKU)
+    public function setSKU($SKU): void
     {
         if (!SoapTools::isSoapValueNull($SKU)) {
             $this->_SKU = $SKU;
@@ -75,7 +76,7 @@ class ReportLog
     /**
      * @param boolean $validated
      */
-    public function setValidated($validated)
+    public function setValidated($validated): void
     {
         $this->_validated = $validated;
     }

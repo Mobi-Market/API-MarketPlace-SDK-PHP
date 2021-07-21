@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by El Ibaoui Otmane (SQLI)
  * Date: 5/05/2017
@@ -12,7 +14,6 @@ namespace Sdk\Fulfilment;
  */
 class ExternalOrder
 {
-
     /**
      * @var ExternalCustomer
      */
@@ -29,7 +30,7 @@ class ExternalOrder
     /**
      * @param ExternalCustomer $externalCustomer
      */
-    public function setExternalCustomer($externalCustomer)
+    public function setExternalCustomer($externalCustomer): void
     {
         $this->_externalCustomer = $externalCustomer;
     }
@@ -37,7 +38,7 @@ class ExternalOrder
     /**
      * @var array ExternalOrderLine
      */
-    private $_externalOrderLine = array();
+    private $_externalOrderLine = [];
 
     /**
      * @return array ExternalOrderLine
@@ -48,9 +49,9 @@ class ExternalOrder
     }
 
     /**
-     * @param array ExternalOrderLine 
+     * @param array ExternalOrderLine
      */
-    public function setExternalOrderLine($externalOrderLine)
+    public function setExternalOrderLine($externalOrderLine): void
     {
         array_push($this->_externalOrderLine, $externalOrderLine);
     }
@@ -58,7 +59,7 @@ class ExternalOrder
     /**
      * @function addExternalOrderLine() ExternalOrderLine
      */
-    public function addExternalOrderLine($orderLine)
+    public function addExternalOrderLine($orderLine): void
     {
         $object = new ExternalOrderLine();
         $object->setProductEan($orderLine->getProductEan());
@@ -71,7 +72,7 @@ class ExternalOrder
      * @var Int
      */
     private $_customerOrderNumber = null;
-    
+
     /*
      * @return Int
      */
@@ -79,20 +80,20 @@ class ExternalOrder
     {
         return $this->_customerOrderNumber;
     }
-    
+
     /*
      * @param $customerOrderNumber
      */
-    public function setCustomerOrderNumber($customerOrderNumber)
+    public function setCustomerOrderNumber($customerOrderNumber): void
     {
         $this->_customerOrderNumber = $customerOrderNumber;
-    }    
+    }
 
     /*
      * @var String
      */
     private $_corporation = null;
-    
+
     /*
      * @return String
      */
@@ -100,20 +101,20 @@ class ExternalOrder
     {
         return $this->_corporation;
     }
-    
+
     /*
      * @param $corporation
      */
-    public function setCorporation($corporation)
+    public function setCorporation($corporation): void
     {
         $this->_corporation = $corporation;
-    }    
+    }
 
     /*
      * @var String
      */
     private $_comments = null;
-    
+
     /*
      * @return String
      */
@@ -121,41 +122,41 @@ class ExternalOrder
     {
         return $this->_comments;
     }
-    
+
     /*
      * @param $comments
      */
-    public function setComments($comments)
+    public function setComments($comments): void
     {
         $this->_comments = $comments;
-    }    
+    }
 
     /*
-     * @var string 
+     * @var string
      */
     private $_orderDate = null;
-    
+
     /*
-     * @return string 
+     * @return string
      */
     public function getOrderDate()
     {
         return $this->_orderDate;
     }
-    
+
     /*
      * @param $orderDate
      */
-    public function setOrderDate($orderDate)
+    public function setOrderDate($orderDate): void
     {
         $this->_orderDate = $orderDate;
-    }    
+    }
 
     /*
      * @var String
      */
     private $_shippingMode = null;
-    
+
     /*
      * @return String
      */
@@ -163,20 +164,20 @@ class ExternalOrder
     {
         return $this->_shippingMode;
     }
-    
+
     /*
      * @param $shippingMode
      */
-    public function setShippingMode($shippingMode)
+    public function setShippingMode($shippingMode): void
     {
         $this->_shippingMode = $shippingMode;
-    }    
+    }
 
     /*
      * @var Long
      */
     private $_sellerId = null;
-    
+
     /*
      * @return String
      */
@@ -184,20 +185,20 @@ class ExternalOrder
     {
         return $this->_sellerId;
     }
-    
+
     /*
      * @param $sellerId
      */
-    public function setSellerId($sellerId)
+    public function setSellerId($sellerId): void
     {
         $this->_sellerId = $sellerId;
-    }    
+    }
 
     /*
      * @var String
      */
     private $_shippingCode = null;
-    
+
     /*
      * @return String
      */
@@ -205,20 +206,20 @@ class ExternalOrder
     {
         return $this->_shippingCode;
     }
-    
+
     /*
      * @param $shippingCode
      */
-    public function setShippingCode($shippingCode)
+    public function setShippingCode($shippingCode): void
     {
         $this->_shippingCode = $shippingCode;
-    }    
+    }
 
     /*
      * @var String
      */
     private $_siteConfigurationId = null;
-    
+
     /*
      * @return String
      */
@@ -226,20 +227,20 @@ class ExternalOrder
     {
         return $this->_siteConfigurationId;
     }
-    
+
     /*
      * @param $siteConfigurationId
      */
-    public function setSiteConfigurationId($siteConfigurationId)
+    public function setSiteConfigurationId($siteConfigurationId): void
     {
         $this->_siteConfigurationId = $siteConfigurationId;
-    }    
+    }
 
     /*
      * @var String
      */
     private $_sellerEmail = null;
-    
+
     /*
      * @return String
      */
@@ -247,20 +248,20 @@ class ExternalOrder
     {
         return $this->_sellerEmail;
     }
-    
+
     /*
      * @param $sellerEmail
      */
-    public function setSellerEmail($sellerEmail)
+    public function setSellerEmail($sellerEmail): void
     {
         $this->_sellerEmail = $sellerEmail;
-    }    
+    }
 
     /*
      * @var String
      */
     private $_siteId = null;
-    
+
     /*
      * @return String
      */
@@ -268,12 +269,12 @@ class ExternalOrder
     {
         return $this->_siteId;
     }
-    
+
     /*
      * @param $siteId
      */
-    public function setSiteId($siteId)
+    public function setSiteId($siteId): void
     {
         $this->_siteId = $siteId;
-    }    
+    }
 }

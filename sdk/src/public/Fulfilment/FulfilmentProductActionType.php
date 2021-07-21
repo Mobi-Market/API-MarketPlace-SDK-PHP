@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Driss Kelmous
  * Created by Driss Kelmous
@@ -10,6 +12,6 @@ namespace Sdk\Fulfilment;
 
 class FulfilmentProductActionType
 {
-    const Activation = 'Activation';
-    const Deactivation = 'Deactivation';
+    public const Activation = 'Activation';
+    public const Deactivation = 'Deactivation';
 }

@@ -1,6 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sdk\Offer;
+
 use Sdk\Soap\Common\SoapTools;
 
 /**

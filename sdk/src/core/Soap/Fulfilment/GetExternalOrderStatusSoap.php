@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -30,9 +32,9 @@ class GetExternalOrderStatusSoap extends BaliseTool
      */
     private $_customerOrderNumberTag = 'cdis2:CustomerOrderNumber';
 
-   /*
-    * Name Space
-    */
+    /*
+     * Name Space
+     */
     private $_xmlns_cdis2  ='xmlns:cdis2="http://schemas.datacontract.org/2004/07/Cdiscount.Service.Marketplace.API.External.Contract.Data.Order"';
 
     /**
@@ -51,7 +53,7 @@ class GetExternalOrderStatusSoap extends BaliseTool
      */
     public function generateOrderStatusRequestXml($request)
     {
-        $inlines = array($this->_xmlns_cdis2);
+        $inlines = [$this->_xmlns_cdis2];
 
         /*
          * Opening Tag Request
@@ -70,10 +72,9 @@ class GetExternalOrderStatusSoap extends BaliseTool
 
         //Closed tag Request
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_requestTag);
-        
-        $this->_xmlUtil->setGlobalPrefix('');
-        
-        return $xml;
 
+        $this->_xmlUtil->setGlobalPrefix('');
+
+        return $xml;
     }
 }

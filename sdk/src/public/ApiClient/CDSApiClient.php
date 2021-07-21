@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * User: CDiscount
@@ -7,6 +9,7 @@
  */
 
 namespace Sdk\ApiClient;
+
 use Sdk\Auth\Token;
 use Sdk\Discussion\DiscussionPoint;
 use Sdk\Mail\MailPoint;
@@ -24,7 +27,6 @@ use Sdk\Fulfilment\FulfilmentPoint;
  */
 class CDSApiClient
 {
-
     /**
      * @var SellerPoint
      */

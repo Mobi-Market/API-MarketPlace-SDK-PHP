@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Guillaume COCHARD.
  * Date: 08/02/2017
@@ -32,7 +34,7 @@ class ErrorMessage
     /**
      * Display the error message
      */
-    public function displayErrorMessage()
+    public function displayErrorMessage(): void
     {
         echo $this->_errorMessage . "<br/>";
     }

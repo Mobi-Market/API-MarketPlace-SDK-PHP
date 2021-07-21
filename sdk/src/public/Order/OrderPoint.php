@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -58,7 +60,7 @@ class OrderPoint extends AbstractPoint
      */
     public function getOrderList($orderFilter)
     {
-        $optionalsNamespaces = array('xmlns:cdis="http://www.cdiscount.com"', 'xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"');
+        $optionalsNamespaces = ['xmlns:cdis="http://www.cdiscount.com"', 'xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"'];
 
         $envelope = new Envelope();
 
@@ -87,7 +89,7 @@ class OrderPoint extends AbstractPoint
     /**
      * @param $request \Sdk\Order\Refund\Request
      */
-    public function CreateRefundVoucherAfterShipment($request)
+    public function CreateRefundVoucherAfterShipment($request): void
     {
         $envelope = new Envelope();
         $body = new Body();
@@ -151,7 +153,7 @@ class OrderPoint extends AbstractPoint
 
         return new ManageParcelResponse($response);
     }
-    
+
     /*
      * @param $createRefundVoucherRequest \Sdk\Order\Refund\CreateRefundVoucherRequest
      * @return $createRefundVoucherResponse
@@ -162,16 +164,16 @@ class OrderPoint extends AbstractPoint
         $envelope->addNameSpace(' xmlns:cdis="http://www.cdiscount.com"');
         $header = new HeaderMessage();
         $body = new Body();
-        
+
         $createRefundVoucher = new CreateRefundVoucherSoap();
-        
+
         $headerXML = $header->generateHeader();
         $requestXML = $createRefundVoucher->generateCreateRefundVoucherRequestRequestXml($createRefundVoucherRequest);
-        
+
         $createRefundVoucherXML = $createRefundVoucher->generateEnclosingBalise($headerXML . $requestXML);
-        
+
         $bodyXML = $body->generateXML($createRefundVoucherXML);
-        
+
         $envelopeXML = $envelope->generateXML($bodyXML);
 
         $response = $this->_sendRequest('CreateRefundVoucher', $envelopeXML);

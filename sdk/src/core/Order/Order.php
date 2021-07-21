@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Order;
-
 
 class Order
 {
@@ -49,7 +50,7 @@ class Order
     /**
      * @param \Sdk\Seller\Address $billingAddress
      */
-    public function setBillingAddress($billingAddress)
+    public function setBillingAddress($billingAddress): void
     {
         $this->_billingAddress = $billingAddress;
     }
@@ -70,7 +71,7 @@ class Order
     /**
      * @param \Sdk\Seller\Address $shippingAddress
      */
-    public function setShippingAddress($shippingAddress)
+    public function setShippingAddress($shippingAddress): void
     {
         $this->_shippingAddress = $shippingAddress;
     }
@@ -91,7 +92,7 @@ class Order
     /**
      * @param Corporation $corporation
      */
-    public function setCorporation($corporation)
+    public function setCorporation($corporation): void
     {
         $this->_corporation = $corporation;
     }
@@ -113,7 +114,7 @@ class Order
     /**
      * @param string $creationDate
      */
-    public function setCreationDate($creationDate)
+    public function setCreationDate($creationDate): void
     {
         $this->_creationDate = $creationDate;
     }
@@ -134,7 +135,7 @@ class Order
     /**
      * @param \Sdk\Customer\Customer $customer
      */
-    public function setCustomer($customer)
+    public function setCustomer($customer): void
     {
         $this->_customer = $customer;
     }
@@ -155,7 +156,7 @@ class Order
     /**
      * @param boolean $hasClaims
      */
-    public function setHasClaims($hasClaims)
+    public function setHasClaims($hasClaims): void
     {
         $this->_hasClaims = $hasClaims;
     }
@@ -176,7 +177,7 @@ class Order
     /**
      * @param float $initialTotalAmount
      */
-    public function setInitialTotalAmount($initialTotalAmount)
+    public function setInitialTotalAmount($initialTotalAmount): void
     {
         $this->_initialTotalAmount = $initialTotalAmount;
     }
@@ -197,7 +198,7 @@ class Order
     /**
      * @param float $initialTotalShippingChargesAmount
      */
-    public function setInitialTotalShippingChargesAmount($initialTotalShippingChargesAmount)
+    public function setInitialTotalShippingChargesAmount($initialTotalShippingChargesAmount): void
     {
         $this->_initialTotalShippingChargesAmount = $initialTotalShippingChargesAmount;
     }
@@ -218,7 +219,7 @@ class Order
     /**
      * @param boolean $isCLogistiqueOrder
      */
-    public function setIsCLogistiqueOrder($isCLogistiqueOrder)
+    public function setIsCLogistiqueOrder($isCLogistiqueOrder): void
     {
         $this->_isCLogistiqueOrder = $isCLogistiqueOrder;
     }
@@ -240,7 +241,7 @@ class Order
     /**
      * @param string $lastUpdatedDate
      */
-    public function setLastUpdatedDate($lastUpdatedDate)
+    public function setLastUpdatedDate($lastUpdatedDate): void
     {
         $this->_lastUpdatedDate = $lastUpdatedDate;
     }
@@ -262,7 +263,7 @@ class Order
     /**
      * @param string $modifiedDate
      */
-    public function setModifiedDate($modifiedDate)
+    public function setModifiedDate($modifiedDate): void
     {
         $this->_modifiedDate = $modifiedDate;
     }
@@ -283,7 +284,7 @@ class Order
     /**
      * @param OrderLineList $orderLineList
      */
-    public function setOrderLineList($orderLineList)
+    public function setOrderLineList($orderLineList): void
     {
         $this->_orderLineList = $orderLineList;
     }
@@ -304,7 +305,7 @@ class Order
     /**
      * @param string $shippingCode
      */
-    public function setShippingCode($shippingCode)
+    public function setShippingCode($shippingCode): void
     {
         $this->_shippingCode = $shippingCode;
     }
@@ -327,7 +328,7 @@ class Order
     /**
      * @param float $siteCommissionPromisedAmount
      */
-    public function setSiteCommissionPromisedAmount($siteCommissionPromisedAmount)
+    public function setSiteCommissionPromisedAmount($siteCommissionPromisedAmount): void
     {
         $this->_siteCommissionPromisedAmount = $siteCommissionPromisedAmount;
     }
@@ -348,7 +349,7 @@ class Order
     /**
      * @param float $siteCommissionShippedAmount
      */
-    public function setSiteCommissionShippedAmount($siteCommissionShippedAmount)
+    public function setSiteCommissionShippedAmount($siteCommissionShippedAmount): void
     {
         $this->_siteCommissionShippedAmount = $siteCommissionShippedAmount;
     }
@@ -369,7 +370,7 @@ class Order
     /**
      * @param float $siteCommissionValidatedAmount
      */
-    public function setSiteCommissionValidatedAmount($siteCommissionValidatedAmount)
+    public function setSiteCommissionValidatedAmount($siteCommissionValidatedAmount): void
     {
         $this->_siteCommissionValidatedAmount = $siteCommissionValidatedAmount;
     }
@@ -394,7 +395,7 @@ class Order
     /**
      * @param OrderStatusEnum $status
      */
-    public function setStatus($status)
+    public function setStatus($status): void
     {
         $this->_status = $status;
     }
@@ -415,7 +416,7 @@ class Order
     /**
      * @param string $orderState
      */
-    public function setOrderState($orderState)
+    public function setOrderState($orderState): void
     {
         $this->_orderState = $orderState;
     }
@@ -436,7 +437,7 @@ class Order
     /**
      * @param ValidationStatusEnum $validationStatus
      */
-    public function setValidationStatus($validationStatus)
+    public function setValidationStatus($validationStatus): void
     {
         $this->_validationStatus = $validationStatus;
     }
@@ -461,7 +462,7 @@ class Order
     /**
      * @param float $shippedTotalAmount
      */
-    public function setShippedTotalAmount($shippedTotalAmount)
+    public function setShippedTotalAmount($shippedTotalAmount): void
     {
         $this->_shippedTotalAmount = $shippedTotalAmount;
     }
@@ -482,7 +483,7 @@ class Order
     /**
      * @param float $shippedTotalShippingCharges
      */
-    public function setShippedTotalShippingCharges($shippedTotalShippingCharges)
+    public function setShippedTotalShippingCharges($shippedTotalShippingCharges): void
     {
         $this->_shippedTotalShippingCharges = $shippedTotalShippingCharges;
     }
@@ -503,7 +504,7 @@ class Order
     /**
      * @param float $validatedTotalAmount
      */
-    public function setValidatedTotalAmount($validatedTotalAmount)
+    public function setValidatedTotalAmount($validatedTotalAmount): void
     {
         $this->_validatedTotalAmount = $validatedTotalAmount;
     }
@@ -524,7 +525,7 @@ class Order
     /**
      * @param float $validatedTotalShippingCharges
      */
-    public function setValidatedTotalShippingCharges($validatedTotalShippingCharges)
+    public function setValidatedTotalShippingCharges($validatedTotalShippingCharges): void
     {
         $this->_validatedTotalShippingCharges = $validatedTotalShippingCharges;
     }
@@ -547,7 +548,7 @@ class Order
     /**
      * @param int $visaCegid
      */
-    public function setVisaCegid($visaCegid)
+    public function setVisaCegid($visaCegid): void
     {
         $this->_visaCegid = $visaCegid;
     }
@@ -570,7 +571,7 @@ class Order
     /**
      * @param boolean $archiveParcelList
      */
-    public function setArchiveParcelList($archiveParcelList)
+    public function setArchiveParcelList($archiveParcelList): void
     {
         $this->_archiveParcelList = $archiveParcelList;
     }
@@ -583,7 +584,7 @@ class Order
     /**
      * @param $parcelList
      */
-    public function setParcelList($parcelList)
+    public function setParcelList($parcelList): void
     {
         $this->_parcelList = $parcelList;
     }
@@ -614,7 +615,7 @@ class Order
     /**
      * @param $modGesLog
      */
-    public function setModGesLog($modGesLog)
+    public function setModGesLog($modGesLog): void
     {
         $this->_modGesLog = $modGesLog;
     }
@@ -635,16 +636,16 @@ class Order
     /**
      * @param string $partnerOrderRef
      */
-    public function setPartnerOrderRef($partnerOrderRef)
+    public function setPartnerOrderRef($partnerOrderRef): void
     {
         $this->_partnerOrderRef = $partnerOrderRef;
     }
-    
+
     /*
      * @var array
      */
     private $_voucherList = null;
-    
+
     /*
      * @return array
      */
@@ -652,11 +653,11 @@ class Order
     {
         return $this->_voucherList;
     }
-    
+
     /*
      * @param $voucherList \Sdk\Order\VoucherList
      */
-    public function setVoucherList($voucherList)
+    public function setVoucherList($voucherList): void
     {
         $this->_voucherList = $voucherList;
     }

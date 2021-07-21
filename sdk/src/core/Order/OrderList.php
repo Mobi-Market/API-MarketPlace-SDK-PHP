@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Order;
 
-
 class OrderList
 {
-
     /**
      * @var array Sdk\Order\Order
      */
@@ -19,13 +19,13 @@ class OrderList
 
     public function __construct()
     {
-        $this->_orderList = array();
+        $this->_orderList = [];
     }
 
     /**
      * @param $order \Sdk\Order\Order
      */
-    public function addOrder($order)
+    public function addOrder($order): void
     {
         array_push($this->_orderList, $order);
     }

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Created by CDiscount
  * Date: 31/01/2017
@@ -12,21 +14,21 @@ namespace Sdk\Order;
  * class contains the object voucher list
  * @author mohammed.sajid
  */
-class VoucherList 
+class VoucherList
 {
     /*
      * @var array
      */
     private $_voucherList = null;
-    
+
     /*
      * The voucher list constructor
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_voucherList = array();
+        $this->_voucherList = [];
     }
-    
+
     /*
      * @return array
      */
@@ -34,11 +36,11 @@ class VoucherList
     {
         return $this->_voucherList;
     }
-    
+
     /*
      * @param $voucher \Sdk\Order\Voucher
      */
-    public function addVoucherToList($voucher)
+    public function addVoucherToList($voucher): void
     {
         array_push($this->_voucherList, $voucher);
     }

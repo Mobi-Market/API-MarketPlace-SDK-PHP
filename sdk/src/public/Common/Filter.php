@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Common;
-
 
 class Filter
 {
@@ -24,7 +25,7 @@ class Filter
     /**
      * @param 'AAAA-MM-DDTHH:MM:SS' $beginCreationDate
      */
-    public function setBeginCreationDate($beginCreationDate)
+    public function setBeginCreationDate($beginCreationDate): void
     {
         $this->_beginCreationDate = $beginCreationDate;
     }
@@ -45,7 +46,7 @@ class Filter
     /**
      * @param null $beginModificationDate
      */
-    public function setBeginModificationDate($beginModificationDate)
+    public function setBeginModificationDate($beginModificationDate): void
     {
         $this->_beginModificationDate = $beginModificationDate;
     }
@@ -63,7 +64,7 @@ class Filter
     /**
      * @param null $endCreationDate
      */
-    public function setEndCreationDate($endCreationDate)
+    public function setEndCreationDate($endCreationDate): void
     {
         $this->_endCreationDate = $endCreationDate;
     }
@@ -81,7 +82,7 @@ class Filter
     /**
      * @param null $endModificationDate
      */
-    public function setEndModificationDate($endModificationDate)
+    public function setEndModificationDate($endModificationDate): void
     {
         $this->_endModificationDate = $endModificationDate;
     }

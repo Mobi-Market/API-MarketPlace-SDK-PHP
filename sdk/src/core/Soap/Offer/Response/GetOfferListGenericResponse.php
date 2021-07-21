@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Offer\Response;
-
 
 use Sdk\Delivey\DeliveryMode;
 use Sdk\Delivey\ShippingInformation;
@@ -42,18 +43,17 @@ class GetOfferListGenericResponse extends iResponse
      */
     public function __construct($response)
     {
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
-        $this->_offerList = array();
+        $this->_offerList = [];
     }
 
     /**
      * @param $offerList
      */
-    protected function _setOfferListFromXML($offerList)
+    protected function _setOfferListFromXML($offerList): void
     {
         foreach ($offerList['Offer'] as $offerXML) {
-
             $offer = new Offer();
 
             $offer->setBestShippingCharges($offerXML['BestShippingCharges']);
@@ -73,7 +73,6 @@ class GetOfferListGenericResponse extends iResponse
             $offer->setMinimumPriceForPriceAlignment($offerXML['MinimumPriceForPriceAlignment']);
 
             if (isset($offerXML['OfferBenchMark']['BestOfferPrice'])) {
-
                 $offerBenchMark = new OfferBenchMark();
                 $offerBenchMark->setBestOfferPrice(floatval($offerXML['OfferBenchMark']['BestOfferPrice']));
 
@@ -108,7 +107,6 @@ class GetOfferListGenericResponse extends iResponse
             /** ShippingInfo */
             if (isset($offerXML['ShippingInformationList']) && isset($offerXML['ShippingInformationList']['ShippingInformation'])) {
                 foreach ($offerXML['ShippingInformationList']['ShippingInformation'] as $shippingInfoXML) {
-
                     $shippingInfo = new ShippingInformation();
                     $shippingInfo->setAdditionalShippingCharges($shippingInfoXML['AdditionalShippingCharges']);
 

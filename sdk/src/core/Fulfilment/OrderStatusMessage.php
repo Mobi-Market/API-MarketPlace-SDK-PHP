@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -29,7 +31,7 @@ class OrderStatusMessage
     /**
      * @param string $status
      */
-    public function setStatus($status)
+    public function setStatus($status): void
     {
         $this->_status = $status;
     }

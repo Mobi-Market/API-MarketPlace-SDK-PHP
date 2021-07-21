@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Common;
-
 
 use Sdk\Soap\Common\SoapTools;
 
@@ -42,7 +43,7 @@ class ReportPropertyLog
     /**
      * @param string $logMessage
      */
-    public function setLogMessage($logMessage)
+    public function setLogMessage($logMessage): void
     {
         if (!SoapTools::isSoapValueNull($logMessage)) {
             $this->_logMessage = $logMessage;
@@ -65,7 +66,7 @@ class ReportPropertyLog
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         if (!SoapTools::isSoapValueNull($name)) {
             $this->_name = $name;
@@ -88,7 +89,7 @@ class ReportPropertyLog
     /**
      * @param string $propertyError
      */
-    public function setPropertyError($propertyError)
+    public function setPropertyError($propertyError): void
     {
         if (!SoapTools::isSoapValueNull($propertyError)) {
             $this->_propertyError = $propertyError;

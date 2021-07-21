@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Discussion;
 
-
 use Sdk\Soap\XmlUtils;
 
 class FilterSoap
 {
-
     protected $_BeginCreationDateTAG = 'BeginCreationDate';
     protected $_BeginModificationDateTAG = 'BeginModificationDate';
     protected $_EndCreationDateTAG = 'EndCreationDate';
@@ -51,7 +51,7 @@ class FilterSoap
      * @param string $xmlns
      * @param $tag
      */
-    public function __construct($xmlns = 'xmlns:i="http://www.w3.org/2001/XMLSchema-instance"', $tag)
+    public function __construct($xmlns, $tag)
     {
         $this->_xmlns = $xmlns;
         $this->_xmlUtil = new XmlUtils('');
@@ -63,7 +63,7 @@ class FilterSoap
      * @param $prefix
      * @param $tag
      */
-    public function specificConstructor($prefix, $tag)
+    public function specificConstructor($prefix, $tag): void
     {
         $this->_xmlUtil = new XmlUtils($prefix);
         $this->_tag = $tag;
@@ -74,7 +74,7 @@ class FilterSoap
      */
     private function _generateOpeningBalise()
     {
-        $inlines = array($this->_xmlns);
+        $inlines = [$this->_xmlns];
 
         return $this->_xmlUtil->generateOpenBaliseWithInline($this->_tag, $inlines);
     }

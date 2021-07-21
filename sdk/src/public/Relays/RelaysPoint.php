@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -16,11 +18,10 @@ use Sdk\Soap\Relays\GetParcelShopList;
 
 class RelaysPoint extends AbstractPoint
 {
-
     /**
      * Get Parcel Shop List
      */
-    public function getParcelShopList()
+    public function getParcelShopList(): void
     {
         $envelope = new Envelope();
         $body = new Body();

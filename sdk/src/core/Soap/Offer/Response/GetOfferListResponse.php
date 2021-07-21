@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Offer\Response;
-
 
 class GetOfferListResponse extends GetOfferListGenericResponse
 {
@@ -26,7 +27,7 @@ class GetOfferListResponse extends GetOfferListGenericResponse
             $this->_setGlobalInformations();
 
             /** Parse offer list */
-            if (isset($this->_dataResponse['s:Body']['GetOfferListResponse']['GetOfferListResult']['OfferList']) 
+            if (isset($this->_dataResponse['s:Body']['GetOfferListResponse']['GetOfferListResult']['OfferList'])
                 && isset($this->_dataResponse['s:Body']['GetOfferListResponse']['GetOfferListResult']['OfferList']['Offer'])) {
                 $this->_setOfferListFromXML($this->_dataResponse['s:Body']['GetOfferListResponse']['GetOfferListResult']['OfferList']);
             }
@@ -36,7 +37,7 @@ class GetOfferListResponse extends GetOfferListGenericResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetOfferListResponse']['GetOfferListResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -53,7 +54,6 @@ class GetOfferListResponse extends GetOfferListGenericResponse
         $objError = $this->_dataResponse['s:Body']['GetOfferListResponse']['GetOfferListResult']['ErrorMessage'];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             return true;

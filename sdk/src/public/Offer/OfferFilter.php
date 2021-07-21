@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Offer;
-
 
 class OfferFilter
 {
@@ -24,7 +25,7 @@ class OfferFilter
     /**
      * @param int $pageNumber
      */
-    public function setPageNumber($pageNumber)
+    public function setPageNumber($pageNumber): void
     {
         $this->_pageNumber = $pageNumber;
     }

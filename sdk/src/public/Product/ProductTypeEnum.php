@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,9 +10,8 @@
 
 namespace Sdk\Product;
 
-
 abstract class ProductTypeEnum
 {
-    const Standard = 'Standard';
-    const Variant = 'Variant';
+    public const Standard = 'Standard';
+    public const Variant = 'Variant';
 }

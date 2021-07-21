@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Seller\Response;
-
 
 use Sdk\Seller\SellerIndicator;
 use Sdk\Soap\Common\iResponse;
@@ -39,8 +40,7 @@ class GetSellerIndicatorsResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         /** Check for error message */
@@ -51,7 +51,7 @@ class GetSellerIndicatorsResponse extends iResponse
              */
             $this->_setGlobalInformations();
 
-            $this->_sellerIndicators = array();
+            $this->_sellerIndicators = [];
 
             $this->_generateSellerIndicatorsListFromXML($this->_dataResponse['s:Body']['GetSellerIndicatorsResponse']['GetSellerIndicatorsResult']['SellerIndicators']);
         }
@@ -60,7 +60,7 @@ class GetSellerIndicatorsResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetSellerIndicatorsResponse']['GetSellerIndicatorsResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -74,10 +74,9 @@ class GetSellerIndicatorsResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['GetSellerIndicatorsResponse']['GetSellerIndicatorsResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -89,11 +88,10 @@ class GetSellerIndicatorsResponse extends iResponse
     /**
      * @param $sellerIndicators
      */
-    private function _generateSellerIndicatorsListFromXML($sellerIndicators)
+    private function _generateSellerIndicatorsListFromXML($sellerIndicators): void
     {
         if (isset($sellerIndicators['SellerIndicator'])) {
             foreach ($sellerIndicators['SellerIndicator'] as $sellerIndicatorXML) {
-
                 $sellerIndicator = new SellerIndicator();
 
                 if (isset($sellerIndicatorXML['ComputationDate']) && !SoapTools::isSoapValueNull($sellerIndicatorXML['ComputationDate'])) {
@@ -117,9 +115,6 @@ class GetSellerIndicatorsResponse extends iResponse
 
                 array_push($this->_sellerIndicators, $sellerIndicator);
             }
-
         }
     }
-
-
 }

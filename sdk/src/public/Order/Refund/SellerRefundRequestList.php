@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,8 +10,6 @@
 
 namespace Sdk\Order\Refund;
 
-
 class SellerRefundRequestList
 {
-
 }

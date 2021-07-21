@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,14 +10,12 @@
 
 namespace Sdk\Soap\Offer\Response;
 
-
 use Sdk\Offer\OfferReportLog;
 use Sdk\Offer\OfferReportPropertyLog;
 use Sdk\Soap\Common\iResponse;
 
 class GetOfferPackageSubmissionResultResponse extends iResponse
 {
-
     /**
      * @var array
      */
@@ -79,11 +79,10 @@ class GetOfferPackageSubmissionResultResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
-        $this->_offerLogList = array();
+        $this->_offerLogList = [];
 
         // Check For error message
         if (!$this->_hasErrorMessage()) {
@@ -102,7 +101,7 @@ class GetOfferPackageSubmissionResultResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetOfferPackageSubmissionResultResponse']['GetOfferPackageSubmissionResultResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -118,10 +117,9 @@ class GetOfferPackageSubmissionResultResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['GetOfferPackageSubmissionResultResponse']['GetOfferPackageSubmissionResultResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -133,7 +131,7 @@ class GetOfferPackageSubmissionResultResponse extends iResponse
     /**
      * @param $offerLogXML
      */
-    private function _setImportInformationsFromXML($offerLogXML)
+    private function _setImportInformationsFromXML($offerLogXML): void
     {
         $isMul = true;
 
@@ -142,16 +140,13 @@ class GetOfferPackageSubmissionResultResponse extends iResponse
         }
 
         foreach ($offerLogXML['OfferReportLog'] as $reportXML) {
-
             if (!isset($reportXML['LogDate'])) {
                 $isMul = false;
                 break;
             }
-
         }
 
         if (!$isMul) {
-
             $offerReportLog = new OfferReportLog();
 
             /** LogDate */

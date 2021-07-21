@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,7 +10,6 @@
 
 namespace Sdk\Auth;
 
-
 /**
  * Class ApiUser
  * Define an object able to connect to the api (username/password)
@@ -16,5 +17,4 @@ namespace Sdk\Auth;
  */
 class ApiUser
 {
-
 }

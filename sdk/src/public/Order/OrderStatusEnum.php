@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,14 +10,13 @@
 
 namespace Sdk\Order;
 
-
 abstract class OrderStatusEnum
 {
-    const NonValidated = 'NonValidated';
-    const NoPaymentAttempt = 'NoPaymentAttempt';
-    const Cancelled = 'Cancelled';
-    const Validated = 'Validated';
-    const Waiting = 'Waiting';
-    const Completed = 'Completed';
-    const None = 'None';
+    public const NonValidated = 'NonValidated';
+    public const NoPaymentAttempt = 'NoPaymentAttempt';
+    public const Cancelled = 'Cancelled';
+    public const Validated = 'Validated';
+    public const Waiting = 'Waiting';
+    public const Completed = 'Completed';
+    public const None = 'None';
 }

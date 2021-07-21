@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Order\Refund;
-
 
 class SellerRefundRequest
 {
@@ -27,7 +28,7 @@ class SellerRefundRequest
     /**
      * @param string $mode
      */
-    public function setMode($mode)
+    public function setMode($mode): void
     {
         $this->_mode = $mode;
     }
@@ -48,7 +49,7 @@ class SellerRefundRequest
     /**
      * @param string $motive
      */
-    public function setMotive($motive)
+    public function setMotive($motive): void
     {
         $this->_motive = $motive;
     }
@@ -74,5 +75,4 @@ class SellerRefundRequest
     {
         $this->_refundOrderLine = $refundOrderLine;
     }
-
 }

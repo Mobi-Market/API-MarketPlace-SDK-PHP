@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Product\Response;
-
 
 use Sdk\Product\CategoryTree;
 use Sdk\Soap\Common\iResponse;
@@ -22,8 +23,7 @@ class GetAllowedCategoryTreeResponse extends GetGenericCategoryTreeResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check For error message
@@ -41,7 +41,7 @@ class GetAllowedCategoryTreeResponse extends GetGenericCategoryTreeResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetAllowedCategoryTreeResponse']['GetAllowedCategoryTreeResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -58,7 +58,6 @@ class GetAllowedCategoryTreeResponse extends GetGenericCategoryTreeResponse
         $objError = $this->_dataResponse['s:Body']['GetAllowedCategoryTreeResponse']['GetAllowedCategoryTreeResult']['ErrorMessage'];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             return true;

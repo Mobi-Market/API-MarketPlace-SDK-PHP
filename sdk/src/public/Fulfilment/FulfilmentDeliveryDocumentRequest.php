@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by Mohamed MGUILD
  * Date: 10/05/2017
@@ -7,12 +9,12 @@
 namespace Sdk\Fulfilment;
 
 class FulfilmentDeliveryDocumentRequest
-{   
+{
     /**
      * @var int
      */
     private $_depositId = null;
-    
+
     /**
      * @return int
      */
@@ -24,7 +26,7 @@ class FulfilmentDeliveryDocumentRequest
     /*
      * @param $depositId
      */
-    public function setDepositId($depositId)
+    public function setDepositId($depositId): void
     {
         $this->_depositId = $depositId;
     }
@@ -33,10 +35,8 @@ class FulfilmentDeliveryDocumentRequest
      * FulfilmentDeliveryDocumentRequest constructor
      * @param $depositId int
      */
-    public function __construct($depositId) 
+    public function __construct($depositId)
     {
         $this->_depositId = $depositId;
     }
 }
-
-

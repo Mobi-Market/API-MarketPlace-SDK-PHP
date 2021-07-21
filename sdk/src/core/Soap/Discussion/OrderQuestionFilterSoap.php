@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -23,7 +25,7 @@ class OrderQuestionFilterSoap extends FilterSoap
     /**
      * @param $child OrderQuestionFilter
      */
-    public function serializeChild($child)
+    public function serializeChild($child): void
     {
         /** Dates **/
         $beginCreationDateBalise = $this->_serializeDate($child->getBeginCreationDate(), $this->_BeginCreationDateTAG);

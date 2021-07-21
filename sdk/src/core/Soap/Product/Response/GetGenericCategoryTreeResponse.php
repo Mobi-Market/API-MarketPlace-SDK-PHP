@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Product\Response;
-
 
 use Sdk\Product\CategoryTree;
 use Sdk\Soap\Common\iResponse;
@@ -35,14 +36,13 @@ class GetGenericCategoryTreeResponse extends iResponse
     /**
      * @param $categoryTree
      */
-    protected function _addRootCategoryTree($categoryTree) {
-
+    protected function _addRootCategoryTree($categoryTree): void
+    {
         $this->_rootCategoryTree = new CategoryTree();
         $this->_rootCategoryTree->setCode($categoryTree['Code']);
         $this->_rootCategoryTree->setName($categoryTree['Name']);
 
         foreach ($categoryTree['ChildrenCategoryList']['CategoryTree'] as $childTree) {
-
             $child = $this->_setChildrenCategoryList($childTree);
             $this->_rootCategoryTree->addChild($child);
         }
@@ -69,12 +69,10 @@ class GetGenericCategoryTreeResponse extends iResponse
         }
 
         if (is_array($categoryTree['ChildrenCategoryList']) && isset($categoryTree['ChildrenCategoryList']['CategoryTree'])) {
-
             if (isset($categoryTree['ChildrenCategoryList']['CategoryTree']['AllowOfferIntegration'])) {
                 $child = $this->_setChildrenCategoryList($categoryTree['ChildrenCategoryList']['CategoryTree']);
                 $categoryTreeObj->addChild($child);
-            }
-            else {
+            } else {
                 foreach ($categoryTree['ChildrenCategoryList']['CategoryTree'] as $childTree) {
                     $child = $this->_setChildrenCategoryList($childTree);
                     $categoryTreeObj->addChild($child);

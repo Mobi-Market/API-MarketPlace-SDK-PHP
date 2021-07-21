@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,13 +10,11 @@
 
 namespace Sdk\Soap\HeaderMessage;
 
-
 use Sdk\Auth\Token;
 use Sdk\Soap\XmlUtils;
 
 class Security
 {
-
     private $_tag = 'Security';
 
     private $_domainRightsList;

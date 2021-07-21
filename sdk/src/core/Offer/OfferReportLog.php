@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Offer;
-
 
 use Sdk\Common\ReportLog;
 use Sdk\Soap\Common\SoapTools;
@@ -30,7 +31,7 @@ class OfferReportLog extends ReportLog
     /**
      * @param string $sellerProductId
      */
-    public function setSellerProductId($sellerProductId)
+    public function setSellerProductId($sellerProductId): void
     {
         if (!SoapTools::isSoapValueNull($sellerProductId)) {
             $this->_sellerProductId = $sellerProductId;
@@ -40,10 +41,10 @@ class OfferReportLog extends ReportLog
     /**
      * @param $offerReportPropertyLog \Sdk\Offer\OfferReportPropertyLog
      */
-    public function addOfferReportPropertyLog($offerReportPropertyLog)
+    public function addOfferReportPropertyLog($offerReportPropertyLog): void
     {
         if ($this->_propertyList == null) {
-            $this->_propertyList = array();
+            $this->_propertyList = [];
         }
         array_push($this->_propertyList, $offerReportPropertyLog);
     }
@@ -64,7 +65,7 @@ class OfferReportLog extends ReportLog
     /**
      * @param string $offerIntegrationStatus
      */
-    public function setOfferIntegrationStatus($offerIntegrationStatus)
+    public function setOfferIntegrationStatus($offerIntegrationStatus): void
     {
         $this->_offerIntegrationStatus = $offerIntegrationStatus;
     }
@@ -85,7 +86,7 @@ class OfferReportLog extends ReportLog
     /**
      * @param string $productEan
      */
-    public function setProductEan($productEan)
+    public function setProductEan($productEan): void
     {
         $this->_productEan = $productEan;
     }

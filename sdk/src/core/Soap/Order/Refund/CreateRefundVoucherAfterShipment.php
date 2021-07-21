@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,17 +10,14 @@
 
 namespace Sdk\Soap\Order\Refund;
 
-
 use Sdk\Soap\BaliseTool;
 
 class CreateRefundVoucherAfterShipment extends BaliseTool
 {
-
     public function __construct()
     {
         $this->_tag = 'CreateRefundVoucherAfterShipment';
 
         parent::__construct();
     }
-
 }

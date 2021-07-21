@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Mail\Response;
-
 
 use Sdk\Soap\Common\iResponse;
 
@@ -37,7 +38,7 @@ class GenerateDiscussionMailGuidResponse extends iResponse
      */
     public function __construct($response)
     {
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         /** Check For error message */
@@ -48,7 +49,7 @@ class GenerateDiscussionMailGuidResponse extends iResponse
              */
             $this->_setGlobalInformations();
 
-            $this->_discussionMailList = array();
+            $this->_discussionMailList = [];
 
             //$this->_generateDiscussionMailListFromXML($this->_dataResponse['s:Body']['GetDiscussionMailListResponse']['GetDiscussionMailListResult']['DiscussionMailList']);
         }
@@ -57,7 +58,7 @@ class GenerateDiscussionMailGuidResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GenerateDiscussionMailGuidResponse']['GenerateDiscussionMailGuidResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -71,10 +72,9 @@ class GenerateDiscussionMailGuidResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['GenerateDiscussionMailGuidResponse']['GenerateDiscussionMailGuidResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -86,7 +86,7 @@ class GenerateDiscussionMailGuidResponse extends iResponse
     /**
      * @param $discussionMailListXML
      */
-    private function _generateDiscussionMailGuidFromXML($discussionMailListXML)
+    private function _generateDiscussionMailGuidFromXML($discussionMailListXML): void
     {
         $discussionMail = new DiscussionMail(intval($discussionMailListXML['DiscussionMail']['DiscussionId']));
         if (isset($discussionMailListXML['DiscussionMail']['OperationStatus']) && !SoapTools::isSoapValueNull($discussionMailListXML['DiscussionMail']['OperationStatus'])) {

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap;
-
 
 class XmlUtils
 {
@@ -30,7 +31,7 @@ class XmlUtils
     /**
      * @param $prefix
      */
-    public function setGlobalPrefix($prefix)
+    public function setGlobalPrefix($prefix): void
     {
         $this->_globalPrefix = $prefix;
     }

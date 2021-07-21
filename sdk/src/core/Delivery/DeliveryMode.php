@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Delivey;
-
 
 class DeliveryMode
 {
@@ -27,7 +28,7 @@ class DeliveryMode
     /**
      * @param string $code
      */
-    public function setCode($code)
+    public function setCode($code): void
     {
         $this->_code = $code;
     }
@@ -48,7 +49,7 @@ class DeliveryMode
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->_name = $name;
     }

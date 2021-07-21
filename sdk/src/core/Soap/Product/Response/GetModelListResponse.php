@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,13 +10,11 @@
 
 namespace Sdk\Soap\Product\Response;
 
-
 use Sdk\Product\ProductModel;
 use Sdk\Soap\Common\iResponse;
 
 class GetModelListResponse extends ModelListResponse
 {
-
     /**
      * GetModelListResponse constructor.
      * @param $dataResponse
@@ -23,7 +23,7 @@ class GetModelListResponse extends ModelListResponse
     {
         parent::__construct('GetModelListResponse', 'GetModelListResult');
 
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($dataResponse);
 
         // Check For error message
@@ -39,6 +39,4 @@ class GetModelListResponse extends ModelListResponse
             $this->_addProductModel($modelListXML);
         }
     }
-
-
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Cdiscount.
  * Date: 01/12/2016
@@ -13,7 +15,6 @@ use Sdk\Soap\Common\SoapTools;
 
 class GetGlobalConfigurationResponse extends iResponse
 {
-
     /**
      * @var array
      */
@@ -38,10 +39,10 @@ class GetGlobalConfigurationResponse extends iResponse
      */
     public function __construct($response)
     {
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
-        $this->_carrierList = array();
+        $this->_carrierList = [];
 
         /** Check For error message */
         if (!$this->_hasErrorMessage()) {
@@ -51,7 +52,7 @@ class GetGlobalConfigurationResponse extends iResponse
              */
             $this->_setGlobalInformations();
 
-            $this->_carrierList = array();
+            $this->_carrierList = [];
 
             $this->_getCarrierListFromXML($this->_dataResponse['s:Body']['GetGlobalConfigurationResponse']['GetGlobalConfigurationResult']['CarrierList']);
         }
@@ -60,7 +61,7 @@ class GetGlobalConfigurationResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetGlobalConfigurationResponse']['GetGlobalConfigurationResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -74,10 +75,9 @@ class GetGlobalConfigurationResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['GetGlobalConfigurationResponse']['GetGlobalConfigurationResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -89,12 +89,10 @@ class GetGlobalConfigurationResponse extends iResponse
     /**
      * @param $carrierListXML
      */
-    private function _getCarrierListFromXML($carrierListXML)
+    private function _getCarrierListFromXML($carrierListXML): void
     {
         foreach ($carrierListXML['Carrier'] as $carrierXML) {
-
             if (isset($carrierXML['CarrierId']) && !SoapTools::isSoapValueNull($carrierXML['CarrierId'])) {
-
                 $carrier = new Carrier($carrierXML['CarrierId']);
                 if (isset($carrierXML['DefaultURL']) && !SoapTools::isSoapValueNull($carrierXML['DefaultURL'])) {
                     $carrier->setDefaultURL($carrierXML['DefaultURL']);

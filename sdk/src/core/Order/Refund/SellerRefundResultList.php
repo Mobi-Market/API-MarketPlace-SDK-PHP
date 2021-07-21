@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,14 +10,13 @@
 
 namespace Sdk\Order\Refund;
 
-
 class SellerRefundResultList
 {
     /*
-     *@var array 
+     *@var array
      */
-    private $_sellerRefundResultList = array();
-    
+    private $_sellerRefundResultList = [];
+
     /*
      * @return array
      */
@@ -27,7 +28,7 @@ class SellerRefundResultList
     /*
      * @param $sellerRefundResult Sdk\Order\Refund\SellerRefundResult
      */
-    public function addSellerRefundResultToList($sellerRefundResult)
+    public function addSellerRefundResultToList($sellerRefundResult): void
     {
         array_push($this->_sellerRefundResultList, $sellerRefundResult);
     }

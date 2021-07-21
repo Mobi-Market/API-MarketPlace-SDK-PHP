@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,9 @@
 
 namespace Sdk\Product;
 
-
 use Sdk\Common\ReportPropertyLog;
 use Sdk\Soap\Common\SoapTools;
 
 class ProductReportPropertyLog extends ReportPropertyLog
 {
-
-
 }

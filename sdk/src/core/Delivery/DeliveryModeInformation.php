@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Delivey;
 
-
 class DeliveryModeInformation extends DeliveryMode
 {
-
     /**
      * DeliveryModeInformation constructor.
      * @param $code

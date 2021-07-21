@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -26,7 +28,6 @@ use Sdk\Soap\HeaderMessage\HeaderMessage;
 
 class DiscussionPoint extends AbstractPoint
 {
-
     /**
      * @param $claimFilter
      * @return GetOrderClaimListResponse
@@ -34,12 +35,12 @@ class DiscussionPoint extends AbstractPoint
     public function getOrderClaimList($claimFilter)
     {
         //$optionalsNamespaces = array('xmlns:cdis="http://www.cdiscount.com"', 'xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"');
-        $optionalsNamespaces = array(
-        		'xmlns:cdis="http://www.cdiscount.com"', 
-        		'xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"',
-        		'xmlns:i="http://www.w3.org/2001/XMLSchema-instance"',
-        );
-        
+        $optionalsNamespaces = [
+                'xmlns:cdis="http://www.cdiscount.com"',
+                'xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"',
+                'xmlns:i="http://www.w3.org/2001/XMLSchema-instance"',
+        ];
+
         $getOrderClaimList = new GetOrderClaimList();
         $claimFilterSoap = new ClaimFilterSoap($optionalsNamespaces);
 

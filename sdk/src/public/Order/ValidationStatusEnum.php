@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,9 @@
 
 namespace Sdk\Order;
 
-
 abstract class ValidationStatusEnum
 {
-    const ValidatingFianet = 'ValidatingFianet';
-    const PreAccepted = 'PreAccepted';
-    const None = 'None';
+    public const ValidatingFianet = 'ValidatingFianet';
+    public const PreAccepted = 'PreAccepted';
+    public const None = 'None';
 }

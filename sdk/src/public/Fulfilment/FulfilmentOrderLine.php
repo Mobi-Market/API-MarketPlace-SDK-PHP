@@ -1,9 +1,12 @@
 <?php
-/* 
+
+declare(strict_types=1);
+/*
  * Created by Driss Kelmous
  * Date : 27/04/2017
  * Time : 15:46
  */
+
 namespace Sdk\Fulfilment;
 
 class FulfilmentOrderLine
@@ -12,7 +15,7 @@ class FulfilmentOrderLine
      * @var string
      */
     private $_orderReference = null;
-    
+
     /**
      * @return string
      */
@@ -20,12 +23,12 @@ class FulfilmentOrderLine
     {
         return $this->_orderReference;
     }
-    
+
     /**
      * @var string
      */
     private $_productEan = null;
-    
+
     /**
      * @return string
      */
@@ -42,7 +45,7 @@ class FulfilmentOrderLine
     /**
      * @var string
      */
-     public function getProductName()
+    public function getProductName()
     {
         return $this->_productName;
     }
@@ -55,7 +58,7 @@ class FulfilmentOrderLine
     /**
      * @var string
      */
-     public function getSellerProductReference()
+    public function getSellerProductReference()
     {
         return $this->_sellerProductReference;
     }
@@ -68,7 +71,7 @@ class FulfilmentOrderLine
     /**
      * @var string
      */
-     public function getOrderDate()
+    public function getOrderDate()
     {
         return $this->
         _orderDate;
@@ -82,7 +85,7 @@ class FulfilmentOrderLine
     /**
      * @var int
      */
-     public function getQuantity()
+    public function getQuantity()
     {
         return $this->_quantity;
     }
@@ -95,7 +98,7 @@ class FulfilmentOrderLine
     /**
      * @var string
      */
-     public function getLatestWarehouseDeliveryDate()
+    public function getLatestWarehouseDeliveryDate()
     {
         return $this->_latestWarehouseDeliveryDate;
     }
@@ -108,7 +111,7 @@ class FulfilmentOrderLine
     /**
      * @var string
      */
-     public function getExpectedCustomerDeliveryMin()
+    public function getExpectedCustomerDeliveryMin()
     {
         return $this->_expectedCustomerDeliveryMin;
     }
@@ -121,7 +124,7 @@ class FulfilmentOrderLine
     /**
      * @var string
      */
-     public function getExpectedCustomerDeliveryMax()
+    public function getExpectedCustomerDeliveryMax()
     {
         return $this->_expectedCustomerDeliveryMax;
     }
@@ -134,96 +137,96 @@ class FulfilmentOrderLine
     /**
      * @var string
      */
-     public function getWarehouse()
-     {
+    public function getWarehouse()
+    {
         return $this->_warehouse;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setWarehouse($warehouse)
-     {
+    /**
+    * @var string
+    */
+    public function setWarehouse($warehouse): void
+    {
         $this->_warehouse = $warehouse;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setExpectedCustomerDeliveryMin($expectedCustomerDeliveryMin)
-     {
+    /**
+    * @var string
+    */
+    public function setExpectedCustomerDeliveryMin($expectedCustomerDeliveryMin): void
+    {
         $this->_expectedCustomerDeliveryMin = $expectedCustomerDeliveryMin;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setExpectedCustomerDeliveryMax($expectedCustomerDeliveryMax)
-     {
+    /**
+    * @var string
+    */
+    public function setExpectedCustomerDeliveryMax($expectedCustomerDeliveryMax): void
+    {
         $this->_expectedCustomerDeliveryMax = $expectedCustomerDeliveryMax;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setLatestWarehouseDeliveryDate($latestWarehouseDeliveryDate)
-     {
+    /**
+    * @var string
+    */
+    public function setLatestWarehouseDeliveryDate($latestWarehouseDeliveryDate): void
+    {
         $this->_latestWarehouseDeliveryDate = $latestWarehouseDeliveryDate;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setProductName($productName)
-     {
+    /**
+    * @var string
+    */
+    public function setProductName($productName): void
+    {
         $this->_productName = $productName;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setSellerProductReference($sellerProductReference)
-     {
+    /**
+    * @var string
+    */
+    public function setSellerProductReference($sellerProductReference): void
+    {
         $this->_sellerProductReference = $sellerProductReference;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setOrderDate($orderDate)
-     {
+    /**
+    * @var string
+    */
+    public function setOrderDate($orderDate): void
+    {
         $this->_orderDate = $orderDate;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setProductEan($productEan)
-     {
+    /**
+    * @var string
+    */
+    public function setProductEan($productEan): void
+    {
         $this->_productEan = $productEan;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setOrderReference($orderReference)
-     {
+    /**
+    * @var string
+    */
+    public function setOrderReference($orderReference): void
+    {
         $this->_orderReference = $orderReference;
-     }
+    }
 
-     /**
-     * @var string
-     */
-     public function setQuantity($quantity)
-     {
+    /**
+    * @var string
+    */
+    public function setQuantity($quantity): void
+    {
         $this->_quantity = $quantity;
-     }
+    }
 
     /*
      * FulfilmentOrderLine constructor
-     * @param 
+     * @param
      */
-    public function __construct() 
+    public function __construct()
     {
-    }    
+    }
 }

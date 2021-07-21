@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\HeaderMessage;
 
-
 use Sdk\Soap\XmlUtils;
 
 class Localization
 {
-
     private $_country;
 
     private $_currency;
@@ -55,5 +55,4 @@ class Localization
 
         return $contextObj;
     }
-
 }

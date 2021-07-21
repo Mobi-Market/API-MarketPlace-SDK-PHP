@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Order;
 
-
 use Sdk\Soap\Common\SoapTools;
 
 class OrderLine
 {
-
     /**
      * OrderLine constructor.
      * @param $productId
@@ -39,7 +39,7 @@ class OrderLine
     /**
      * @param string $acceptationState
      */
-    public function setAcceptationState($acceptationState)
+    public function setAcceptationState($acceptationState): void
     {
         $this->_acceptationState = $acceptationState;
     }
@@ -60,7 +60,7 @@ class OrderLine
     /**
      * @param string $categoryCode
      */
-    public function setCategoryCode($categoryCode)
+    public function setCategoryCode($categoryCode): void
     {
         $this->_categoryCode = $categoryCode;
     }
@@ -84,7 +84,7 @@ class OrderLine
     /**
      * @param string $deliveryDateMax
      */
-    public function setDeliveryDateMax($deliveryDateMax)
+    public function setDeliveryDateMax($deliveryDateMax): void
     {
         $this->_deliveryDateMax = $deliveryDateMax;
     }
@@ -106,7 +106,7 @@ class OrderLine
     /**
      * @param string $deliveryDateMin
      */
-    public function setDeliveryDateMin($deliveryDateMin)
+    public function setDeliveryDateMin($deliveryDateMin): void
     {
         $this->_deliveryDateMin = $deliveryDateMin;
     }
@@ -129,7 +129,7 @@ class OrderLine
     /**
      * @param boolean $hasClaim
      */
-    public function setHasClaim($hasClaim)
+    public function setHasClaim($hasClaim): void
     {
         $this->_hasClaim = $hasClaim;
     }
@@ -150,7 +150,7 @@ class OrderLine
     /**
      * @param float $initialPrice
      */
-    public function setInitialPrice($initialPrice)
+    public function setInitialPrice($initialPrice): void
     {
         if (!SoapTools::isSoapValueNull($initialPrice)) {
             $this->_initialPrice = $initialPrice;
@@ -173,7 +173,7 @@ class OrderLine
     /**
      * @param boolean $isNegotiated
      */
-    public function setIsNegotiated($isNegotiated)
+    public function setIsNegotiated($isNegotiated): void
     {
         $this->_isNegotiated = $isNegotiated;
     }
@@ -194,7 +194,7 @@ class OrderLine
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->_name = $name;
     }
@@ -217,7 +217,7 @@ class OrderLine
     /**
      * @param string $productCondition
      */
-    public function setProductCondition($productCondition)
+    public function setProductCondition($productCondition): void
     {
         $this->_productCondition = $productCondition;
     }
@@ -251,7 +251,7 @@ class OrderLine
     /**
      * @param float $purchasePrice
      */
-    public function setPurchasePrice($purchasePrice)
+    public function setPurchasePrice($purchasePrice): void
     {
         $this->_purchasePrice = $purchasePrice;
     }
@@ -272,7 +272,7 @@ class OrderLine
     /**
      * @param int $quantity
      */
-    public function setQuantity($quantity)
+    public function setQuantity($quantity): void
     {
         $this->_quantity = $quantity;
     }
@@ -290,7 +290,7 @@ class OrderLine
     /**
      * @param int $rowId
      */
-    public function setRowId($rowId)
+    public function setRowId($rowId): void
     {
         $this->_rowId = $rowId;
     }
@@ -311,7 +311,7 @@ class OrderLine
     /**
      * @param string $sellerProductId
      */
-    public function setSellerProductId($sellerProductId)
+    public function setSellerProductId($sellerProductId): void
     {
         $this->_sellerProductId = $sellerProductId;
     }
@@ -333,7 +333,7 @@ class OrderLine
     /**
      * @param string $shippingDateMax
      */
-    public function setShippingDateMax($shippingDateMax)
+    public function setShippingDateMax($shippingDateMax): void
     {
         $this->_shippingDateMax = $shippingDateMax;
     }
@@ -355,7 +355,7 @@ class OrderLine
     /**
      * @param string $shippingDateMin
      */
-    public function setShippingDateMin($shippingDateMin)
+    public function setShippingDateMin($shippingDateMin): void
     {
         $this->_shippingDateMin = $shippingDateMin;
     }
@@ -378,7 +378,7 @@ class OrderLine
     /**
      * @param string $sku
      */
-    public function setSku($sku)
+    public function setSku($sku): void
     {
         $this->_sku = $sku;
     }
@@ -399,7 +399,7 @@ class OrderLine
     /**
      * @param string $skuParent
      */
-    public function setSkuParent($skuParent)
+    public function setSkuParent($skuParent): void
     {
         if (!SoapTools::isSoapValueNull($skuParent)) {
             $this->_skuParent = $skuParent;
@@ -426,7 +426,7 @@ class OrderLine
     /**
      * @param float $unitAdditionalShippingCharges
      */
-    public function setUnitAdditionalShippingCharges($unitAdditionalShippingCharges)
+    public function setUnitAdditionalShippingCharges($unitAdditionalShippingCharges): void
     {
         $this->_unitAdditionalShippingCharges = $unitAdditionalShippingCharges;
     }
@@ -447,7 +447,7 @@ class OrderLine
     /**
      * @param float $unitShippingCharges
      */
-    public function setUnitShippingCharges($unitShippingCharges)
+    public function setUnitShippingCharges($unitShippingCharges): void
     {
         $this->_unitShippingCharges = $unitShippingCharges;
     }
@@ -470,7 +470,7 @@ class OrderLine
     /**
      * @param boolean $cdav
      */
-    public function setCdav($cdav)
+    public function setCdav($cdav): void
     {
         $this->_cdav = $cdav;
     }
@@ -493,7 +493,7 @@ class OrderLine
     /**
      * @param string $productEan
      */
-    public function setProductEan($productEan)
+    public function setProductEan($productEan): void
     {
         $this->_productEan = $productEan;
     }
@@ -514,17 +514,17 @@ class OrderLine
     /**
      * @param boolean $productEanGenerated
      */
-    public function setProductEanGenerated($productEanGenerated)
+    public function setProductEanGenerated($productEanGenerated): void
     {
         $this->_productEanGenerated = $productEanGenerated;
     }
     #endregion EAN
-    
+
     /*
      * @var boolean
      */
     private $_refundShippingCharges = false;
-    
+
     /*
      * @return boolean
      */
@@ -532,11 +532,11 @@ class OrderLine
     {
         return $this->_refundShippingCharges;
     }
-    
+
     /*
      * @param $refundShippingCharge
      */
-    public function setRefundShippingCharges($refundShippingCharge)
+    public function setRefundShippingCharges($refundShippingCharge): void
     {
         $this->_refundShippingCharges = $refundShippingCharge;
     }

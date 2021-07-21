@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Product;
-
 
 class Product
 {
@@ -27,7 +28,7 @@ class Product
     /**
      * @param string $brandName
      */
-    public function setBrandName($brandName)
+    public function setBrandName($brandName): void
     {
         $this->_brandName = $brandName;
     }
@@ -48,7 +49,7 @@ class Product
     /**
      * @param string $EANList
      */
-    public function setEANList($EANList)
+    public function setEANList($EANList): void
     {
         $this->_EANList = $EANList;
     }
@@ -69,7 +70,7 @@ class Product
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->_name = $name;
     }
@@ -90,7 +91,7 @@ class Product
     /**
      * @param string $productType
      */
-    public function setProductType($productType)
+    public function setProductType($productType): void
     {
         $this->_productType = $productType;
     }
@@ -133,9 +134,8 @@ class Product
     /**
      * @param string $sellerProductId
      */
-    public function setSellerProductId($sellerProductId)
+    public function setSellerProductId($sellerProductId): void
     {
         $this->_sellerProductId = $sellerProductId;
     }
-
 }

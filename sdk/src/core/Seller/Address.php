@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Seller;
 
-
 use Sdk\Soap\Common\SoapTools;
 
 class Address
 {
-
     private $_address1 = null;
 
     /**
@@ -27,7 +27,7 @@ class Address
     /**
      * @param null $address1
      */
-    public function setAddress1($address1)
+    public function setAddress1($address1): void
     {
         if (!SoapTools::isSoapValueNull($address1)) {
             $this->_address1 = $address1;
@@ -47,7 +47,7 @@ class Address
     /**
      * @param null $address2
      */
-    public function setAddress2($address2)
+    public function setAddress2($address2): void
     {
         if (!SoapTools::isSoapValueNull($address2)) {
             $this->_address2 = $address2;
@@ -67,7 +67,7 @@ class Address
     /**
      * @param null $apartmentNumber
      */
-    public function setApartmentNumber($apartmentNumber)
+    public function setApartmentNumber($apartmentNumber): void
     {
         if (!SoapTools::isSoapValueNull($apartmentNumber)) {
             $this->_apartmentNumber = $apartmentNumber;
@@ -87,7 +87,7 @@ class Address
     /**
      * @param null $building
      */
-    public function setBuilding($building)
+    public function setBuilding($building): void
     {
         if (!SoapTools::isSoapValueNull($building)) {
             $this->_building = $building;
@@ -107,7 +107,7 @@ class Address
     /**
      * @param null $city
      */
-    public function setCity($city)
+    public function setCity($city): void
     {
         if (!SoapTools::isSoapValueNull($city)) {
             $this->_city = $city;
@@ -130,7 +130,7 @@ class Address
     /**
      * @param null $civility
      */
-    public function setCivility($civility)
+    public function setCivility($civility): void
     {
         if (!SoapTools::isSoapValueNull($civility)) {
             $this->_civility = $civility;
@@ -150,7 +150,7 @@ class Address
     /**
      * @param null $companyName
      */
-    public function setCompanyName($companyName)
+    public function setCompanyName($companyName): void
     {
         if (!SoapTools::isSoapValueNull($companyName)) {
             $this->_companyName = $companyName;
@@ -170,7 +170,7 @@ class Address
     /**
      * @param null $country
      */
-    public function setCountry($country)
+    public function setCountry($country): void
     {
         if (!SoapTools::isSoapValueNull($country)) {
             $this->_country = $country;
@@ -190,7 +190,7 @@ class Address
     /**
      * @param null $county
      */
-    public function setCounty($county)
+    public function setCounty($county): void
     {
         if (!SoapTools::isSoapValueNull($county)) {
             $this->_county = $county;
@@ -210,7 +210,7 @@ class Address
     /**
      * @param null $firstName
      */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName): void
     {
         if (!SoapTools::isSoapValueNull($firstName)) {
             $this->_firstName = $firstName;
@@ -230,7 +230,7 @@ class Address
     /**
      * @param null $instructions
      */
-    public function setInstructions($instructions)
+    public function setInstructions($instructions): void
     {
         if (!SoapTools::isSoapValueNull($instructions)) {
             $this->_instructions = $instructions;
@@ -250,7 +250,7 @@ class Address
     /**
      * @param null $lastName
      */
-    public function setLastName($lastName)
+    public function setLastName($lastName): void
     {
         if (!SoapTools::isSoapValueNull($lastName)) {
             $this->_lastName = $lastName;
@@ -270,7 +270,7 @@ class Address
     /**
      * @param null $placeName
      */
-    public function setPlaceName($placeName)
+    public function setPlaceName($placeName): void
     {
         if (!SoapTools::isSoapValueNull($placeName)) {
             $this->_placeName = $placeName;
@@ -290,7 +290,7 @@ class Address
     /**
      * @param null $relayId
      */
-    public function setRelayId($relayId)
+    public function setRelayId($relayId): void
     {
         if (!SoapTools::isSoapValueNull($relayId)) {
             $this->_relayId = $relayId;
@@ -310,7 +310,7 @@ class Address
     /**
      * @param null $street
      */
-    public function setStreet($street)
+    public function setStreet($street): void
     {
         if (!SoapTools::isSoapValueNull($street)) {
             $this->_street = $street;
@@ -330,7 +330,7 @@ class Address
     /**
      * @param null $zipCode
      */
-    public function setZipCode($zipCode)
+    public function setZipCode($zipCode): void
     {
         if (!SoapTools::isSoapValueNull($zipCode)) {
             $this->_zipCode = $zipCode;

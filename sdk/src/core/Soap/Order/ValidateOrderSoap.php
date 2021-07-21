@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Order;
 
-
 use Sdk\Soap\XmlUtils;
 
 class ValidateOrderSoap
 {
-
     private $_tag = 'ValidateOrder';
 
     /**

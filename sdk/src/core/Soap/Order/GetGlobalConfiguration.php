@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Cdiscount.
  * Date: 01/12/2016
@@ -6,7 +8,6 @@
  */
 
 namespace Sdk\Soap\Order;
-
 
 use Sdk\Soap\BaliseTool;
 

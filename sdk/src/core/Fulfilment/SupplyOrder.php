@@ -1,12 +1,15 @@
 <?php
 
-/* 
+declare(strict_types=1);
+
+/*
  * Created by Zakaria Boukhris
  * Date : 19/01/2017
  * Time : 15:46
  */
 
  namespace Sdk\Fulfilment;
+
  use Sdk\Common\CommonResult;
 
  class SupplyOrder extends CommonResult
@@ -46,7 +49,7 @@
      /*
       *@var string
       */
-     private $_orderReferenceList = array();
+     private $_orderReferenceList = [];
      /*
       *@var bool
       */
@@ -55,206 +58,206 @@
       *@var int
       */
      private $_undeliveredQuantity = null;
-     
-    /*
-    * @var int
-    */
-    private $_orderedQuantity= null;
 
-     public function __construct() 
+     /*
+     * @var int
+     */
+     private $_orderedQuantity= null;
+
+     public function __construct()
      {
-        $this->_errorList = array();
+         $this->_errorList = [];
      }
 
      /*
      * @param $_supplyOrderNumber
      */
-    public function setSupplyOrderNumber($supplyOrderNumber) 
-    {
-        $this->_numCda = $supplyOrderNumber;
-    }
+     public function setSupplyOrderNumber($supplyOrderNumber): void
+     {
+         $this->_numCda = $supplyOrderNumber;
+     }
 
-    /*
-     * @return string
+     /*
+      * @return string
+      */
+     public function getSupplyOrderNumber()
+     {
+         return $this->_numCda;
+     }
+
+     /*
+      * @param $_wareHouse
+      */
+     public function setWareHouse($wareHouse): void
+     {
+         $this->_wareHouse = $wareHouse;
+     }
+
+     /*
+      * @return string
+      */
+     public function getWareHouse()
+     {
+         return $this->_wareHouse;
+     }
+
+     /*
+      * @param $_undeliveredQuantity
+      */
+     public function setUndeliveredQuantity($undeliveredQuantity): void
+     {
+         $this->_undeliveredQuantity = $undeliveredQuantity;
+     }
+
+     /*
+      * @return string
+      */
+     public function getUndeliveredQuantity()
+     {
+         return $this->_undeliveredQuantity;
+     }
+
+     /*
+      * @param $_wareHouseReceptionMinDate
+      */
+     public function setWareHouseReceptionMinDate($wareHouseReceptionMinDate): void
+     {
+         $this->_wareHouseReceptionMinDate = $wareHouseReceptionMinDate;
+     }
+
+     /*
+      * @return string
+      */
+     public function getWareHouseReceptionMinDate()
+     {
+         return $this->_wareHouseReceptionMinDate;
+     }
+
+     /*
+      * @param $_productEAN
+      */
+     public function setProductEAN($productEAN): void
+     {
+         $this->_productEAN = $productEAN;
+     }
+
+     /*
+      * @return string
+      */
+     public function getProductEAN()
+     {
+         return $this->_productEAN;
+     }
+
+     /*
+      * @param $_sellerProductReference
+      */
+     public function setSellerProductReference($sellerProductReference): void
+     {
+         $this->_sellerProductReference = $sellerProductReference;
+     }
+
+     /*
+      * @return string
+      */
+     public function getSellerSupplyOrderNumber()
+     {
+         return $this->_sellerSupplyOrderNumber;
+     }
+
+     /*
+      * @param $sellerSupplyOrderNumber
+      */
+     public function setSellerSupplyOrderNumber($sellerSupplyOrderNumber): void
+     {
+         $this->_sellerSupplyOrderNumber = $sellerSupplyOrderNumber;
+     }
+
+     /*
+      * @return string
+      */
+     public function getSellerProductReference()
+     {
+         return $this->_sellerProductReference;
+     }
+
+     /*
+      * @param $_receivedQuantity
+      */
+     public function setReceivedQuantity($receivedQuantity): void
+     {
+         $this->_receivedQuantity = $receivedQuantity;
+     }
+
+     /*
+      * @return string
+      */
+     public function getReceivedQuantity()
+     {
+         return $this->_receivedQuantity;
+     }
+
+     /*
+      * @param $_status
+      */
+     public function setStatus($status): void
+     {
+         $this->_status = $status;
+     }
+
+     /*
+      * @return string
+      */
+     public function getStatus()
+     {
+         return $this->_status;
+     }
+
+     /*
+      * @param $_orderReference
+      */
+     public function addOrderReferenceToToArray($_orderReference): void
+     {
+         array_push($this->_orderReferenceList, $_orderReference);
+     }
+
+     /*
+      * @return string
+      */
+     public function getOrderReferenceList()
+     {
+         return $this->_orderReferenceList;
+     }
+
+     /*
+      * @param $_isFod
+      */
+     public function setIsFod($_isFod): void
+     {
+         $this->_isFod = $_isFod;
+     }
+
+     /*
+      * @return string
+      */
+     public function getIsFod()
+     {
+         return $this->_isFod;
+     }
+
+     /*
+     * return $_orderedQuantity
      */
-    public function getSupplyOrderNumber()
-    {
-        return $this->_numCda;
-    }
+     public function getOrderedQuantity()
+     {
+         return $this->_orderedQuantity;
+     }
 
-    /*
-     * @param $_wareHouse  
-     */
-    public function setWareHouse($wareHouse) 
-    {
-        $this->_wareHouse = $wareHouse;
-    }
-
-    /*
-     * @return string
-     */
-    public function getWareHouse()
-    {
-        return $this->_wareHouse;
-    }
-
-    /*
-     * @param $_undeliveredQuantity  
-     */
-    public function setUndeliveredQuantity($undeliveredQuantity) 
-    {
-        $this->_undeliveredQuantity = $undeliveredQuantity;
-    }
-
-    /*
-     * @return string
-     */
-    public function getUndeliveredQuantity()
-    {
-        return $this->_undeliveredQuantity;
-    }
-
-    /*
-     * @param $_wareHouseReceptionMinDate   
-     */
-    public function setWareHouseReceptionMinDate($wareHouseReceptionMinDate) 
-    {
-        $this->_wareHouseReceptionMinDate = $wareHouseReceptionMinDate;
-    }
-
-    /*
-     * @return string
-     */
-    public function getWareHouseReceptionMinDate()
-    {
-        return $this->_wareHouseReceptionMinDate;
-    }
-
-    /*
-     * @param $_productEAN    
-     */
-    public function setProductEAN($productEAN) 
-    {
-        $this->_productEAN = $productEAN;
-    }
-
-    /*
-     * @return string
-     */
-    public function getProductEAN()
-    {
-        return $this->_productEAN;
-    }
-
-    /*
-     * @param $_sellerProductReference     
-     */
-    public function setSellerProductReference($sellerProductReference) 
-    {
-        $this->_sellerProductReference = $sellerProductReference;
-    }
-
-    /*
-     * @return string
-     */
-    public function getSellerSupplyOrderNumber()
-    {
-        return $this->_sellerSupplyOrderNumber;
-    }
-
-    /*
-     * @param $sellerSupplyOrderNumber     
-     */
-    public function setSellerSupplyOrderNumber($sellerSupplyOrderNumber) 
-    {
-        $this->_sellerSupplyOrderNumber = $sellerSupplyOrderNumber;
-    }
-
-    /*
-     * @return string
-     */
-    public function getSellerProductReference()
-    {
-        return $this->_sellerProductReference;
-    }
-
-    /*
-     * @param $_receivedQuantity     
-     */
-    public function setReceivedQuantity($receivedQuantity) 
-    {
-        $this->_receivedQuantity = $receivedQuantity;
-    }
-
-    /*
-     * @return string
-     */
-    public function getReceivedQuantity()
-    {
-        return $this->_receivedQuantity;
-    }
-
-    /*
-     * @param $_status      
-     */
-    public function setStatus($status) 
-    {
-        $this->_status = $status;
-    }
-
-    /*
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->_status;
-    }
-
-    /*
-     * @param $_orderReference       
-     */
-    public function addOrderReferenceToToArray($_orderReference)
-    {
-        array_push($this->_orderReferenceList, $_orderReference);
-    }
-
-    /*
-     * @return string
-     */
-    public function getOrderReferenceList()
-    {
-        return $this->_orderReferenceList;
-    }
-
-    /*
-     * @param $_isFod       
-     */
-    public function setIsFod($_isFod) 
-    {
-        $this->_isFod = $_isFod;
-    }
-
-    /*
-     * @return string
-     */
-    public function getIsFod()
-    {
-        return $this->_isFod;
-    }
-
-    /*
-    * return $_orderedQuantity
-    */              
-    public function getOrderedQuantity()
-    {
-        return $this->_orderedQuantity;
-    }
-
-    /*
-     * @param $orderedQuantity
-     */
-    public function setOrderedQuantity($orderedQuantity)
-    {
-        $this->_orderedQuantity = $orderedQuantity;
-    }
- } 
+     /*
+      * @param $orderedQuantity
+      */
+     public function setOrderedQuantity($orderedQuantity): void
+     {
+         $this->_orderedQuantity = $orderedQuantity;
+     }
+ }

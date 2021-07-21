@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,14 +10,12 @@
 
 namespace Sdk\Soap\Product\Response;
 
-
 use Sdk\Product\ProductReportLog;
 use Sdk\Product\ProductReportPropertyLog;
 use Sdk\Soap\Common\iResponse;
 
 class GetProductPackageSubmissionResultResponse extends iResponse
 {
-
     /**
      * @var array
      */
@@ -79,11 +79,10 @@ class GetProductPackageSubmissionResultResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
-        $this->_productLogList = array();
+        $this->_productLogList = [];
 
         // Check For error message
         if (!$this->_hasErrorMessage()) {
@@ -95,8 +94,7 @@ class GetProductPackageSubmissionResultResponse extends iResponse
 
             if (!isset($this->_dataResponse['s:Body']['GetProductPackageSubmissionResultResponse']['GetProductPackageSubmissionResultResult']['ProductLogList']['ProductReportLog'])) {
                 $this->_setImportInformationsFromXML($this->_dataResponse['s:Body']['GetProductPackageSubmissionResultResponse']['GetProductPackageSubmissionResultResult']);
-            }
-            else {
+            } else {
                 $this->_packageImportHasErrors = true;
                 $this->_setImportErrorsFromXML($this->_dataResponse['s:Body']['GetProductPackageSubmissionResultResponse']['GetProductPackageSubmissionResultResult']['ProductLogList']);
             }
@@ -106,7 +104,7 @@ class GetProductPackageSubmissionResultResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetProductPackageSubmissionResultResponse']['GetProductPackageSubmissionResultResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -120,10 +118,9 @@ class GetProductPackageSubmissionResultResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['GetProductPackageSubmissionResultResponse']['GetProductPackageSubmissionResultResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -135,21 +132,18 @@ class GetProductPackageSubmissionResultResponse extends iResponse
     /**
      * @param $productLogXML
      */
-    private function _setImportErrorsFromXML($productLogXML)
+    private function _setImportErrorsFromXML($productLogXML): void
     {
         $isMul = true;
 
         foreach ($productLogXML['ProductReportLog'] as $reportXML) {
-
             if (!isset($reportXML['LogDate'])) {
                 $isMul = false;
                 break;
             }
-
         }
 
         if (!$isMul) {
-
             $productReportLog = new ProductReportLog();
 
             /** LogDate */
@@ -180,7 +174,7 @@ class GetProductPackageSubmissionResultResponse extends iResponse
     /**
      * @param $getProductPackageSubmissionResultResult
      */
-    private function _setImportInformationsFromXML($getProductPackageSubmissionResultResult)
+    private function _setImportInformationsFromXML($getProductPackageSubmissionResultResult): void
     {
         /** Package Id */
         $this->_packageId = $getProductPackageSubmissionResultResult['PackageId'];

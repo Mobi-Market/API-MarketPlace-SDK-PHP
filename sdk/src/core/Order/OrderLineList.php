@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,19 +10,17 @@
 
 namespace Sdk\Order;
 
-
 class OrderLineList
 {
-
     /**
      * @var array \Sdk\Order\OrderLine
      */
-    private $_orderLineList = array();
+    private $_orderLineList = [];
 
     /**
      * @param $orderLine \Sdk\Order\OrderLine
      */
-    public function addOrderLine($orderLine)
+    public function addOrderLine($orderLine): void
     {
         array_push($this->_orderLineList, $orderLine);
     }

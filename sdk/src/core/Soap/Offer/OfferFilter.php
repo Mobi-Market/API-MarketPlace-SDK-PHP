@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Offer;
 
-
 use Sdk\Soap\BaliseTool;
 
 class OfferFilter extends BaliseTool
 {
-
     private $offerFilterTAG = 'offerFilter';
 
     private $OfferPoolIdTAG = 'OfferPoolId';
@@ -50,7 +50,7 @@ class OfferFilter extends BaliseTool
     /**
      * @param $offerFilter
      */
-    public function setOfferFilter($offerFilter)
+    public function setOfferFilter($offerFilter): void
     {
         $this->_offerFilter = $offerFilter;
     }
@@ -58,7 +58,7 @@ class OfferFilter extends BaliseTool
     /**
      * @param $offerPoolId int
      */
-    public function setOfferPoolId($offerPoolId)
+    public function setOfferPoolId($offerPoolId): void
     {
         $this->_offerPoolId = $offerPoolId;
     }

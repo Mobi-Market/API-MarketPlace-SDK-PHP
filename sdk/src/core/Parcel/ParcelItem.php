@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Parcel;
 
-
 class ParcelItem
 {
-
     /**
      * @var string
      */
@@ -28,7 +28,7 @@ class ParcelItem
     /**
      * @param string $productName
      */
-    public function setProductName($productName)
+    public function setProductName($productName): void
     {
         $this->_productName = $productName;
     }
@@ -62,7 +62,7 @@ class ParcelItem
     /**
      * @param int $quantity
      */
-    public function setQuantity($quantity)
+    public function setQuantity($quantity): void
     {
         $this->_quantity = $quantity;
     }

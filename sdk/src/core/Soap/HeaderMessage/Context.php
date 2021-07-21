@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,8 +9,8 @@
  */
 
 namespace Sdk\Soap\HeaderMessage;
-use Sdk\Soap\XmlUtils;
 
+use Sdk\Soap\XmlUtils;
 
 /**
  * Class Context
@@ -17,7 +19,6 @@ use Sdk\Soap\XmlUtils;
  */
 class Context
 {
-
     private $_catalogID;
 
     private $_customerPoolID;
@@ -54,6 +55,4 @@ class Context
 
         return $contextObj;
     }
-
-
 }

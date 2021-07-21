@@ -1,10 +1,11 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Cdiscount.
  * Date: 02/12/2016
  * Time: 15:04
  */
-
 
 namespace Sdk\Soap\Relays\Response;
 
@@ -12,7 +13,6 @@ use Sdk\Soap\Common\iResponse;
 
 class GetParcelShopListResponse extends iResponse
 {
-
     /**
      * @var array
      */
@@ -37,8 +37,7 @@ class GetParcelShopListResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check For error message
@@ -49,7 +48,7 @@ class GetParcelShopListResponse extends iResponse
              */
             $this->_setGlobalInformations();
 
-            $this->_parcelShopList = array();
+            $this->_parcelShopList = [];
 
             $this->_generateParcelShopListFromXML($this->_dataResponse['s:Body']['GetParcelShopListResponse']['GetParcelShopListResult']['ParcelShopList']);
         }
@@ -58,7 +57,7 @@ class GetParcelShopListResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetParcelShopListResponse']['GetParcelShopListResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -72,10 +71,9 @@ class GetParcelShopListResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['GetParcelShopListResponse']['GetParcelShopListResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -88,11 +86,10 @@ class GetParcelShopListResponse extends iResponse
     /**
      * @param $parcelShopListXML
      */
-    private function _generateParcelShopListFromXML($parcelShopListXML)
+    private function _generateParcelShopListFromXML($parcelShopListXML): void
     {
         $manyParcels = true;
         foreach ($parcelShopListXML['ParcelShop'] as $parcelShopXML) {
-
             if (!isset($parcelShopXML['City'])) {
                 $manyParcels = false;
                 break;
@@ -111,7 +108,6 @@ class GetParcelShopListResponse extends iResponse
         }
 
         if (!$manyParcels) {
-
             $message = new Message();
             $message->setContent($questionXML['Messages']['Message']['Content']);
             $message->setSender($questionXML['Messages']['Message']['Sender']);
@@ -121,6 +117,4 @@ class GetParcelShopListResponse extends iResponse
 
         array_push($this->_offerQuestionList, $offerQuestion);
     }
-
-
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Customer;
-
 
 class Customer
 {
@@ -27,7 +28,7 @@ class Customer
     /**
      * @param string $civility
      */
-    public function setCivility($civility)
+    public function setCivility($civility): void
     {
         $this->_civility = $civility;
     }
@@ -61,7 +62,7 @@ class Customer
     /**
      * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail($email): void
     {
         $this->_email = $email;
     }
@@ -82,7 +83,7 @@ class Customer
     /**
      * @param string $encryptedEmail
      */
-    public function setEncryptedEmail($encryptedEmail)
+    public function setEncryptedEmail($encryptedEmail): void
     {
         $this->_encryptedEmail = $encryptedEmail;
     }
@@ -103,7 +104,7 @@ class Customer
     /**
      * @param string $firstName
      */
-    public function setFirstName($firstName)
+    public function setFirstName($firstName): void
     {
         $this->_firstName = $firstName;
     }
@@ -124,7 +125,7 @@ class Customer
     /**
      * @param string $lastName
      */
-    public function setLastName($lastName)
+    public function setLastName($lastName): void
     {
         $this->_lastName = $lastName;
     }
@@ -145,7 +146,7 @@ class Customer
     /**
      * @param string $mobilePhone
      */
-    public function setMobilePhone($mobilePhone)
+    public function setMobilePhone($mobilePhone): void
     {
         $this->_mobilePhone = $mobilePhone;
     }
@@ -166,7 +167,7 @@ class Customer
     /**
      * @param string $phone
      */
-    public function setPhone($phone)
+    public function setPhone($phone): void
     {
         $this->_phone = $phone;
     }
@@ -187,7 +188,7 @@ class Customer
     /**
      * @param string $shippingFirstName
      */
-    public function setShippingFirstName($shippingFirstName)
+    public function setShippingFirstName($shippingFirstName): void
     {
         $this->_shippingFirstName = $shippingFirstName;
     }
@@ -208,7 +209,7 @@ class Customer
     /**
      * @param string $shippingLastName
      */
-    public function setShippingLastName($shippingLastName)
+    public function setShippingLastName($shippingLastName): void
     {
         $this->_shippingLastName = $shippingLastName;
     }
@@ -229,7 +230,7 @@ class Customer
     /**
      * @param string $secondPhone
      */
-    public function setSecondPhone($secondPhone)
+    public function setSecondPhone($secondPhone): void
     {
         $this->_secondPhone = $secondPhone;
     }

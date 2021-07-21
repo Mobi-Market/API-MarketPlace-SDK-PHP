@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Seller;
 
-
 class SellerIndicator
 {
-
     /**
      * @var string
      */
@@ -28,7 +28,7 @@ class SellerIndicator
     /**
      * @param string $computationDate
      */
-    public function setComputationDate($computationDate)
+    public function setComputationDate($computationDate): void
     {
         $this->_computationDate = $computationDate;
     }
@@ -49,7 +49,7 @@ class SellerIndicator
     /**
      * @param string $description
      */
-    public function setDescription($description)
+    public function setDescription($description): void
     {
         $this->_description = $description;
     }
@@ -70,7 +70,7 @@ class SellerIndicator
     /**
      * @param float $threshold
      */
-    public function setThreshold($threshold)
+    public function setThreshold($threshold): void
     {
         $this->_threshold = $threshold;
     }
@@ -91,7 +91,7 @@ class SellerIndicator
     /**
      * @param string $thresholdType
      */
-    public function setThresholdType($thresholdType)
+    public function setThresholdType($thresholdType): void
     {
         $this->_thresholdType = $thresholdType;
     }
@@ -112,7 +112,7 @@ class SellerIndicator
     /**
      * @param float $valueD30
      */
-    public function setValueD30($valueD30)
+    public function setValueD30($valueD30): void
     {
         $this->_valueD30 = $valueD30;
     }
@@ -133,7 +133,7 @@ class SellerIndicator
     /**
      * @param float $valueD60
      */
-    public function setValueD60($valueD60)
+    public function setValueD60($valueD60): void
     {
         $this->_valueD60 = $valueD60;
     }

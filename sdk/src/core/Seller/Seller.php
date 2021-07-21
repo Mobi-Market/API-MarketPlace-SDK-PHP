@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Seller;
-
 
 class Seller
 {
@@ -24,7 +25,7 @@ class Seller
     /**
      * @param string $email
      */
-    public function setEmail($email)
+    public function setEmail($email): void
     {
         $this->_email = $email;
     }
@@ -45,7 +46,7 @@ class Seller
     /**
      * @param mixed $isAvailable
      */
-    public function setIsAvailable($isAvailable)
+    public function setIsAvailable($isAvailable): void
     {
         $this->_isAvailable = $isAvailable;
     }
@@ -63,7 +64,7 @@ class Seller
     /**
      * @param mixed $login
      */
-    public function setLogin($login)
+    public function setLogin($login): void
     {
         $this->_login = $login;
     }
@@ -81,7 +82,7 @@ class Seller
     /**
      * @param mixed $mobileNumber
      */
-    public function setMobileNumber($mobileNumber)
+    public function setMobileNumber($mobileNumber): void
     {
         $this->_mobileNumber = $mobileNumber;
     }
@@ -99,7 +100,7 @@ class Seller
     /**
      * @param mixed $phoneNumber
      */
-    public function setPhoneNumber($phoneNumber)
+    public function setPhoneNumber($phoneNumber): void
     {
         $this->_phoneNumber = $phoneNumber;
     }
@@ -117,7 +118,7 @@ class Seller
     /**
      * @param null $sellerAdress
      */
-    public function setSellerAddress($sellerAdress)
+    public function setSellerAddress($sellerAdress): void
     {
         $this->_sellerAddress = $sellerAdress;
     }
@@ -135,7 +136,7 @@ class Seller
     /**
      * @param null $shopName
      */
-    public function setShopName($shopName)
+    public function setShopName($shopName): void
     {
         $this->_shopName = $shopName;
     }
@@ -153,7 +154,7 @@ class Seller
     /**
      * @param null $shopUrl
      */
-    public function setShopUrl($shopUrl)
+    public function setShopUrl($shopUrl): void
     {
         $this->_shopUrl = $shopUrl;
     }
@@ -171,7 +172,7 @@ class Seller
     /**
      * @param null $siretNumber
      */
-    public function setSiretNumber($siretNumber)
+    public function setSiretNumber($siretNumber): void
     {
         $this->_siretNumber = $siretNumber;
     }
@@ -189,7 +190,7 @@ class Seller
     /**
      * @param null $state
      */
-    public function setState($state)
+    public function setState($state): void
     {
         $this->_state = $state;
     }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Order;
 
-
 use Sdk\Soap\BaliseTool;
 
 class OrderLineListSoap extends BaliseTool
 {
-
     /**
      * @var \Sdk\Order\OrderLineList
      */
@@ -36,16 +36,12 @@ class OrderLineListSoap extends BaliseTool
 
         /** @var \Sdk\Order\ValidateOrderLine $validateOrderLine */
         foreach ($this->_validateOrderLines->getOrderLines() as $validateOrderLine) {
-
             $validateOrderLineSoap = new ValidateOrderLineSoap($validateOrderLine);
             $xml .= $validateOrderLineSoap->serialize();
-
         }
 
         $xml .= $this->_generateCloseBalise();
 
         return $xml;
     }
-
-
 }

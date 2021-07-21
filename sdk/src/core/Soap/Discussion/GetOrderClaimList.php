@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Discussion;
-
 
 use Sdk\Soap\BaliseTool;
 
@@ -25,7 +26,7 @@ class GetOrderClaimList extends BaliseTool
      *
      * @param $namespace
      */
-    public function addNamespace($namespace)
+    public function addNamespace($namespace): void
     {
         $this->_xmlns .= " " . $namespace;
     }

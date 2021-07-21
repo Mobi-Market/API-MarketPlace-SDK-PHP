@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,13 +10,12 @@
 
 namespace Sdk\Order\Validate;
 
-
 class ValidateOrderLineResults
 {
     /**
      * @var array \Sdk\Order\Validate\ValidateOrderLineResult
      */
-    private $_validateOrderLineResults = array();
+    private $_validateOrderLineResults = [];
 
     /**
      * @return array
@@ -27,9 +28,8 @@ class ValidateOrderLineResults
     /**
      * @param $orderLineResult \Sdk\Order\Validate\ValidateOrderLineResult
      */
-    public function addValidateOrderLineResult($orderLineResult)
+    public function addValidateOrderLineResult($orderLineResult): void
     {
-       array_push($this->_validateOrderLineResults, $orderLineResult);
+        array_push($this->_validateOrderLineResults, $orderLineResult);
     }
-
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -20,7 +22,6 @@ use Sdk\Soap\Mail\Response\GetDiscussionMailListResponse;
 
 class MailPoint extends AbstractPoint
 {
-
     /**
      * @param $discussionIDS
      * @return GetDiscussionMailListResponse

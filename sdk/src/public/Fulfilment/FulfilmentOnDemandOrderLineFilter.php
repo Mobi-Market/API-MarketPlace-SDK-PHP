@@ -1,9 +1,12 @@
 <?php
-/* 
+
+declare(strict_types=1);
+/*
  * Created by Driss Kelmous
  * Date : 27/04/2017
  * Time : 15:46
  */
+
 namespace Sdk\Fulfilment;
 
 class FulfilmentOnDemandOrderLineFilter
@@ -12,7 +15,7 @@ class FulfilmentOnDemandOrderLineFilter
      * @var string
      */
     private $_orderReference = null;
-    
+
     /**
      * @return string
      */
@@ -24,16 +27,16 @@ class FulfilmentOnDemandOrderLineFilter
     /*
      * @param $orderReference
      */
-    public function setOrderReference($orderReference)
+    public function setOrderReference($orderReference): void
     {
         $this->_orderReference = $orderReference;
     }
-    
+
     /**
      * @var string
      */
     private $_productEan = null;
-    
+
     /**
      * @return string
      */
@@ -45,11 +48,11 @@ class FulfilmentOnDemandOrderLineFilter
     /*
      * @param $productEan
      */
-    public function setProductEan($productEan)
+    public function setProductEan($productEan): void
     {
         $this->_productEan = $productEan;
     }
-    
+
     /**
      * @var string
      */
@@ -58,7 +61,7 @@ class FulfilmentOnDemandOrderLineFilter
     /**
      * @var string
      */
-     public function getWarehouse()
+    public function getWarehouse()
     {
         return $this->_warehouse;
     }
@@ -66,7 +69,7 @@ class FulfilmentOnDemandOrderLineFilter
     /*
      * @param $warehouse
      */
-    public function setWarehouse($warehouse)
+    public function setWarehouse($warehouse): void
     {
         $this->_warehouse = $warehouse;
     }
@@ -75,7 +78,7 @@ class FulfilmentOnDemandOrderLineFilter
      * FulfilmentOnDemandOrderLineRequest constructor
      * @param $orderReference, $productEan, $warehouse
      */
-    public function __construct($orderReference,$productEan,$warehouse) 
+    public function __construct($orderReference, $productEan, $warehouse)
     {
         $this->_orderReference = $orderReference;
         $this->_productEan = $productEan;

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by ElIbaoui Otmane (SQLI)
  * Date: 05/05/2017
@@ -26,9 +28,9 @@ class OrderIntegrationRequest
     }
 
     /**
-     * @param ExternalOrder $externalOrder 
+     * @param ExternalOrder $externalOrder
      */
-    public function setExternalOrder($externalOrder)
+    public function setExternalOrder($externalOrder): void
     {
         $this->_externalOrder = $externalOrder;
     }

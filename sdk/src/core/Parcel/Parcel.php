@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Parcel;
-
 
 class Parcel
 {
@@ -27,7 +28,7 @@ class Parcel
     /**
      * @param string $customerNum
      */
-    public function setCustomerNum($customerNum)
+    public function setCustomerNum($customerNum): void
     {
         $this->_customerNum = $customerNum;
     }
@@ -48,7 +49,7 @@ class Parcel
     /**
      * @param string $externalCarrierName
      */
-    public function setExternalCarrierName($externalCarrierName)
+    public function setExternalCarrierName($externalCarrierName): void
     {
         $this->_externalCarrierName = $externalCarrierName;
     }
@@ -69,7 +70,7 @@ class Parcel
     /**
      * @param string $externalCarrierTrackingUrl
      */
-    public function setExternalCarrierTrackingUrl($externalCarrierTrackingUrl)
+    public function setExternalCarrierTrackingUrl($externalCarrierTrackingUrl): void
     {
         $this->_externalCarrierTrackingUrl = $externalCarrierTrackingUrl;
     }
@@ -90,7 +91,7 @@ class Parcel
     /**
      * @param boolean $customerReturn
      */
-    public function setCustomerReturn($customerReturn)
+    public function setCustomerReturn($customerReturn): void
     {
         $this->_customerReturn = $customerReturn;
     }
@@ -111,7 +112,7 @@ class Parcel
     /**
      * @param String $parcelStatus
      */
-    public function setParcelStatus($parcelStatus)
+    public function setParcelStatus($parcelStatus): void
     {
         $this->_parcelStatus = $parcelStatus;
     }
@@ -132,7 +133,7 @@ class Parcel
     /**
      * @param string $realCarrierCode
      */
-    public function setRealCarrierCode($realCarrierCode)
+    public function setRealCarrierCode($realCarrierCode): void
     {
         $this->_realCarrierCode = $realCarrierCode;
     }
@@ -154,12 +155,12 @@ class Parcel
     {
         $this->_parcelItemList = new ParcelItemList();
     }
-    
+
     /*
      * @var array
      */
     private $_trackingList = null;
-    
+
     /*
      * @return array of \Sdk\Parcel\Tracking
      */
@@ -167,11 +168,11 @@ class Parcel
     {
         return $this->_trackingList;
     }
-    
+
     /*
      * @var $trackingList \Sdk\Parcel\TrackingList
      */
-    public function setTrackingList($trackingList)
+    public function setTrackingList($trackingList): void
     {
         $this->_trackingList = $trackingList;
     }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Product;
-
 
 class ProductModel
 {
@@ -27,7 +28,7 @@ class ProductModel
     /**
      * @param string $categoryCode
      */
-    public function setCategoryCode($categoryCode)
+    public function setCategoryCode($categoryCode): void
     {
         $this->_categoryCode = $categoryCode;
     }
@@ -48,7 +49,7 @@ class ProductModel
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->_name = $name;
     }
@@ -69,13 +70,13 @@ class ProductModel
     /**
      * @var array
      */
-    private $_keyValueProperties = array();
+    private $_keyValueProperties = [];
 
     /**
      * @param $keyvalueObj
      *
      */
-    public function addKeyValueProperty($keyvalueObj)
+    public function addKeyValueProperty($keyvalueObj): void
     {
         array_push($this->_keyValueProperties, $keyvalueObj);
     }
@@ -87,17 +88,17 @@ class ProductModel
     {
         return $this->_keyValueProperties;
     }
-	
-	/**
+
+    /**
      * @var array
      */
-    private $_mandatoryModelProperties = array();
+    private $_mandatoryModelProperties = [];
 
     /**
      * @param $mandatoryModelProperty
      *
      */
-    public function addMandatoryModelProperty($mandatoryModelProperty)
+    public function addMandatoryModelProperty($mandatoryModelProperty): void
     {
         array_push($this->_mandatoryModelProperties, $mandatoryModelProperty);
     }
@@ -126,7 +127,7 @@ class ProductModel
     /**
      * @param string $productXmlStructure
      */
-    public function setProductXmlStructure($productXmlStructure)
+    public function setProductXmlStructure($productXmlStructure): void
     {
         $this->_productXmlStructure = $productXmlStructure;
     }

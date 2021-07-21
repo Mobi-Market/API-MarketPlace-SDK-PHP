@@ -1,10 +1,13 @@
 <?php
 
-/* 
+declare(strict_types=1);
+
+/*
  * Created by Cdiscount
  * Date : 26/04/2017
  * Time : 12:14
  */
+
 namespace Sdk\Soap\Fulfilment;
 
 use Sdk\Soap\BaliseTool;
@@ -48,7 +51,7 @@ class GetProductStockListSoap extends BaliseTool
      */
     public function generateFulfilmentProductRequestXml($request)
     {
-        $inlines = array($this->_xmlns_array, $this->_xmlns_cdis3);
+        $inlines = [$this->_xmlns_array, $this->_xmlns_cdis3];
 
         /*
          * Opening Tag fulfilmentProductRequest
@@ -61,8 +64,7 @@ class GetProductStockListSoap extends BaliseTool
         $xml .= $this->_xmlUtil->generateOpenBalise($this->_barCodeListTag);
 
         // Loop into string barCodeList
-        foreach($request->getBarCodeList() as $ean)
-        {
+        foreach ($request->getBarCodeList() as $ean) {
             //Tag string barCode
             $xml .= $this->_xmlUtil->generateBalise($this->_stringTag, $ean);
         }
@@ -72,9 +74,9 @@ class GetProductStockListSoap extends BaliseTool
 
         //Closed Tag FulfillmentProductRequest
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_fulfilmentProductRequestTag);
-        
+
         $this->_xmlUtil->setGlobalPrefix('');
-    
+
         return $xml;
     }
 }

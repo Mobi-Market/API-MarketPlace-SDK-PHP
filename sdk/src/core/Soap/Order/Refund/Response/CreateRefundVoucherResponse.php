@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Created by CDiscount
  * Date: 31/01/2017
  * Time: 15:13
  */
+
 namespace Sdk\Soap\Order\Refund\Response;
 
 use Sdk\Order\Refund\CommercialGestureList;
@@ -24,22 +27,22 @@ class CreateRefundVoucherResponse extends iResponse
      * @var array
      */
     private $_dataResponse = null;
-    
+
     /*
      * @var array
      */
     private $_commercialGestureList = null;
-    
+
     /*
      * @var string
      */
     private $_orderNumber = null;
-    
+
     /*
      * @var array
      */
     private $_sellerRefundResult = null;
-    
+
     /*
      * @return string
      */
@@ -47,7 +50,7 @@ class CreateRefundVoucherResponse extends iResponse
     {
         return $this->_orderNumber;
     }
-    
+
     /*
      * @return array
      */
@@ -55,7 +58,7 @@ class CreateRefundVoucherResponse extends iResponse
     {
         return $this->_commercialGestureList;
     }
-    
+
     /*
      * @return array
      */
@@ -63,67 +66,66 @@ class CreateRefundVoucherResponse extends iResponse
     {
         return $this->_sellerRefundResult;
     }
-    
-    public function __construct($response) 
+
+    public function __construct($response)
     {
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
-        $this->_errorList = array();
-        
+        $this->_errorList = [];
+
         // Check For error message
-        if ($this->isOperationSuccess($this->_dataResponse['s:Body']['CreateRefundVoucherResponse']['CreateRefundVoucherResult']))
-        {
-            $this->_setGlobalInformations();      
+        if ($this->isOperationSuccess($this->_dataResponse['s:Body']['CreateRefundVoucherResponse']['CreateRefundVoucherResult'])) {
+            $this->_setGlobalInformations();
             $this->_commercialGestureList = new CommercialGestureList();
             $this->_sellerRefundResult = new SellerRefundResultList();
             $this->_orderNumber = $this->_dataResponse['s:Body']['CreateRefundVoucherResponse']['CreateRefundVoucherResult']['OrderNumber'];
-            
+
             $createRefundVoucherResult = $this->_dataResponse['s:Body']['CreateRefundVoucherResponse']['CreateRefundVoucherResult'];
-            
+
             $this->generateCommercialGestureList($createRefundVoucherResult);
             $this->generateSellerRefundList($createRefundVoucherResult);
         }
     }
-    
+
     /**
      * Check if the response has an error message
      * @return bool
      */
     protected function isOperationSuccess($headerResult)
-    {        
+    {
         $objError = iResponse::isOperationSuccess($headerResult);
         $objErrorCogesture = $headerResult['CommercialGestureList'];
         $objErrorSellerRefund = $headerResult['SellerRefundList'];
-                
+
         if (isset($objError)) {
             $this->_operationSuccess = $objError;
         }
-        
-        if(isset($objError) && $objError == false &&  ((isset($objErrorCogesture) && is_array($objErrorCogesture) && count($objErrorCogesture) > 0 ) 
-                || (isset($objErrorSellerRefund) && is_array($objErrorSellerRefund) && count($objErrorSellerRefund) > 0))){
+
+        if (isset($objError) && $objError == false &&  ((isset($objErrorCogesture) && is_array($objErrorCogesture) && count($objErrorCogesture) > 0)
+                || (isset($objErrorSellerRefund) && is_array($objErrorSellerRefund) && count($objErrorSellerRefund) > 0))) {
             return true;
         }
-        
+
         return $objError;
     }
-    
-     /**
-     * Set the token ID and the seller login from the response
-     */
-    private function _setGlobalInformations()
+
+    /**
+    * Set the token ID and the seller login from the response
+    */
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['CreateRefundVoucherResponse']['CreateRefundVoucherResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
         $this->_sellerLogin = $objInfoResult['SellerLogin'];
     }
-    
+
     /*
-     * @param $createRefundVoucherResult 
+     * @param $createRefundVoucherResult
      * Fill the array _commercialGestureList from commercial gesture list response xml
      */
-    private function generateCommercialGestureList($createRefundVoucherResult)
+    private function generateCommercialGestureList($createRefundVoucherResult): void
     {
-        
+
         /*
          * \Sdk\Order\Refund\CommercialGestureList
          */
@@ -147,23 +149,22 @@ class CreateRefundVoucherResponse extends iResponse
             if (isset($refundInformationMessageXML['MotiveId']) && !SoapTools::isSoapValueNull($refundInformationMessageXML['MotiveId'])) {
                 $refundInformationMessage->setMotiveIdResult($refundInformationMessageXML['MotiveId']);
             }
-            
+
             $this->_commercialGestureList->addRefundInformationMessageToList($refundInformationMessage);
         }
     }
-    
+
     /*
      * @param $createRefundVoucherResult
      * Fill the _sellerRefundResult from seller refund list response xml
      */
-    private function generateSellerRefundList($createRefundVoucherResult)
+    private function generateSellerRefundList($createRefundVoucherResult): void
     {
-        
+
         /*
          * \Sdk\Order\Refund\SellerRefundResultList
          */
         foreach ($createRefundVoucherResult['SellerRefundList'] as $sellerRefundResultXML) {
-            
             $sellerRefundResult = new SellerRefundResult();
             //error message
             if (isset($sellerRefundResultXML['ErrorMessage']['_']) && strlen($sellerRefundResultXML['ErrorMessage']['_']) > 0 && !SoapTools::isSoapValueNull($sellerRefundResultXML['ErrorMessage'])) {
@@ -191,7 +192,7 @@ class CreateRefundVoucherResponse extends iResponse
             if (isset($sellerRefundResultXML['Value']) && !SoapTools::isSoapValueNull($sellerRefundResultXML['Value'])) {
                 $sellerRefundResult->setValueResult($sellerRefundResultXML['Value']);
             }
-            
+
             $this->_sellerRefundResult->addSellerRefundResultToList($sellerRefundResult);
         }
     }

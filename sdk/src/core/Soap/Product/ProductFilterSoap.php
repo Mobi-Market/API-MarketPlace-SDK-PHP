@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Product;
-
 
 use Sdk\Soap\BaliseTool;
 
@@ -38,7 +39,7 @@ class ProductFilterSoap extends BaliseTool
      */
     public function serialize()
     {
-        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->_tag, array($this->_xmlns));
+        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->_tag, [$this->_xmlns]);
 
         /**
          * Category Code

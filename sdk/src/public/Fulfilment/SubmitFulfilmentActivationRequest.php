@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 04/05/2017
@@ -12,7 +14,7 @@ class SubmitFulfilmentActivationRequest
      * @var array
      */
     private $_productActivationList = null;
-    
+
     /*
      * @return array
      */
@@ -20,20 +22,20 @@ class SubmitFulfilmentActivationRequest
     {
         return $this->_productActivationList;
     }
-    
+
     /*
      * @param productActivation
      */
-    public function addProductActivationData($productActivation)
+    public function addProductActivationData($productActivation): void
     {
         array_push($this->_productActivationList, $productActivation);
     }
-    
+
     /*
      * SubmitFulfilmentActivationRequest constructor
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_productActivationList = array();
+        $this->_productActivationList = [];
     }
 }

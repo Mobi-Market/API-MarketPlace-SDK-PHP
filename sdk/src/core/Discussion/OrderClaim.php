@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Discussion;
-
 
 use Sdk\Soap\Common\SoapTools;
 
@@ -29,7 +30,7 @@ class OrderClaim extends GenericQuestion
     /**
      * @param string $orderNumber
      */
-    public function setOrderNumber($orderNumber)
+    public function setOrderNumber($orderNumber): void
     {
         if (!SoapTools::isSoapValueNull($orderNumber)) {
             $this->_orderNumber = $orderNumber;
@@ -52,7 +53,7 @@ class OrderClaim extends GenericQuestion
     /**
      * @param string $claimType
      */
-    public function setClaimType($claimType)
+    public function setClaimType($claimType): void
     {
         if (!SoapTools::isSoapValueNull($claimType)) {
             $this->_claimType = $claimType;
@@ -75,7 +76,7 @@ class OrderClaim extends GenericQuestion
     /**
      * @param string $discussionType
      */
-    public function setDiscussionType($discussionType)
+    public function setDiscussionType($discussionType): void
     {
         if (!SoapTools::isSoapValueNull($discussionType)) {
             $this->_discussionType = $discussionType;

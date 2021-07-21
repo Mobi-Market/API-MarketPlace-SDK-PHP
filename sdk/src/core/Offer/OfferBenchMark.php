@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Offer;
-
 
 class OfferBenchMark
 {
@@ -27,7 +28,7 @@ class OfferBenchMark
     /**
      * @param float $bestOfferPrice
      */
-    public function setBestOfferPrice($bestOfferPrice)
+    public function setBestOfferPrice($bestOfferPrice): void
     {
         $this->_bestOfferPrice = $bestOfferPrice;
     }
@@ -48,7 +49,7 @@ class OfferBenchMark
     /**
      * @param string $productCondition
      */
-    public function setProductCondition($productCondition)
+    public function setProductCondition($productCondition): void
     {
         $this->_productCondition = $productCondition;
     }
@@ -69,7 +70,7 @@ class OfferBenchMark
     /**
      * @param string $productState
      */
-    public function setProductState($productState)
+    public function setProductState($productState): void
     {
         $this->_productState = $productState;
     }
@@ -90,9 +91,8 @@ class OfferBenchMark
     /**
      * @param float $shippingCharges
      */
-    public function setShippingCharges($shippingCharges)
+    public function setShippingCharges($shippingCharges): void
     {
         $this->_shippingCharges = $shippingCharges;
     }
-
 }

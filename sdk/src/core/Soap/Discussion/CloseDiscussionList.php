@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Discussion;
 
-
 use Sdk\Soap\BaliseTool;
 
 class CloseDiscussionList extends BaliseTool
 {
-
     private $_closeDiscussionRequestTAG = 'closeDiscussionRequest';
 
     private $_DiscussionIdTAG = 'arr:long';
@@ -35,7 +35,7 @@ class CloseDiscussionList extends BaliseTool
      */
     public function generateCloseDiscussionRequestXML($discussionIds)
     {
-        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->_closeDiscussionRequestTAG, array('xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"'));
+        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->_closeDiscussionRequestTAG, ['xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"']);
 
         foreach ($discussionIds as $discussionId) {
             $xml .= $this->_xmlUtil->generateBalise($this->_DiscussionIdTAG, $discussionId);

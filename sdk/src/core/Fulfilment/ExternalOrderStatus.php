@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -13,7 +15,7 @@ namespace Sdk\Fulfilment;
  */
 class ExternalOrderStatus
 {
-    const Ok = 'Ok';
-    const Pending = 'Pending';
-    const KO = 'KO';
-}    
+    public const Ok = 'Ok';
+    public const Pending = 'Pending';
+    public const KO = 'KO';
+}

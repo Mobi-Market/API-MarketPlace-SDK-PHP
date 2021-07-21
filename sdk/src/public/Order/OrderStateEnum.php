@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,24 +10,23 @@
 
 namespace Sdk\Order;
 
-
 abstract class OrderStateEnum
 {
-    const CancelledByCustomer = 'CancelledByCustomer';
-    const WaitingForSellerAcceptation = 'WaitingForSellerAcceptation';
-    const AcceptedBySeller = 'AcceptedBySeller';
-    const PaymentInProgress = 'PaymentInProgress';
-    const WaitingForShipmentAcceptation = 'WaitingForShipmentAcceptation';
-    const Shipped = 'Shipped';
-    const RefusedBySeller = 'RefusedBySeller';
-    const AutomaticCancellation = 'AutomaticCancellation';
-    const PaymentRefused = 'PaymentRefused';
-    const ShipmentRefusedBySeller = 'ShipmentRefusedBySeller';
-    const None = 'None';
-    const ValidatedFianet = 'ValidatedFianet';
-    const RefusedNoShipment = 'RefusedNoShipment';
-    const AvailableOnStore = 'AvailableOnStore';
-    const NonPickedUpByCustomer = 'NonPickedUpByCustomer';
-    const PickedUp = 'PickedUp';
-    const ShippedBySeller = 'ShippedBySeller';
+    public const CancelledByCustomer = 'CancelledByCustomer';
+    public const WaitingForSellerAcceptation = 'WaitingForSellerAcceptation';
+    public const AcceptedBySeller = 'AcceptedBySeller';
+    public const PaymentInProgress = 'PaymentInProgress';
+    public const WaitingForShipmentAcceptation = 'WaitingForShipmentAcceptation';
+    public const Shipped = 'Shipped';
+    public const RefusedBySeller = 'RefusedBySeller';
+    public const AutomaticCancellation = 'AutomaticCancellation';
+    public const PaymentRefused = 'PaymentRefused';
+    public const ShipmentRefusedBySeller = 'ShipmentRefusedBySeller';
+    public const None = 'None';
+    public const ValidatedFianet = 'ValidatedFianet';
+    public const RefusedNoShipment = 'RefusedNoShipment';
+    public const AvailableOnStore = 'AvailableOnStore';
+    public const NonPickedUpByCustomer = 'NonPickedUpByCustomer';
+    public const PickedUp = 'PickedUp';
+    public const ShippedBySeller = 'ShippedBySeller';
 }

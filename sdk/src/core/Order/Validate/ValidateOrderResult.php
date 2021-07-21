@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -12,13 +14,12 @@ use Sdk\Order\Order;
 
 class ValidateOrderResult extends Order
 {
-
     private $_validated = false;
 
     /**
      * @param $validated
      */
-    public function setValidated($validated)
+    public function setValidated($validated): void
     {
         $this->_validated = $validated;
     }
@@ -47,10 +48,8 @@ class ValidateOrderResult extends Order
     /**
      * @param ValidateOrderLineResults $validateOrderLineResults
      */
-    public function setValidateOrderLineResults($validateOrderLineResults)
+    public function setValidateOrderLineResults($validateOrderLineResults): void
     {
         $this->_validateOrderLineResults = $validateOrderLineResults;
     }
-
-
 }

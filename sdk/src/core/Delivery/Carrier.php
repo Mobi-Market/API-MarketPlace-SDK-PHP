@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by guillaume.cochard.
  * Mail: guillaume.cochard@ext.cdiscount.com
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Delivey;
-
 
 class Carrier
 {
@@ -40,7 +41,7 @@ class Carrier
     /**
      * @param string $defaultURL
      */
-    public function setDefaultURL($defaultURL)
+    public function setDefaultURL($defaultURL): void
     {
         $this->_defaultURL = $defaultURL;
     }
@@ -61,7 +62,7 @@ class Carrier
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->_name = $name;
     }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Delivey;
-
 
 use Sdk\Soap\Common\SoapTools;
 
@@ -29,7 +30,7 @@ class ShippingInformation
     /**
      * @param string $additionalShippingCharges
      */
-    public function setAdditionalShippingCharges($additionalShippingCharges)
+    public function setAdditionalShippingCharges($additionalShippingCharges): void
     {
         if (!SoapTools::isSoapValueNull($additionalShippingCharges)) {
             $this->_additionalShippingCharges = $additionalShippingCharges;
@@ -52,7 +53,7 @@ class ShippingInformation
     /**
      * @param int $maxLeadTime
      */
-    public function setMaxLeadTime($maxLeadTime)
+    public function setMaxLeadTime($maxLeadTime): void
     {
         if (!SoapTools::isSoapValueNull($maxLeadTime)) {
             $this->_maxLeadTime = $maxLeadTime;
@@ -75,7 +76,7 @@ class ShippingInformation
     /**
      * @param int $minLeadTime
      */
-    public function setMinLeadTime($minLeadTime)
+    public function setMinLeadTime($minLeadTime): void
     {
         if (!SoapTools::isSoapValueNull($minLeadTime)) {
             $this->_minLeadTime = $minLeadTime;
@@ -98,7 +99,7 @@ class ShippingInformation
     /**
      * @param float $shippingCharges
      */
-    public function setShippingCharges($shippingCharges)
+    public function setShippingCharges($shippingCharges): void
     {
         if (!SoapTools::isSoapValueNull($shippingCharges)) {
             $this->_shippingCharges = $shippingCharges;
@@ -121,7 +122,7 @@ class ShippingInformation
     /**
      * @param DeliveryMode $deliveryMode
      */
-    public function setDeliveryMode($deliveryMode)
+    public function setDeliveryMode($deliveryMode): void
     {
         $this->_deliveryMode = $deliveryMode;
     }

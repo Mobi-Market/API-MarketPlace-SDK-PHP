@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Product;
-
 
 class ProductMatching extends Product
 {
@@ -27,7 +28,7 @@ class ProductMatching extends Product
     /**
      * @param $comment
      */
-    public function setComment($comment)
+    public function setComment($comment): void
     {
         $this->_comment = $comment;
     }
@@ -48,7 +49,7 @@ class ProductMatching extends Product
     /**
      * @param string $ean
      */
-    public function setEan($ean)
+    public function setEan($ean): void
     {
         $this->_ean = $ean;
     }
@@ -69,7 +70,7 @@ class ProductMatching extends Product
     /**
      * @param string $size
      */
-    public function setSize($size)
+    public function setSize($size): void
     {
         $this->_size = $size;
     }
@@ -90,7 +91,7 @@ class ProductMatching extends Product
     /**
      * @param string $color
      */
-    public function setColor($color)
+    public function setColor($color): void
     {
         $this->_color = $color;
     }
@@ -111,7 +112,7 @@ class ProductMatching extends Product
     /**
      * @param string $matchingStatus
      */
-    public function setMatchingStatus($matchingStatus)
+    public function setMatchingStatus($matchingStatus): void
     {
         $this->_matchingStatus = $matchingStatus;
     }

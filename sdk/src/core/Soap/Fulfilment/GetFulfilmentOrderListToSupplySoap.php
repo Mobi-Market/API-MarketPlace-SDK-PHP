@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Driss kelmous
  * Date: 17/10/2016
@@ -7,9 +9,7 @@
 
 namespace Sdk\Soap\Fulfilment;
 
-
 use Sdk\Soap\BaliseTool;
-
 
 class GetFulfilmentOrderListToSupplySoap extends BaliseTool
 {
@@ -22,12 +22,12 @@ class GetFulfilmentOrderListToSupplySoap extends BaliseTool
      * @var string
      */
     private $_orderReferenceTAG = 'OrderReference';
-    
+
     /*
      * @var string
      */
     private $_productEanTAG = 'ProductEan';
-    
+
     /*
      * @var string
      */
@@ -49,26 +49,23 @@ class GetFulfilmentOrderListToSupplySoap extends BaliseTool
         $namespace = 'cdis:';
         /*
          * @param $namespace
-         */        
+         */
         $this->_xmlUtil->setGlobalPrefix($namespace);
-        
+
         /*
          * //Opening tag FulfilmentOnDemandOrderLineFilter
          */
         $xml = $this->_xmlUtil->generateOpenBalise($this->_fulfilmentOnDemandOrderLineRequestTag);
-        if($request->getOrderReference() != null)
-        {
-            $xml .= $this->_xmlUtil->generateBalise($this->_orderReferenceTAG,$request->getOrderReference());
+        if ($request->getOrderReference() != null) {
+            $xml .= $this->_xmlUtil->generateBalise($this->_orderReferenceTAG, $request->getOrderReference());
         }
 
-        if($request->getProductEan() != null)
-        {
-            $xml .= $this->_xmlUtil->generateBalise($this->_productEanTAG,$request->getProductEan());      
+        if ($request->getProductEan() != null) {
+            $xml .= $this->_xmlUtil->generateBalise($this->_productEanTAG, $request->getProductEan());
         }
 
-        if($request->getWarehouse() != null)
-        {
-            $xml .= $this->_xmlUtil->generateBalise($this->_warehouseTAG,$request->getWarehouse());
+        if ($request->getWarehouse() != null) {
+            $xml .= $this->_xmlUtil->generateBalise($this->_warehouseTAG, $request->getWarehouse());
         }
 
         //Closing tag FulfillmentProductRequest
@@ -76,7 +73,7 @@ class GetFulfilmentOrderListToSupplySoap extends BaliseTool
 
 
         $this->_xmlUtil->setGlobalPrefix('');
-        
+
         return $xml;
     }
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * User: CDiscount
@@ -10,7 +12,7 @@ namespace Sdk\Auth;
 
 use Sdk\ConfigTools\ConfigFileLoader;
 use Sdk\HttpTools\CDSApiRequest;
-use Zend\Db\Sql\Ddl\Column\Datetime;
+use Laminas\Db\Sql\Ddl\Column\Datetime;
 
 /**
  * Class Token
@@ -73,7 +75,6 @@ class Token
      */
     public static function getInstance(string $username = null, string $password = null, string $tokenUrl = null)
     {
-
         if (is_null(self::$_instance)) {
             self::$_instance = new Token($username, $password, $tokenUrl);
         }
@@ -84,7 +85,7 @@ class Token
 
     #region Private methods
 
-    private function _generateNewToken()
+    private function _generateNewToken(): void
     {
         if (null === $this->username) {
             $this->username = ConfigFileLoader::getInstance()->getConfAttribute('username');

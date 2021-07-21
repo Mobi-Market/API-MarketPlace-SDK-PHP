@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Mail;
-
 
 class DiscussionMail
 {
@@ -40,7 +41,7 @@ class DiscussionMail
     /**
      * @param string $mailAddress
      */
-    public function setMailAddress($mailAddress)
+    public function setMailAddress($mailAddress): void
     {
         $this->_mailAddress = $mailAddress;
     }
@@ -61,7 +62,7 @@ class DiscussionMail
     /**
      * @param string $operationStatus
      */
-    public function setOperationStatus($operationStatus)
+    public function setOperationStatus($operationStatus): void
     {
         $this->_operationStatus = $operationStatus;
     }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 04/05/2017
@@ -12,7 +14,7 @@ class FulfilmentOnDemandSupplyOrderRequest
      * @var array
      */
     private $_orderLineList = null;
-    
+
     /*
      * @return array
      */
@@ -22,20 +24,18 @@ class FulfilmentOnDemandSupplyOrderRequest
     }
 
     /*
-     * @param $orderLineList \Sdk\Fulfilment\FulfilmentOrdereLineRequest 
+     * @param $orderLineList \Sdk\Fulfilment\FulfilmentOrdereLineRequest
      */
-    public function addOrderLineList($orderLineList)
+    public function addOrderLineList($orderLineList): void
     {
         array_push($this->_orderLineList, $orderLineList);
     }
-    
+
     /*
      * FulfilmentOnDemandSupplyOrderRequest constructor
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_orderLineList = array();
+        $this->_orderLineList = [];
     }
 }
-
-

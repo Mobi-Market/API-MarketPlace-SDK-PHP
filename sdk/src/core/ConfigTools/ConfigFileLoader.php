@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,11 +10,10 @@
 
 namespace Sdk\ConfigTools;
 
-use Zend\Config\Exception\InvalidArgumentException;
+use Laminas\Config\Exception\InvalidArgumentException;
 
 class ConfigFileLoader
 {
-
     #region Private attributes
 
     /**
@@ -32,7 +33,7 @@ class ConfigFileLoader
 
 
     /**
-     * @var \Zend\Validator\NotEmpty for string
+     * @var \Laminas\Validator\NotEmpty for string
      */
     private $_zendValidator = null;
 
@@ -40,9 +41,9 @@ class ConfigFileLoader
 
     #region Constructor
 
-    private function __construct() {
-
-        $this->_zendValidator = new \Zend\Validator\NotEmpty();
+    private function __construct()
+    {
+        $this->_zendValidator = new \Laminas\Validator\NotEmpty();
         $this->_loadConfFile();
     }
 
@@ -54,8 +55,8 @@ class ConfigFileLoader
      * Return a unique instance of the token class, initiate it if needed
      * @return ConfigFileLoader
      */
-    public static function getInstance() {
-
+    public static function getInstance()
+    {
         if (is_null(self::$_instance)) {
             self::$_instance = new ConfigFileLoader();
         }
@@ -69,9 +70,9 @@ class ConfigFileLoader
     /**
      * Load the default config file and after load the environnement config file
      */
-    private function _loadConfFile() {
-
-        $reader = new \Zend\Config\Reader\Ini();
+    private function _loadConfFile(): void
+    {
+        $reader = new \Laminas\Config\Reader\Ini();
 
         $configFile = $reader->fromFile(__DIR__ . '/../../../../config/config.ini');
 
@@ -85,10 +86,10 @@ class ConfigFileLoader
 
     #region public methods
 
-    public function getConfAttribute($attr) {
+    public function getConfAttribute($attr)
+    {
         return $this->_fileData['api'][$attr];
     }
 
     #endregion public methods
-
 }

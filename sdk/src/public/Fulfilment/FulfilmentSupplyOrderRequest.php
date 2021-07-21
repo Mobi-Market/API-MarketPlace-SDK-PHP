@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 04/05/2017
@@ -8,12 +10,11 @@ namespace Sdk\Fulfilment;
 
 class FulfilmentSupplyOrderRequest
 {
-    
     /*
      * @var array
      */
     private $_productList = null;
-    
+
     /*
      * @return array
      */
@@ -25,18 +26,16 @@ class FulfilmentSupplyOrderRequest
     /*
      * @param $productList \Sdk\Fulfilment\FulfilmentProductDescription
      */
-    public function addProductList($productList)
+    public function addProductList($productList): void
     {
         array_push($this->_productList, $productList);
     }
-    
+
     /*
      * FulfilmentSupplyOrderRequest constructor
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_productList = array();
+        $this->_productList = [];
     }
 }
-
-

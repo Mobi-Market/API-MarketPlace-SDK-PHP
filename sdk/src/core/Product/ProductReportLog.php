@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Product;
-
 
 use Sdk\Common\ReportLog;
 use Sdk\Soap\Common\SoapTools;
@@ -30,7 +31,7 @@ class ProductReportLog extends ReportLog
     /**
      * @param string $productIntegrationStatus
      */
-    public function setProductIntegrationStatus($productIntegrationStatus)
+    public function setProductIntegrationStatus($productIntegrationStatus): void
     {
         if (!SoapTools::isSoapValueNull($productIntegrationStatus)) {
             $this->_productIntegrationStatus = $productIntegrationStatus;
@@ -40,13 +41,11 @@ class ProductReportLog extends ReportLog
     /**
      * @param $productReportPropertyLog ProductReportPropertyLog
      */
-    public function addProductReportPropertyLog($productReportPropertyLog)
+    public function addProductReportPropertyLog($productReportPropertyLog): void
     {
         if ($this->_propertyList == null) {
-            $this->_propertyList = array();
+            $this->_propertyList = [];
         }
         array_push($this->_propertyList, $productReportPropertyLog);
     }
-
-
 }

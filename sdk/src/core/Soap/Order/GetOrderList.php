@@ -1,6 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sdk\Soap\Order;
+
 use Sdk\Soap\XmlUtils;
 
 /**
@@ -11,7 +14,6 @@ use Sdk\Soap\XmlUtils;
  */
 class GetOrderList
 {
-
     private $_tag = 'GetOrderList';
 
     private $_xmlns = '';
@@ -26,7 +28,7 @@ class GetOrderList
 
     private function _generateOpeningBalise()
     {
-        $inlines = array($this->_xmlns);
+        $inlines = [$this->_xmlns];
 
         return $this->_xmlUtil->generateOpenBaliseWithInline($this->_tag, $inlines);
     }
@@ -43,5 +45,4 @@ class GetOrderList
         $xml .= $this->_generateClosingBalise();
         return $xml;
     }
-
 }

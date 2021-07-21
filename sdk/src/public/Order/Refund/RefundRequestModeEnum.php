@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,9 +10,8 @@
 
 namespace Sdk\Order\Refund;
 
-
 abstract class RefundRequestModeEnum
 {
-    const Claim = 'Claim';
-    const Retraction = 'Retraction';
+    public const Claim = 'Claim';
+    public const Retraction = 'Retraction';
 }

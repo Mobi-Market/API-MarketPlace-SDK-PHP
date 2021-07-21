@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Cdiscount
  * Date: 18/05/2017
@@ -9,6 +11,6 @@ namespace Sdk\Fulfilment;
 
 class OfferStateActionType
 {
-    const Publish = 'Publish';
-    const Unpublish = 'Unpublish';
+    public const Publish = 'Publish';
+    public const Unpublish = 'Unpublish';
 }

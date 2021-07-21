@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Discussion;
 
-
 class CloseDiscussionResult
 {
-
     /**
      * @var int
      */
@@ -41,7 +41,7 @@ class CloseDiscussionResult
     /**
      * @param string $operationStatus
      */
-    public function setOperationStatus($operationStatus)
+    public function setOperationStatus($operationStatus): void
     {
         $this->_operationStatus = $operationStatus;
     }

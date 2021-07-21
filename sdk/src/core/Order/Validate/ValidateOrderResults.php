@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,15 +10,14 @@
 
 namespace Sdk\Order\Validate;
 
-
 class ValidateOrderResults
 {
-    private $_validateOrderResults = array();
+    private $_validateOrderResults = [];
 
     /**
      * @param $validateOrderResult \Sdk\Order\Validate\ValidateOrderResult
      */
-    public function addValidateOrderResult($validateOrderResult)
+    public function addValidateOrderResult($validateOrderResult): void
     {
         array_push($this->_validateOrderResults, $validateOrderResult);
     }

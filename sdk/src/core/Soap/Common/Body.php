@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Common;
 
-
 use Sdk\Soap\XmlUtils;
 
 class Body
 {
-
     /**
      * @var string
      */
@@ -33,7 +33,6 @@ class Body
      */
     public function generateXML($child)
     {
-
         $xml = $this->_xmlUtil->generateOpenBalise($this->_tag);
         $xml .= $child;
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_tag);

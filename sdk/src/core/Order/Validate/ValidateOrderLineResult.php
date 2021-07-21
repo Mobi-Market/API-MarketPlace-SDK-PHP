@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,9 @@
 
 namespace Sdk\Order\Validate;
 
-
 class ValidateOrderLineResult
 {
-    private $_errors = array();
+    private $_errors = [];
 
     /**
      * @return array
@@ -24,7 +25,7 @@ class ValidateOrderLineResult
     /**
      * @param $error string
      */
-    public function addError($error)
+    public function addError($error): void
     {
         array_push($this->_errors, $error);
     }
@@ -45,7 +46,7 @@ class ValidateOrderLineResult
     /**
      * @param boolean $updated
      */
-    public function setUpdated($updated)
+    public function setUpdated($updated): void
     {
         $this->_updated = $updated;
     }

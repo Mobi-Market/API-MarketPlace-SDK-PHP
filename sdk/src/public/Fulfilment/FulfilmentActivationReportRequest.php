@@ -1,9 +1,12 @@
 <?php
-/* 
+
+declare(strict_types=1);
+/*
  * Created by EQUIPE-SQLI
  * Date : 12/05/2017
  * Time : 15:45
  */
+
 namespace Sdk\Fulfilment;
 
 class FulfilmentActivationReportRequest
@@ -12,7 +15,7 @@ class FulfilmentActivationReportRequest
      * @var string
      */
     private $_BeginDate = null;
-    
+
     /**
      * @return string
      */
@@ -20,12 +23,12 @@ class FulfilmentActivationReportRequest
     {
         return $this->_BeginDate;
     }
-    
+
     /**
      * @var string
      */
     private $_EndDate = null;
-    
+
     /**
      * @return string
      */
@@ -34,31 +37,29 @@ class FulfilmentActivationReportRequest
         return $this->_EndDate;
     }
 
-     /**
-     * @var array
-     */
+    /**
+    * @var array
+    */
     private $_DepositList = null;
-    
+
     /**
      * @return array
      */
     public function getDepositList()
     {
         return $this->_DepositList;
-    }   
-    
+    }
+
     /*
      * FulfilmentActivationReportRequest constructor
      * @param $BeginDate Date
      * @param $EndDate Date
      * @param $DepositList array
      */
-    public function __construct($BeginDate, $EndDate, $DepositList) 
+    public function __construct($BeginDate, $EndDate, $DepositList)
     {
         $this->_BeginDate = $BeginDate;
         $this->_EndDate = $EndDate;
         $this->_DepositList = $DepositList;
     }
 }
-
-

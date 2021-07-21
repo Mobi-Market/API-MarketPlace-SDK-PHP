@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,21 +10,19 @@
 
 namespace Sdk\Soap\Order;
 
-
 use Sdk\Soap\BaliseTool;
 
 class ValidateOrderLineSoap extends BaliseTool
 {
-
     private $_AcceptationStateTAG = 'AcceptationState';
     private $_ProductConditionTAG = 'ProductCondition';
     private $_SellerProductIdTAG = 'SellerProductId';
-    
+
     /*
      * @ var string TAG
      */
     private $_TypeOfReturnTAG = 'TypeOfReturn';
-    
+
     /**
      * @var \Sdk\Order\ValidateOrderLine
      */

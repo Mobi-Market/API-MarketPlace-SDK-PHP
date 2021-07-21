@@ -1,13 +1,13 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by Cdiscount.
  * Date: 02/12/2016
  * Time: 15:22
  */
 
-
 namespace Sdk\Parcel;
-
 
 class ParcelShop
 {
@@ -27,7 +27,7 @@ class ParcelShop
     /**
      * @param string $addressComplement
      */
-    public function setAddressComplement($addressComplement)
+    public function setAddressComplement($addressComplement): void
     {
         $this->_addressComplement = $addressComplement;
     }
@@ -48,7 +48,7 @@ class ParcelShop
     /**
      * @param string $city
      */
-    public function setCity($city)
+    public function setCity($city): void
     {
         $this->_city = $city;
     }
@@ -69,7 +69,7 @@ class ParcelShop
     /**
      * @param string $closingDate
      */
-    public function setClosingDate($closingDate)
+    public function setClosingDate($closingDate): void
     {
         $this->_closingDate = $closingDate;
     }
@@ -90,7 +90,7 @@ class ParcelShop
     /**
      * @param string $exceptionalClosingDate1
      */
-    public function setExceptionalClosingDate1($exceptionalClosingDate1)
+    public function setExceptionalClosingDate1($exceptionalClosingDate1): void
     {
         $this->_exceptionalClosingDate1 = $exceptionalClosingDate1;
     }
@@ -111,7 +111,7 @@ class ParcelShop
     /**
      * @param string $exceptionalClosingDate2
      */
-    public function setExceptionalClosingDate2($exceptionalClosingDate2)
+    public function setExceptionalClosingDate2($exceptionalClosingDate2): void
     {
         $this->_exceptionalClosingDate2 = $exceptionalClosingDate2;
     }
@@ -132,7 +132,7 @@ class ParcelShop
     /**
      * @param string $exceptionalClosingDate3
      */
-    public function setExceptionalClosingDate3($exceptionalClosingDate3)
+    public function setExceptionalClosingDate3($exceptionalClosingDate3): void
     {
         $this->_exceptionalClosingDate3 = $exceptionalClosingDate3;
     }
@@ -153,7 +153,7 @@ class ParcelShop
     /**
      * @param string $exceptionalClosingDate4
      */
-    public function setExceptionalClosingDate4($exceptionalClosingDate4)
+    public function setExceptionalClosingDate4($exceptionalClosingDate4): void
     {
         $this->_exceptionalClosingDate4 = $exceptionalClosingDate4;
     }
@@ -174,7 +174,7 @@ class ParcelShop
     /**
      * @param string $exceptionalClosingDate5
      */
-    public function setExceptionalClosingDate5($exceptionalClosingDate5)
+    public function setExceptionalClosingDate5($exceptionalClosingDate5): void
     {
         $this->_exceptionalClosingDate5 = $exceptionalClosingDate5;
     }
@@ -195,7 +195,7 @@ class ParcelShop
     /**
      * @param string $fridayAfternoonClosingHour
      */
-    public function setFridayAfternoonClosingHour($fridayAfternoonClosingHour)
+    public function setFridayAfternoonClosingHour($fridayAfternoonClosingHour): void
     {
         $this->_fridayAfternoonClosingHour = $fridayAfternoonClosingHour;
     }
@@ -216,7 +216,7 @@ class ParcelShop
     /**
      * @param string $fridayAfternoonOpeningHour
      */
-    public function setFridayAfternoonOpeningHour($fridayAfternoonOpeningHour)
+    public function setFridayAfternoonOpeningHour($fridayAfternoonOpeningHour): void
     {
         $this->_fridayAfternoonOpeningHour = $fridayAfternoonOpeningHour;
     }
@@ -237,7 +237,7 @@ class ParcelShop
     /**
      * @param string $fridayMorningClosingHour
      */
-    public function setFridayMorningClosingHour($fridayMorningClosingHour)
+    public function setFridayMorningClosingHour($fridayMorningClosingHour): void
     {
         $this->_fridayMorningClosingHour = $fridayMorningClosingHour;
     }
@@ -258,7 +258,7 @@ class ParcelShop
     /**
      * @param string $fridayMorningOpeningHour
      */
-    public function setFridayMorningOpeningHour($fridayMorningOpeningHour)
+    public function setFridayMorningOpeningHour($fridayMorningOpeningHour): void
     {
         $this->_fridayMorningOpeningHour = $fridayMorningOpeningHour;
     }
@@ -279,7 +279,7 @@ class ParcelShop
     /**
      * @param boolean $storeShipmentActive
      */
-    public function setStoreShipmentActive($storeShipmentActive)
+    public function setStoreShipmentActive($storeShipmentActive): void
     {
         $this->_storeShipmentActive = $storeShipmentActive;
     }
@@ -300,7 +300,7 @@ class ParcelShop
     /**
      * @param boolean $takeAwayDeliveryActive
      */
-    public function setTakeAwayDeliveryActive($takeAwayDeliveryActive)
+    public function setTakeAwayDeliveryActive($takeAwayDeliveryActive): void
     {
         $this->_takeAwayDeliveryActive = $takeAwayDeliveryActive;
     }
@@ -321,7 +321,7 @@ class ParcelShop
     /**
      * @param float $latitude
      */
-    public function setLatitude($latitude)
+    public function setLatitude($latitude): void
     {
         $this->_latitude = $latitude;
     }
@@ -342,7 +342,7 @@ class ParcelShop
     /**
      * @param float $longitude
      */
-    public function setLongitude($longitude)
+    public function setLongitude($longitude): void
     {
         $this->_longitude = $longitude;
     }
@@ -363,7 +363,7 @@ class ParcelShop
     /**
      * @param string $locality
      */
-    public function setLocality($locality)
+    public function setLocality($locality): void
     {
         $this->_locality = $locality;
     }
@@ -384,7 +384,7 @@ class ParcelShop
     /**
      * @param string $mondayAfternoonClosingHour
      */
-    public function setMondayAfternoonClosingHour($mondayAfternoonClosingHour)
+    public function setMondayAfternoonClosingHour($mondayAfternoonClosingHour): void
     {
         $this->_mondayAfternoonClosingHour = $mondayAfternoonClosingHour;
     }
@@ -405,7 +405,7 @@ class ParcelShop
     /**
      * @param string $mondayAfternoonOpeningHour
      */
-    public function setMondayAfternoonOpeningHour($mondayAfternoonOpeningHour)
+    public function setMondayAfternoonOpeningHour($mondayAfternoonOpeningHour): void
     {
         $this->_mondayAfternoonOpeningHour = $mondayAfternoonOpeningHour;
     }
@@ -426,7 +426,7 @@ class ParcelShop
     /**
      * @param string $mondayMorningClosingHour
      */
-    public function setMondayMorningClosingHour($mondayMorningClosingHour)
+    public function setMondayMorningClosingHour($mondayMorningClosingHour): void
     {
         $this->_mondayMorningClosingHour = $mondayMorningClosingHour;
     }
@@ -447,7 +447,7 @@ class ParcelShop
     /**
      * @param string $mondayMorningOpeningHour
      */
-    public function setMondayMorningOpeningHour($mondayMorningOpeningHour)
+    public function setMondayMorningOpeningHour($mondayMorningOpeningHour): void
     {
         $this->_mondayMorningOpeningHour = $mondayMorningOpeningHour;
     }
@@ -468,7 +468,7 @@ class ParcelShop
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->_name = $name;
     }
@@ -489,10 +489,8 @@ class ParcelShop
     /**
      * @param string $openingDate
      */
-    public function setOpeningDate($openingDate)
+    public function setOpeningDate($openingDate): void
     {
         $this->_openingDate = $openingDate;
     }
-
-
 }

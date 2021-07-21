@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Offer;
 
-
 use Sdk\Soap\BaliseTool;
 
 class SubmitOfferPackage extends BaliseTool
 {
-
     private $productPackageRequestTAG = 'offerPackageRequest';
 
     private $ZipFileFullPathTAG = 'ZipFileFullPath';
@@ -31,7 +31,7 @@ class SubmitOfferPackage extends BaliseTool
      */
     public function generatePackageRequestXML($zipURL)
     {
-        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->productPackageRequestTAG, array('xmlns:i="http://www.w3.org/2001/XMLSchema-instance"'));
+        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->productPackageRequestTAG, ['xmlns:i="http://www.w3.org/2001/XMLSchema-instance"']);
 
         $xml .= $this->_xmlUtil->generateBalise($this->ZipFileFullPathTAG, $zipURL);
 

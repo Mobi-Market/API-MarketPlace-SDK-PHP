@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,9 @@
 
 namespace Sdk\Order\Refund;
 
-
 abstract class RefundMotiveEnum
 {
-    const ClientClaim  = 'ClientClaim';
-    const VendorInitiatedRefund  = 'VendorInitiatedRefund';
-    const ClientRetraction = 'ClientRetraction';
+    public const ClientClaim  = 'ClientClaim';
+    public const VendorInitiatedRefund  = 'VendorInitiatedRefund';
+    public const ClientRetraction = 'ClientRetraction';
 }

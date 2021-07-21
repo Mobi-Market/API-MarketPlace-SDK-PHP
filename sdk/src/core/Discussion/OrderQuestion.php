@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Discussion;
-
 
 class OrderQuestion extends GenericQuestion
 {
@@ -27,7 +28,7 @@ class OrderQuestion extends GenericQuestion
     /**
      * @param string $orderNumber
      */
-    public function setOrderNumber($orderNumber)
+    public function setOrderNumber($orderNumber): void
     {
         $this->_orderNumber = $orderNumber;
     }

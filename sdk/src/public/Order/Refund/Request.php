@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Order\Refund;
 
-
 class Request
 {
-
     /**
      * @var string
      */
@@ -37,12 +37,12 @@ class Request
     /**
      * @var array
      */
-    private $_sellerRefundRequestList = array();
+    private $_sellerRefundRequestList = [];
 
     /**
      * @param $sellerRefundRequest \Sdk\Order\Refund\SellerRefundRequest
      */
-    public function addSellerRefundRequest($sellerRefundRequest)
+    public function addSellerRefundRequest($sellerRefundRequest): void
     {
         array_push($this->_sellerRefundRequestList, $sellerRefundRequest);
     }

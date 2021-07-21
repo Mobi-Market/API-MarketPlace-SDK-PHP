@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -27,7 +29,7 @@ class IdentifierRequestSoap extends BaliseTool
      */
     public function __construct($identifierRequest)
     {
-        $this->_xmlns = 'xmlns:i="http://www.w3.org/2001/XMLSchema-instance"';        
+        $this->_xmlns = 'xmlns:i="http://www.w3.org/2001/XMLSchema-instance"';
         $this->_identifierRequest = $identifierRequest;
         parent::__construct();
     }
@@ -41,13 +43,13 @@ class IdentifierRequestSoap extends BaliseTool
 
         // CarrierName
         $xml .= $this->_xmlUtil->generateBalise('IdentifierType', $this->_identifierRequest->getIdentifierType());
-        $xml .= $this->_xmlUtil->generateOpenBaliseWithInline('ValueList', array('xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"'));
+        $xml .= $this->_xmlUtil->generateOpenBaliseWithInline('ValueList', ['xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"']);
         foreach ($this->_identifierRequest->getValueList() as $value) {
             $xml .= $this->_xmlUtil->generateBalise('arr:string', $value);
         }
         $xml .= $this->_xmlUtil->generateCloseBalise('ValueList');
         $xml .= $this->_xmlUtil->generateCloseBalise('identifierRequest');
-        
+
         return $xml;
     }
 }

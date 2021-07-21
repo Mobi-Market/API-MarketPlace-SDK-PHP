@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,15 +10,13 @@
 
 namespace Sdk\Order;
 
-
 class AcceptationStateEnum
 {
-    const AcceptedBySeller = 'AcceptedBySeller';
-    const RefusedBySeller = 'RefusedBySeller';
-    const ShippedBySeller = 'ShippedBySeller';
-    const ShipmentRefusedBySeller = 'ShipmentRefusedBySeller';
-    const CancelledBeforeNotificationByCustomer = 'CancelledBeforeNotificationByCustomer';
-    const CancelledBeforePaymentByCustomer = 'CancelledBeforePaymentByCustomer';
-    const CancellationRequestPending = 'CancellationRequestPending';
-
+    public const AcceptedBySeller = 'AcceptedBySeller';
+    public const RefusedBySeller = 'RefusedBySeller';
+    public const ShippedBySeller = 'ShippedBySeller';
+    public const ShipmentRefusedBySeller = 'ShipmentRefusedBySeller';
+    public const CancelledBeforeNotificationByCustomer = 'CancelledBeforeNotificationByCustomer';
+    public const CancelledBeforePaymentByCustomer = 'CancelledBeforePaymentByCustomer';
+    public const CancellationRequestPending = 'CancellationRequestPending';
 }

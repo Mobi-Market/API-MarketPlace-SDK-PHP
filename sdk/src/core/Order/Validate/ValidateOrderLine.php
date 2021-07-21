@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -12,7 +14,6 @@ use Sdk\Order\OrderLine;
 
 class ValidateOrderLine extends OrderLine
 {
-
     public function __construct($sellerProductId, $acceptationState, $productCondition)
     {
         parent::setSellerProductId($sellerProductId);
@@ -20,12 +21,12 @@ class ValidateOrderLine extends OrderLine
         parent::setAcceptationState($acceptationState);
         parent::__construct(0);
     }
-    
+
     /*
      * @var enum
      */
     private $_typeOfReturn = \Sdk\Order\AskingForReturnType::AskingForReturn;
-    
+
     /*
      * @return enum
      */
@@ -33,11 +34,11 @@ class ValidateOrderLine extends OrderLine
     {
         return $this->_typeOfReturn;
     }
-    
+
     /*
      * @param $typeOfReturn Sdk\Order\AskingForReturnType
      */
-    public function setTypeOfReturn($typeOfReturn)
+    public function setTypeOfReturn($typeOfReturn): void
     {
         $this->_typeOfReturn = $typeOfReturn;
     }

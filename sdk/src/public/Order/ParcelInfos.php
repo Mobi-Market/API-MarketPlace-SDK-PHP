@@ -1,6 +1,8 @@
 <?php
 
-/* 
+declare(strict_types=1);
+
+/*
  * Created by Cdiscount
  * Date : 18/01/2017
  * Time : 15:46
@@ -14,17 +16,17 @@ class ParcelInfos
      * @var string
      */
     private $_parcelNumber = null;
-    
+
     /*
      * @var string
      */
     private $_sku = null;
-    
+
     /*
      * @var enum
      */
     private $_manageParcel = null;
-    
+
     /*
      * @return string
      */
@@ -32,20 +34,20 @@ class ParcelInfos
     {
         return $this->_parcelNumber;
     }
-    
+
     /*
      * parcelInfos constructor
      * @param $parcelNumber
      */
-    public function __construct($parcelNumber) 
+    public function __construct($parcelNumber)
     {
         $this->_parcelNumber = $parcelNumber;
     }
-    
+
     /*
      * @param string $sku
      */
-    public function setSku($sku)
+    public function setSku($sku): void
     {
         $this->_sku = $sku;
     }
@@ -53,11 +55,11 @@ class ParcelInfos
     /*
      * @return string
      */
-    public function  getSku()
+    public function getSku()
     {
         return $this->_sku;
     }
-    
+
     /*
      * @return enum
      */
@@ -65,11 +67,11 @@ class ParcelInfos
     {
         return $this->_manageParcel;
     }
-    
+
     /*
      * @param $parcelActionsTypes Sdk\Order\ParcelActionsTypes
      */
-    public function setManageParcel($parcelActionsTypes)
+    public function setManageParcel($parcelActionsTypes): void
     {
         $this->_manageParcel = $parcelActionsTypes;
     }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -10,7 +12,6 @@ namespace Sdk\Discussion;
 
 class ClaimFilter extends DiscussionFilter
 {
-
     /**
      * @var bool
      */
@@ -19,7 +20,7 @@ class ClaimFilter extends DiscussionFilter
     /**
      * @param boolean $onlyMessageFromCDSCustomerService
      */
-    public function setOnlyMessageFromCDSCustomerService($onlyMessageFromCDSCustomerService)
+    public function setOnlyMessageFromCDSCustomerService($onlyMessageFromCDSCustomerService): void
     {
         $this->_onlyMessageFromCDSCustomerService = $onlyMessageFromCDSCustomerService;
     }
@@ -37,6 +38,6 @@ class ClaimFilter extends DiscussionFilter
      */
     public function __construct()
     {
-        $this->_statusList = array();
+        $this->_statusList = [];
     }
 }

@@ -1,8 +1,10 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
- * History : 
+ * History :
  * MSajid : add new method addNameSpace
  * Date: 03/10/2016
  * Time: 15:03
@@ -10,12 +12,10 @@
 
 namespace Sdk\Soap\Common;
 
-
 use Sdk\Soap\XmlUtils;
 
 class Envelope
 {
-
     /**
      * @var string
      */
@@ -39,7 +39,7 @@ class Envelope
      */
     public function generateXML($child)
     {
-        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->_tag, array($this->_xmlns));
+        $xml = $this->_xmlUtil->generateOpenBaliseWithInline($this->_tag, [$this->_xmlns]);
         $xml .= $child;
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_tag);
 
@@ -51,7 +51,7 @@ class Envelope
      *
      * @param $xmlns
      */
-    public function addNameSpace($xmlns)
+    public function addNameSpace($xmlns): void
     {
         $this->_xmlns .= ' ' . $xmlns;
     }

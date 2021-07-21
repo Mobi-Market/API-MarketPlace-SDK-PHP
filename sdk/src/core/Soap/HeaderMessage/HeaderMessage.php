@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,6 +9,7 @@
  */
 
 namespace Sdk\Soap\HeaderMessage;
+
 use Sdk\Soap\XmlUtils;
 
 /**
@@ -15,7 +18,6 @@ use Sdk\Soap\XmlUtils;
  */
 class HeaderMessage
 {
-
     private $_headerChildrenPrefix = 'a:';
 
     private $_version;
@@ -38,7 +40,7 @@ class HeaderMessage
 
     public function generateHeader()
     {
-        $inlines = array($this->_xmlnsa, $this->_xmlnsi);
+        $inlines = [$this->_xmlnsa, $this->_xmlnsi];
 
         $context = new Context($this->_headerChildrenPrefix);
         $localization = new Localization($this->_headerChildrenPrefix);
@@ -80,5 +82,4 @@ class HeaderMessage
         $result = $client->MethodNameIsIgnored($params);
         */
     }
-
 }

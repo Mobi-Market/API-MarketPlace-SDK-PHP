@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Order\Refund;
 
-
 use Sdk\Soap\BaliseTool;
 
 class SellerRefundRequestSoap extends BaliseTool
 {
-
     private $_ModeTAG = 'Mode';
     private $_MotiveTAG = 'Motive';
     private $_RefundOrderLineTAG = 'RefundOrderLine';
@@ -60,8 +60,7 @@ class SellerRefundRequestSoap extends BaliseTool
         $xml .= $this->_xmlUtil->generateBalise($this->_SellerProductIdTAG, $this->_sellerRefundRequest->getRefundOrderLine()->getSellerProductId());
         if ($this->_sellerRefundRequest->getRefundOrderLine()->isRefundShippingCharges()) {
             $xml .= $this->_xmlUtil->generateBalise($this->_RefundShippingChargesTAG, 'true');
-        }
-        else {
+        } else {
             $xml .= $this->_xmlUtil->generateBalise($this->_RefundShippingChargesTAG, 'false');
         }
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_RefundOrderLineTAG);

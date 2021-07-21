@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -29,7 +31,7 @@ class ProductIdentity
     /**
      * @param string $brandName
      */
-    public function setBrandName($brandName)
+    public function setBrandName($brandName): void
     {
         $this->_brandName = $brandName;
     }
@@ -50,7 +52,7 @@ class ProductIdentity
     /**
      * @param string $EAN
      */
-    public function setEAN($EAN)
+    public function setEAN($EAN): void
     {
         $this->_EAN = $EAN;
     }
@@ -71,7 +73,7 @@ class ProductIdentity
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         $this->_name = $name;
     }
@@ -92,7 +94,7 @@ class ProductIdentity
     /**
      * @param string $productType
      */
-    public function setProductType($productType)
+    public function setProductType($productType): void
     {
         $this->_productType = $productType;
     }
@@ -113,7 +115,7 @@ class ProductIdentity
     /**
      * @param string $fatherProductId
      */
-    public function setFatherProductId($fatherProductId)
+    public function setFatherProductId($fatherProductId): void
     {
         $this->_fatherProductId = $fatherProductId;
     }
@@ -134,11 +136,11 @@ class ProductIdentity
     /**
      * @param string $category
      */
-    public function setCategoryCode($category)
+    public function setCategoryCode($category): void
     {
         $this->_categoryCode = $category;
     }
-    
+
     /**
      * @var string
      */
@@ -155,11 +157,11 @@ class ProductIdentity
     /**
      * @param string $color
      */
-    public function setColor($color)
+    public function setColor($color): void
     {
         $this->_color = $color;
-    }    
-    
+    }
+
     /**
      * @var string
      */
@@ -176,11 +178,11 @@ class ProductIdentity
     /**
      * @param string $errorMessage
      */
-    public function setErrorMessage($errorMessage)
+    public function setErrorMessage($errorMessage): void
     {
         $this->_errorMessage = $errorMessage;
     }
-    
+
     /**
      * @var string
      */
@@ -197,11 +199,11 @@ class ProductIdentity
     /**
      * @param string $hasError
      */
-    public function setHasError($hasError)
+    public function setHasError($hasError): void
     {
         $this->_hasError = $hasError;
     }
-    
+
     /**
      * @var string
      */
@@ -218,11 +220,11 @@ class ProductIdentity
     /**
      * @param string $imageUrl
      */
-    public function setImageURL($imageURL)
+    public function setImageURL($imageURL): void
     {
         $this->_imageURL = $imageURL;
     }
-    
+
     /**
      * @var string
      */
@@ -239,10 +241,10 @@ class ProductIdentity
     /**
      * @param string $size
      */
-    public function setSize($size)
+    public function setSize($size): void
     {
         $this->_size = $size;
-    }    
+    }
 
     /**
      * Product constructor.

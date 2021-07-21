@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sdk\Offer;
 
 use Sdk\AbstractPoint;
@@ -25,7 +27,6 @@ use Sdk\Soap\Offer\SubmitOfferPackage;
  */
 class OfferPoint extends AbstractPoint
 {
-
     /**
      * @param $productList
      * @param $offerPoolId
@@ -33,7 +34,7 @@ class OfferPoint extends AbstractPoint
      */
     public function getOfferList($productList, $offerPoolId)
     {
-        $optionalsNamespaces = array('xmlns:cdis="http://www.cdiscount.com"', 'xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"');
+        $optionalsNamespaces = ['xmlns:cdis="http://www.cdiscount.com"', 'xmlns:arr="http://schemas.microsoft.com/2003/10/Serialization/Arrays"'];
 
         $envelope = new Envelope();
 

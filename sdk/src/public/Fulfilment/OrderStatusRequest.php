@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -17,7 +19,7 @@ class OrderStatusRequest
      * @var String
      */
     private $_corporation = null;
-    
+
     /*
      * @return string
      */
@@ -25,20 +27,20 @@ class OrderStatusRequest
     {
         return $this->_corporation;
     }
-    
+
     /*
      * @param $corporation
      */
-    public function setCorporation($corporation)
+    public function setCorporation($corporation): void
     {
         $this->_corporation = $corporation;
-    }   
-    
+    }
+
     /*
      * @var String
      */
     private $_customerOrderNumber = null;
-    
+
     /*
      * @return string
      */
@@ -46,13 +48,12 @@ class OrderStatusRequest
     {
         return $this->_customerOrderNumber;
     }
-    
+
     /*
      * @param $customerOrderNumber
      */
-    public function setCustomerOrderNumber($customerOrderNumber)
+    public function setCustomerOrderNumber($customerOrderNumber): void
     {
         $this->_customerOrderNumber = $customerOrderNumber;
-    }    
-
+    }
 }

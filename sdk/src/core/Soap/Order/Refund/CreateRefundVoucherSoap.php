@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * Created by CDiscount
  * Date: 31/01/2017
@@ -7,7 +9,9 @@
  */
 
 namespace Sdk\Soap\Order\Refund;
+
 use Sdk\Soap\BaliseTool;
+
 /**
  * class contains creation tags
  * @author mohammed.sajid
@@ -18,17 +22,17 @@ class CreateRefundVoucherSoap extends BaliseTool
      * @var string
      */
     private $_requestTAG = 'request';
-    
+
     /*
      * @var string
      */
     private $_commercialGestureListTAG = 'CommercialGestureList';
-    
+
     /*
      * @var string
      */
     private $_orderNumberTAG = 'OrderNumber';
-    
+
     /*
      * @var string
      */
@@ -39,34 +43,34 @@ class CreateRefundVoucherSoap extends BaliseTool
      * CreateRefundVoucherSoap constructor
      * @param $xmlns
      */
-    public function __construct($xmlns = 'xmlns="http://www.cdiscount.com"') 
+    public function __construct($xmlns = 'xmlns="http://www.cdiscount.com"')
     {
         $this->_xmlns = $xmlns;
         $this->_tag = 'CreateRefundVoucher';
         parent::__construct();
     }
-    
+
     /*
      * @param $createRefundVoucherRequest \Sdk\Order\Refund\CreateRefundVoucherRequest
      */
-     public function generateCreateRefundVoucherRequestRequestXml($createRefundVoucherRequest)
-     {
-         $namespace = 'cdis:';
+    public function generateCreateRefundVoucherRequestRequestXml($createRefundVoucherRequest)
+    {
+        $namespace = 'cdis:';
         /*
          * @param $namespace
-         */        
+         */
         $this->_xmlUtil->setGlobalPrefix($namespace);
-        
+
         /*
          * request
          */
         $xml = $this->_xmlUtil->generateOpenBalise($this->_requestTAG);
-        
+
         /*
          * CommercialGestureList
          */
         $xml .= $this->_xmlUtil->generateOpenBalise($this->_commercialGestureListTAG);
-        
+
         /*
          * @param $refundInformation \Sdk\Order\Refund\RefundInformation
          */
@@ -77,9 +81,9 @@ class CreateRefundVoucherSoap extends BaliseTool
             $refundInformationSoap = new RefundInformationSoap($refundInformation);
             $xml .= $refundInformationSoap->serialize();
         }
-        
+
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_commercialGestureListTAG);
-        
+
         /**
          * OrderNumber
          */
@@ -102,11 +106,11 @@ class CreateRefundVoucherSoap extends BaliseTool
         }
 
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_sellerRefundListTAG);
-        
+
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_requestTAG);
 
         $this->_xmlUtil->setGlobalPrefix('');
 
         return $xml;
-     }
+    }
 }

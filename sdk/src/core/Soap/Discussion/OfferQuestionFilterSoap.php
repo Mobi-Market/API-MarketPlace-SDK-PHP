@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Discussion;
 
-
 use Sdk\Discussion\OfferQuestionFilter;
 
-class OfferQuestionFilterSoap  extends FilterSoap
+class OfferQuestionFilterSoap extends FilterSoap
 {
-
     private $_ProductEANListTAG = 'ProductEANList';
 
     private $_ProductEANTAG = 'ProductEAN';
@@ -31,7 +31,7 @@ class OfferQuestionFilterSoap  extends FilterSoap
     /**
      * @param $child OfferQuestionFilter
      */
-    public function serializeChild($child)
+    public function serializeChild($child): void
     {
         /** Dates **/
         $beginCreationDateBalise = $this->_serializeDate($child->getBeginCreationDate(), $this->_BeginCreationDateTAG);
@@ -51,8 +51,7 @@ class OfferQuestionFilterSoap  extends FilterSoap
         /** ProductEANList **/
         if ($child->getProductEanList() == null) {
             $this->_childrens .= $this->_xmlUtil->generateAutoClosingBaliseWithInline($this->_ProductEANListTAG, 'i:nil', 'true');
-        }
-        else {
+        } else {
             $this->_childrens .= $this->_xmlUtil->generateOpenBalise($this->_ProductEANListTAG);
             foreach ($child->getProductEanList() as $ean) {
                 $this->_childrens .= $this->_xmlUtil->generateBalise($this->_ProductEANTAG, $ean);

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Discussion;
-
 
 use Sdk\Soap\Common\SoapTools;
 
@@ -29,7 +30,7 @@ class Message
     /**
      * @param string $content
      */
-    public function setContent($content)
+    public function setContent($content): void
     {
         if (!SoapTools::isSoapValueNull($content) && !is_array($content)) {
             $this->_content = $content;
@@ -52,7 +53,7 @@ class Message
     /**
      * @param string $sender
      */
-    public function setSender($sender)
+    public function setSender($sender): void
     {
         if (!SoapTools::isSoapValueNull($sender)) {
             $this->_sender = $sender;
@@ -75,7 +76,7 @@ class Message
     /**
      * @param string $timestamp
      */
-    public function setTimestamp($timestamp)
+    public function setTimestamp($timestamp): void
     {
         if (!SoapTools::isSoapValueNull($timestamp)) {
             $this->_timestamp = $timestamp;

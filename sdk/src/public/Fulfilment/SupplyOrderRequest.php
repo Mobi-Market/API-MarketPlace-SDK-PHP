@@ -1,9 +1,12 @@
 <?php
-/* 
+
+declare(strict_types=1);
+/*
  * Created by Zakaria Boukhris
  * Date : 27/04/2017
  * Time : 15:46
  */
+
 namespace Sdk\Fulfilment;
 
 class SupplyOrderRequest
@@ -16,7 +19,7 @@ class SupplyOrderRequest
     private $_pageSize = null;
     private $_beginModificationDate = null;
     private $_endModificationDate = null;
-    
+
     /**
      * @return array
      */
@@ -26,9 +29,9 @@ class SupplyOrderRequest
     }
 
     /**
-     * @param $supplyOrder \Sdk\Fulfilement\SupplyOrder 
+     * @param $supplyOrder \Sdk\Fulfilement\SupplyOrder
      */
-    public function addSupplyOrder($supplyOrder)
+    public function addSupplyOrder($supplyOrder): void
     {
         array_push($this->_supplyOrderList, $supplyOrder);
     }
@@ -44,14 +47,14 @@ class SupplyOrderRequest
     /**
      * @param int $pageSize
      */
-    public function setPageSize($pageSize)
+    public function setPageSize($pageSize): void
     {
         $this->_pageSize = $pageSize;
-    } 
+    }
 
-     /**
-     * @return int
-     */
+    /**
+    * @return int
+    */
     public function getPageNumber()
     {
         return $this->_pageNumber;
@@ -60,7 +63,7 @@ class SupplyOrderRequest
     /**
      * @param int $pageNumber
      */
-    public function setPageNumber($pageNumber)
+    public function setPageNumber($pageNumber): void
     {
         $this->_pageNumber = $pageNumber;
     }
@@ -76,7 +79,7 @@ class SupplyOrderRequest
     /**
      * @param beginModificationDate
      */
-    public function setBeginModificationDate($beginModificationDate)
+    public function setBeginModificationDate($beginModificationDate): void
     {
         $this->_beginModificationDate = $beginModificationDate;
     }
@@ -92,16 +95,16 @@ class SupplyOrderRequest
     /**
      * @param endModificationDate
      */
-    public function setEndModificationDate($endModificationDate)
+    public function setEndModificationDate($endModificationDate): void
     {
         $this->_endModificationDate = $endModificationDate;
     }
-    
+
     /*
      * SupplyOrderRequest constructor
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_supplyOrderList = array();
+        $this->_supplyOrderList = [];
     }
 }

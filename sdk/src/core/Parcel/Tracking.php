@@ -1,6 +1,8 @@
 <?php
 
-/* 
+declare(strict_types=1);
+
+/*
  * Created by Cdiscount
  * Date : 25/01/2017
  * Time : 15:46
@@ -14,7 +16,7 @@ class Tracking
      * @var int
      */
     private $_trackingId;
-    
+
     /*
      * @return int
      */
@@ -22,7 +24,7 @@ class Tracking
     {
         return $this->_trackingId;
     }
-    
+
     /*
      * Tracking constructor
      * @param $trackingId
@@ -31,12 +33,12 @@ class Tracking
     {
         $this->_trackingId = $trackingId;
     }
-    
+
     /*
      * @var string
      */
     private $_parcelNum = null;
-    
+
     /*
      * @return string
      */
@@ -44,20 +46,20 @@ class Tracking
     {
         return $this->_parcelNum;
     }
-    
+
     /*
      * @param $parcelNum
      */
-    public function setParcelNum($parcelNum)
+    public function setParcelNum($parcelNum): void
     {
         $this->_parcelNum = $parcelNum;
     }
-    
+
     /*
      * @var string
      */
     private $_justification = null;
-    
+
     /*
      * @return string
      */
@@ -65,20 +67,20 @@ class Tracking
     {
         return $this->_justification;
     }
-    
+
     /*
      * @param $justification
      */
-    public function setJustification($justification)
+    public function setJustification($justification): void
     {
         $this->_justification = $justification;
     }
-    
+
     /*
      * @var date string format
      */
     private $_insertDate= null;
-    
+
     /*
      * @return string date
      */
@@ -86,11 +88,11 @@ class Tracking
     {
         return $this->_insertDate;
     }
-    
+
     /*
      * @param $insertDate
      */
-    public function setInsertDate($insertDate)
+    public function setInsertDate($insertDate): void
     {
         $this->_insertDate = $insertDate;
     }

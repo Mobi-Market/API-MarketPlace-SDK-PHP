@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,9 +10,8 @@
 
 namespace Sdk\Soap;
 
-
-class SOAPStruct {
-
+class SOAPStruct
+{
     public $CatalogID = 1;
     public $CustomerPoolID = 1;
     public $SiteID = 100;

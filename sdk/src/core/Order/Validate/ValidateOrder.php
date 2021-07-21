@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -12,7 +14,6 @@ use Sdk\Order\Order;
 
 class ValidateOrder extends Order
 {
-
     /**
      * @var string
      */
@@ -29,7 +30,7 @@ class ValidateOrder extends Order
     /**
      * @param string $carrierName
      */
-    public function setCarrierName($carrierName)
+    public function setCarrierName($carrierName): void
     {
         $this->_carrierName = $carrierName;
     }
@@ -50,7 +51,7 @@ class ValidateOrder extends Order
     /**
      * @param string $trackingNumber
      */
-    public function setTrackingNumber($trackingNumber)
+    public function setTrackingNumber($trackingNumber): void
     {
         $this->_trackingNumber = $trackingNumber;
     }
@@ -71,9 +72,8 @@ class ValidateOrder extends Order
     /**
      * @param string $trackingUrl
      */
-    public function setTrackingUrl($trackingUrl)
+    public function setTrackingUrl($trackingUrl): void
     {
         $this->_trackingUrl = $trackingUrl;
     }
-
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,10 +10,8 @@
 
 namespace Sdk\Order;
 
-
 class Corporation
 {
-
     /**
      * @var int
      */
@@ -28,7 +28,7 @@ class Corporation
     /**
      * @param int $businessUnitId
      */
-    public function setBusinessUnitId($businessUnitId)
+    public function setBusinessUnitId($businessUnitId): void
     {
         $this->_businessUnitId = $businessUnitId;
     }
@@ -49,7 +49,7 @@ class Corporation
     /**
      * @param string $corporationCode
      */
-    public function setCorporationCode($corporationCode)
+    public function setCorporationCode($corporationCode): void
     {
         $this->_corporationCode = $corporationCode;
     }
@@ -70,7 +70,7 @@ class Corporation
     /**
      * @param int $corporationId
      */
-    public function setCorporationId($corporationId)
+    public function setCorporationId($corporationId): void
     {
         $this->_corporationId = $corporationId;
     }
@@ -91,7 +91,7 @@ class Corporation
     /**
      * @param string $corporationName
      */
-    public function setCorporationName($corporationName)
+    public function setCorporationName($corporationName): void
     {
         $this->_corporationName = $corporationName;
     }
@@ -112,7 +112,7 @@ class Corporation
     /**
      * @param boolean $isMarketPlaceActive
      */
-    public function setIsMarketPlaceActive($isMarketPlaceActive)
+    public function setIsMarketPlaceActive($isMarketPlaceActive): void
     {
         $this->_isMarketPlaceActive = $isMarketPlaceActive;
     }

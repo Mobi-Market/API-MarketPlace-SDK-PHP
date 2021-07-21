@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -13,5 +15,5 @@ namespace Sdk\Product;
  */
 class IdentifierTypeEnum
 {
-    const EAN = 'EAN';
+    public const EAN = 'EAN';
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Offer;
 
-
 use Sdk\Soap\Common\SoapTools;
 
 class Offer
 {
-
     /**
      * @var float
      */
@@ -30,7 +30,7 @@ class Offer
     /**
      * @param float $bestShippingCharges
      */
-    public function setBestShippingCharges($bestShippingCharges)
+    public function setBestShippingCharges($bestShippingCharges): void
     {
         if (!SoapTools::isSoapValueNull($bestShippingCharges)) {
             $this->_bestShippingCharges = $bestShippingCharges;
@@ -53,7 +53,7 @@ class Offer
     /**
      * @param string $comments
      */
-    public function setComments($comments)
+    public function setComments($comments): void
     {
         if (!SoapTools::isSoapValueNull($comments)) {
             $this->_comments = $comments;
@@ -76,7 +76,7 @@ class Offer
     /**
      * @param string $creationDate
      */
-    public function setCreationDate($creationDate)
+    public function setCreationDate($creationDate): void
     {
         if (!SoapTools::isSoapValueNull($creationDate)) {
             $this->_creationDate = $creationDate;
@@ -99,7 +99,7 @@ class Offer
     /**
      * @param float $deaTax
      */
-    public function setDeaTax($deaTax)
+    public function setDeaTax($deaTax): void
     {
         if (!SoapTools::isSoapValueNull($deaTax)) {
             $this->_deaTax = $deaTax;
@@ -122,7 +122,7 @@ class Offer
     /**
      * @param string $discountList
      */
-    public function setDiscountList($discountList)
+    public function setDiscountList($discountList): void
     {
         if (!SoapTools::isSoapValueNull($discountList)) {
             $this->_discountList = $discountList;
@@ -145,7 +145,7 @@ class Offer
     /**
      * @param float $ecoTax
      */
-    public function setEcoTax($ecoTax)
+    public function setEcoTax($ecoTax): void
     {
         if (!SoapTools::isSoapValueNull($ecoTax)) {
             $this->_ecoTax = $ecoTax;
@@ -168,7 +168,7 @@ class Offer
     /**
      * @param float $integrationPrice
      */
-    public function setIntegrationPrice($integrationPrice)
+    public function setIntegrationPrice($integrationPrice): void
     {
         if (!SoapTools::isSoapValueNull($integrationPrice)) {
             $this->_integrationPrice = $integrationPrice;
@@ -191,7 +191,7 @@ class Offer
     /**
      * @param boolean $isCDAV
      */
-    public function setIsCDAV($isCDAV)
+    public function setIsCDAV($isCDAV): void
     {
         $this->_isCDAV = $isCDAV;
     }
@@ -212,7 +212,7 @@ class Offer
     /**
      * @param string $lastUpdateDate
      */
-    public function setLastUpdateDate($lastUpdateDate)
+    public function setLastUpdateDate($lastUpdateDate): void
     {
         if (!SoapTools::isSoapValueNull($lastUpdateDate)) {
             $this->_lastUpdateDate = $lastUpdateDate;
@@ -235,7 +235,7 @@ class Offer
     /**
      * @param string $logisticMode
      */
-    public function setLogisticMode($logisticMode)
+    public function setLogisticMode($logisticMode): void
     {
         if (!SoapTools::isSoapValueNull($logisticMode)) {
             $this->_logisticMode = $logisticMode;
@@ -258,7 +258,7 @@ class Offer
     /**
      * @param float $minimumPriceForPriceAlignment
      */
-    public function setMinimumPriceForPriceAlignment($minimumPriceForPriceAlignment)
+    public function setMinimumPriceForPriceAlignment($minimumPriceForPriceAlignment): void
     {
         if (!SoapTools::isSoapValueNull($minimumPriceForPriceAlignment)) {
             $this->_minimumPriceForPriceAlignment = $minimumPriceForPriceAlignment;
@@ -281,7 +281,7 @@ class Offer
     /**
      * @param \Sdk\Offer\OfferBenchMark $offerBenchMark
      */
-    public function setOfferBenchMark($offerBenchMark)
+    public function setOfferBenchMark($offerBenchMark): void
     {
         $this->_offerBenchMark = $offerBenchMark;
     }
@@ -302,10 +302,10 @@ class Offer
     /**
      * @param $offerPool \Sdk\Offer\OfferPool
      */
-    public function addOfferPool($offerPool)
+    public function addOfferPool($offerPool): void
     {
         if ($this->_offerPoolList == null) {
-            $this->_offerPoolList = array();
+            $this->_offerPoolList = [];
         }
         array_push($this->_offerPoolList, $offerPool);
     }
@@ -326,7 +326,7 @@ class Offer
     /**
      * @param string $offerState
      */
-    public function setOfferState($offerState)
+    public function setOfferState($offerState): void
     {
         if (!SoapTools::isSoapValueNull($offerState)) {
             $this->_offerState = $offerState;
@@ -349,7 +349,7 @@ class Offer
     /**
      * @param string $parentProductId
      */
-    public function setParentProductId($parentProductId)
+    public function setParentProductId($parentProductId): void
     {
         if (!SoapTools::isSoapValueNull($parentProductId)) {
             $this->_parentProductId = $parentProductId;
@@ -372,7 +372,7 @@ class Offer
     /**
      * @param float $price
      */
-    public function setPrice($price)
+    public function setPrice($price): void
     {
         if (!SoapTools::isSoapValueNull($price)) {
             $this->_price = $price;
@@ -395,7 +395,7 @@ class Offer
     /**
      * @param string $priceMustBeAligned
      */
-    public function setPriceMustBeAligned($priceMustBeAligned)
+    public function setPriceMustBeAligned($priceMustBeAligned): void
     {
         if (!SoapTools::isSoapValueNull($priceMustBeAligned)) {
             $this->_priceMustBeAligned = $priceMustBeAligned;
@@ -418,7 +418,7 @@ class Offer
     /**
      * @param string $productCondition
      */
-    public function setProductCondition($productCondition)
+    public function setProductCondition($productCondition): void
     {
         if (!SoapTools::isSoapValueNull($productCondition)) {
             $this->_productCondition = $productCondition;
@@ -441,7 +441,7 @@ class Offer
     /**
      * @param string $productEan
      */
-    public function setProductEan($productEan)
+    public function setProductEan($productEan): void
     {
         if (!SoapTools::isSoapValueNull($productEan)) {
             $this->_productEan = $productEan;
@@ -464,7 +464,7 @@ class Offer
     /**
      * @param string $productId
      */
-    public function setProductId($productId)
+    public function setProductId($productId): void
     {
         if (!SoapTools::isSoapValueNull($productId)) {
             $this->_productId = $productId;
@@ -487,7 +487,7 @@ class Offer
     /**
      * @param string $productPackagingUnit
      */
-    public function setProductPackagingUnit($productPackagingUnit)
+    public function setProductPackagingUnit($productPackagingUnit): void
     {
         if (!SoapTools::isSoapValueNull($productPackagingUnit)) {
             $this->_productPackagingUnit = $productPackagingUnit;
@@ -510,7 +510,7 @@ class Offer
     /**
      * @param float $productPackagingUnitPrice
      */
-    public function setProductPackagingUnitPrice($productPackagingUnitPrice)
+    public function setProductPackagingUnitPrice($productPackagingUnitPrice): void
     {
         if (!SoapTools::isSoapValueNull($productPackagingUnitPrice)) {
             $this->_productPackagingUnitPrice = $productPackagingUnitPrice;
@@ -533,7 +533,7 @@ class Offer
     /**
      * @param float $productPackagingValue
      */
-    public function setProductPackagingValue($productPackagingValue)
+    public function setProductPackagingValue($productPackagingValue): void
     {
         if (!SoapTools::isSoapValueNull($productPackagingValue)) {
             $this->_productPackagingValue = $productPackagingValue;
@@ -556,7 +556,7 @@ class Offer
     /**
      * @param string $sellerProductId
      */
-    public function setSellerProductId($sellerProductId)
+    public function setSellerProductId($sellerProductId): void
     {
         if (!SoapTools::isSoapValueNull($sellerProductId)) {
             $this->_sellerProductId = $sellerProductId;
@@ -579,10 +579,10 @@ class Offer
     /**
      * @param $shippingInformation \Sdk\Delivey\ShippingInformation
      */
-    public function addShippingInformation($shippingInformation)
+    public function addShippingInformation($shippingInformation): void
     {
         if ($this->_shippingInformationList == null) {
-            $this->_shippingInformationList = array();
+            $this->_shippingInformationList = [];
         }
         array_push($this->_shippingInformationList, $shippingInformation);
     }
@@ -603,7 +603,7 @@ class Offer
     /**
      * @param int $stock
      */
-    public function setStock($stock)
+    public function setStock($stock): void
     {
         if (!SoapTools::isSoapValueNull($stock)) {
             $this->_stock = $stock;
@@ -626,7 +626,7 @@ class Offer
     /**
      * @param string $strikedPrice
      */
-    public function setStrikedPrice($strikedPrice)
+    public function setStrikedPrice($strikedPrice): void
     {
         if (!SoapTools::isSoapValueNull($strikedPrice)) {
             $this->_strikedPrice = $strikedPrice;
@@ -649,7 +649,7 @@ class Offer
     /**
      * @param float $vatRate
      */
-    public function setVatRate($vatRate)
+    public function setVatRate($vatRate): void
     {
         if (!SoapTools::isSoapValueNull($vatRate)) {
             $this->_vatRate = $vatRate;

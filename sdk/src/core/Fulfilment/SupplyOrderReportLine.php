@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 04/05/2017
@@ -8,11 +10,10 @@ namespace Sdk\Fulfilment;
 
 class SupplyOrderReportLine
 {
-        
     /*
      * @array
      */
-    private $_errorList = array();
+    private $_errorList = [];
 
     /*
      * @return array
@@ -25,7 +26,7 @@ class SupplyOrderReportLine
     /**
      * @param $error \Sdk\Fulfilment\Error
      */
-    public function addToErrorList($error)
+    public function addToErrorList($error): void
     {
         array_push($this->_errorList, $error);
     }
@@ -62,7 +63,7 @@ class SupplyOrderReportLine
      * @var string
      */
     private $_sellerSupplyOrderNumber = null;
-    
+
     /*
      * @var string
      */
@@ -78,9 +79,9 @@ class SupplyOrderReportLine
      */
     private $_warehouseReceptionMinDate = null;
 
-     /*
-     * @return array
-     */
+    /*
+    * @return array
+    */
     public function getOrderedQuantity()
     {
         return $this->_orderedQuantity;
@@ -89,14 +90,14 @@ class SupplyOrderReportLine
     /*
      * @param $orderedQuantity
      */
-    public function setOrderedQuantity($orderedQuantity)
+    public function setOrderedQuantity($orderedQuantity): void
     {
         $this->_orderedQuantity=$orderedQuantity;
     }
 
-     /*
-     * @return array
-     */
+    /*
+    * @return array
+    */
     public function getProductEan()
     {
         return $this->_productEan;
@@ -105,14 +106,14 @@ class SupplyOrderReportLine
     /*
      * @param $productEan
      */
-    public function setProductEan($productEan)
+    public function setProductEan($productEan): void
     {
         $this->_productEan=$productEan;
     }
 
-     /*
-     * @return array
-     */
+    /*
+    * @return array
+    */
     public function getSellerId()
     {
         return $this->_sellerId;
@@ -121,14 +122,14 @@ class SupplyOrderReportLine
     /*
      * @param $sellerId
      */
-    public function setSellerId($sellerId)
+    public function setSellerId($sellerId): void
     {
         $this->_sellerId=$sellerId;
     }
 
-     /*
-     * @return string
-     */
+    /*
+    * @return string
+    */
     public function getSellerProductReference()
     {
         return $this->_sellerProductReference;
@@ -137,14 +138,14 @@ class SupplyOrderReportLine
     /*
      *  @param $sellerProductReference
      */
-    public function setSellerProductReference($sellerProductReference)
+    public function setSellerProductReference($sellerProductReference): void
     {
         $this->_sellerProductReference=$sellerProductReference;
     }
 
-     /*
-     * @return string
-     */
+    /*
+    * @return string
+    */
     public function getSellerSupplyOrderNumber()
     {
         return $this->_sellerSupplyOrderNumber;
@@ -153,14 +154,14 @@ class SupplyOrderReportLine
     /*
      * @param $sellerSupplyOrderNumber
      */
-    public function setSellerSupplyOrderNumber($sellerSupplyOrderNumber)
+    public function setSellerSupplyOrderNumber($sellerSupplyOrderNumber): void
     {
         $this->_sellerSupplyOrderNumber=$sellerSupplyOrderNumber;
     }
 
-     /*
-     * @return string
-     */
+    /*
+    * @return string
+    */
     public function getSupplyOrderNumber()
     {
         return $this->_supplyOrderNumber;
@@ -169,14 +170,14 @@ class SupplyOrderReportLine
     /*
      * @param $supplyOrderNumber
      */
-    public function setSupplyOrderNumber($supplyOrderNumber)
+    public function setSupplyOrderNumber($supplyOrderNumber): void
     {
         $this->_supplyOrderNumber=$supplyOrderNumber;
     }
 
-     /*
-     * @return string
-     */
+    /*
+    * @return string
+    */
     public function getWarehouse()
     {
         return $this->_warehouse;
@@ -185,14 +186,14 @@ class SupplyOrderReportLine
     /*
      * @param $warehouseTypes Sdk\Fulfilment\WarehouseTypes
      */
-    public function setWarehouse($warehouseTypes)
+    public function setWarehouse($warehouseTypes): void
     {
         $this->_warehouse = $warehouseTypes;
     }
 
-     /*
-     * @return array
-     */
+    /*
+    * @return array
+    */
     public function getWarehouseReceptionMinDate()
     {
         return $this->_warehouseReceptionMinDate;
@@ -201,7 +202,7 @@ class SupplyOrderReportLine
     /*
      * @param $warehouseReceptionMinDate
      */
-    public function setWarehouseReceptionMinDate($warehouseReceptionMinDate)
+    public function setWarehouseReceptionMinDate($warehouseReceptionMinDate): void
     {
         $this->_warehouseReceptionMinDate=$warehouseReceptionMinDate;
     }

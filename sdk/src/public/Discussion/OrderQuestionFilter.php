@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,15 +10,13 @@
 
 namespace Sdk\Discussion;
 
-
 class OrderQuestionFilter extends DiscussionFilter
 {
-
     /**
      * OrderQuestionFilter constructor.
      */
     public function __construct()
     {
-        $this->_statusList = array();
+        $this->_statusList = [];
     }
 }

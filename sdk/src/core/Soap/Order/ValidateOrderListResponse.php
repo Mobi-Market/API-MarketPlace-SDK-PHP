@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Order;
-
 
 use Sdk\Order\Validate\ValidateOrderLineResult;
 use Sdk\Order\Validate\ValidateOrderLineResults;
@@ -18,7 +19,6 @@ use Sdk\Soap\Common\SoapTools;
 
 class ValidateOrderListResponse extends iResponse
 {
-
     private $_dataResponse;
 
     /**
@@ -40,10 +40,10 @@ class ValidateOrderListResponse extends iResponse
      */
     public function __construct($response)
     {
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         // Check for error messages
         if ($this->isOperationSuccess($this->_dataResponse['s:Body']['ValidateOrderListResponse']['ValidateOrderListResult'])) {
@@ -55,59 +55,56 @@ class ValidateOrderListResponse extends iResponse
             $this->_validateOrderResults = new ValidateOrderResults();
 
             $this->_setValidateOrderResults();
-            
         }
-
     }
 
     /**
      *
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['ValidateOrderListResponse']['ValidateOrderListResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
         $this->_sellerLogin = $objInfoResult['SellerLogin'];
     }
 
-    private function _setValidateOrderResults()
+    private function _setValidateOrderResults(): void
     {
         $objResult = $this->_dataResponse['s:Body']['ValidateOrderListResponse']['ValidateOrderListResult'];
 
-        
+
         /*
          * \Sdk\Order\validate\ValidateOrderresult
          */
-        foreach ( $objResult['ValidateOrderResults'] as $validateOrderResult ) {
-            if( isset($validateOrderResult['OrderNumber']) && !SoapTools::isSoapValueNull($validateOrderResult['OrderNumber']) ){
-                
+        foreach ($objResult['ValidateOrderResults'] as $validateOrderResult) {
+            if (isset($validateOrderResult['OrderNumber']) && !SoapTools::isSoapValueNull($validateOrderResult['OrderNumber'])) {
+
                 //OrderNumber
                 $orderResult = new ValidateOrderResult($validateOrderResult['OrderNumber']);
-                
+
                 //Validated
                 if (isset($validateOrderResult['Validated']) &&  !SoapTools::isSoapValueNull($validateOrderResult['OrderNumber']) && $validateOrderResult['Validated'] == 'true') {
                     $orderResult->setValidated(true);
                 }
-                    
+
                 $validateOrderLineResults = new ValidateOrderLineResults();
 
                 /*
                  * \Sdk\Order\Validate\ValidateOrderLineResult
                  */
                 foreach ($validateOrderResult['ValidateOrderLineResults'] as $validateOrderLineResult) {
-                    if(isset($validateOrderLineResult['SellerProductId']) && !SoapTools::isSoapValueNull($validateOrderLineResult['SellerProductId'])){
-                        
+                    if (isset($validateOrderLineResult['SellerProductId']) && !SoapTools::isSoapValueNull($validateOrderLineResult['SellerProductId'])) {
                         $orderLineResult = new ValidateOrderLineResult($validateOrderLineResult['SellerProductId']);
                         if (isset($validateOrderLineResult['Updated']) && !SoapTools::isSoapValueNull($validateOrderLineResult['Updated']) && $validateOrderLineResult['Updated'] == 'true') {
                             $orderLineResult->setUpdated(true);
                         }
                         $validateOrderLineResults->addValidateOrderLineResult($orderLineResult);
-                    }                 
+                    }
                 }
 
                 $orderResult->setValidateOrderLineResults($validateOrderLineResults);
                 $this->_validateOrderResults->addValidateOrderResult($orderResult);
-            }           
+            }
         }
     }
 }

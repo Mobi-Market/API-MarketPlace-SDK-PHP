@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Soap\Order;
 
-
 use Sdk\Soap\XmlUtils;
 
 class OrderListSoap
 {
-
     private $_tag = 'OrderList';
 
     /**
@@ -27,7 +27,6 @@ class OrderListSoap
      */
     public function __construct($orderList)
     {
-
         $this->_xmlUtil = new XmlUtils('');
         $this->_orderList = $orderList;
     }
@@ -37,16 +36,14 @@ class OrderListSoap
      */
     public function serialize()
     {
-        $xml = $this->_xmlUtil->generateOpenBaliseWithInline('validateOrderListMessage', array('xmlns:i="http://www.w3.org/2001/XMLSchema-instance"'));
+        $xml = $this->_xmlUtil->generateOpenBaliseWithInline('validateOrderListMessage', ['xmlns:i="http://www.w3.org/2001/XMLSchema-instance"']);
 
         $xml .= $this->_xmlUtil->generateOpenBalise($this->_tag);
 
         /** @var \Sdk\Order\Validate\ValidateOrder $validateOrder */
         foreach ($this->_orderList->getOrders() as $validateOrder) {
-
             $validateOrderSoap = new ValidateOrderSoap($validateOrder);
             $xml .= $validateOrderSoap->serialize();
-
         }
 
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_tag);

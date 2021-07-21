@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Discussion;
-
 
 use Sdk\Soap\Common\SoapTools;
 
@@ -29,7 +30,7 @@ class GenericQuestion
     /**
      * @param string $closeDate
      */
-    public function setCloseDate($closeDate)
+    public function setCloseDate($closeDate): void
     {
         if (!SoapTools::isSoapValueNull($closeDate)) {
             $this->_closeDate = $closeDate;
@@ -52,7 +53,7 @@ class GenericQuestion
     /**
      * @param string $creationDate
      */
-    public function setCreationDate($creationDate)
+    public function setCreationDate($creationDate): void
     {
         if (!SoapTools::isSoapValueNull($creationDate)) {
             $this->_creationDate = $creationDate;
@@ -75,7 +76,7 @@ class GenericQuestion
     /**
      * @param string $lastUpdatedDate
      */
-    public function setLastUpdatedDate($lastUpdatedDate)
+    public function setLastUpdatedDate($lastUpdatedDate): void
     {
         if (!SoapTools::isSoapValueNull($lastUpdatedDate)) {
             $this->_lastUpdatedDate = $lastUpdatedDate;
@@ -98,10 +99,10 @@ class GenericQuestion
     /**
      * @param $message \Sdk\Discussion\Message
      */
-    public function addMessageToList($message)
+    public function addMessageToList($message): void
     {
         if ($this->_messageList == null) {
-            $this->_messageList = array();
+            $this->_messageList = [];
         }
         if ($message != null) {
             array_push($this->_messageList, $message);
@@ -124,7 +125,7 @@ class GenericQuestion
     /**
      * @param string $status
      */
-    public function setStatus($status)
+    public function setStatus($status): void
     {
         if (!SoapTools::isSoapValueNull($status)) {
             $this->_status = $status;
@@ -147,7 +148,7 @@ class GenericQuestion
     /**
      * @param string $subject
      */
-    public function setSubject($subject)
+    public function setSubject($subject): void
     {
         if (!SoapTools::isSoapValueNull($subject)) {
             $this->_subject = $subject;

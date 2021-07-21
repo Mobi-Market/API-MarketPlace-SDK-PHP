@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -30,8 +32,7 @@ class ClaimFilterSoap extends FilterSoap
                     break;
                 }
             }
-        }
-        else {
+        } else {
             parent::__construct('xmlns:i="http://www.w3.org/2001/XMLSchema-instance"', 'orderClaimFilter');
         }
     }
@@ -39,7 +40,7 @@ class ClaimFilterSoap extends FilterSoap
     /**
      * @param $child ClaimFilter
      */
-    public function serializeChild($child)
+    public function serializeChild($child): void
     {
         /** Dates **/
         $beginCreationDateBalise = $this->_serializeDate($child->getBeginCreationDate(), $this->_BeginCreationDateTAG);
@@ -58,14 +59,12 @@ class ClaimFilterSoap extends FilterSoap
 
         if ($child->getOrderNumberList() == null) {
             $this->_childrens .= $this->_xmlUtil->generateAutoClosingBaliseWithInline($this->_OrderNumberListTAG, 'i:nil', 'true');
-        }
-        else {
+        } else {
             /**
              * Order number list
              */
             /** @var string $orderNumber */
             foreach ($child->getOrderNumberList() as $orderNumber) {
-
                 $globalPrefix = $this->_xmlUtil->getGlobalPrefix();
                 $this->_xmlUtil->setGlobalPrefix('');
 
@@ -79,8 +78,7 @@ class ClaimFilterSoap extends FilterSoap
 
         if (!$child->isOnlyMessageFromCDSCustomerService()) {
             $this->_childrens .= $this->_xmlUtil->generateBalise($this->_OnlyWithMessageFromCdsCustomerServiceTAG, 'false');
-        }
-        else {
+        } else {
             $this->_childrens .= $this->_xmlUtil->generateBalise($this->_OnlyWithMessageFromCdsCustomerServiceTAG, 'true');
         }
     }

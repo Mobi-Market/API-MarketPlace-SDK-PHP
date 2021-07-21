@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,11 +10,10 @@
 
 namespace Sdk\Discussion;
 
-
 abstract class DiscussionStatusEnum
 {
-    const All = 'All';
-    const Open = 'Open';
-    const Closed = 'Closed';
-    const NotProcessed = 'NotProcessed';
+    public const All = 'All';
+    public const Open = 'Open';
+    public const Closed = 'Closed';
+    public const NotProcessed = 'NotProcessed';
 }

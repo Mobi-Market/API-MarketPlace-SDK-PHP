@@ -1,16 +1,19 @@
 <?php
 
-/* 
+declare(strict_types=1);
+
+/*
  * Created by El Ibaoui Otmane (SQLI)
  * Date : 08/05/2017
  * Time : 17:46
  */
+
 namespace Sdk\Soap\Fulfillment\Response;
 
 use Sdk\Soap\Common\iResponse;
-use \Sdk\Fulfilment\ProductStockList;
-use \Sdk\Fulfilment\ProductStockListMessage;
-use \Sdk\Soap\Common\SoapTools;
+use Sdk\Fulfilment\ProductStockList;
+use Sdk\Fulfilment\ProductStockListMessage;
+use Sdk\Soap\Common\SoapTools;
 
 class CreateExternalOrderResponse extends iResponse
 {
@@ -21,15 +24,14 @@ class CreateExternalOrderResponse extends iResponse
 
     /*
      * CreateExternalOrderResponse constructor
-     * @param $response 
+     * @param $response
      */
     public function __construct($response)
     {
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
         // Check For Operation Success
-        if ($this->isOperationSuccess($this->_dataResponse['s:Body']['CreateExternalOrderResponse']['CreateExternalOrderResult']))
-        {
+        if ($this->isOperationSuccess($this->_dataResponse['s:Body']['CreateExternalOrderResponse']['CreateExternalOrderResult'])) {
             $this->_operationSuccess=true;
             $this->_setGlobalInformations();
         }
@@ -37,7 +39,7 @@ class CreateExternalOrderResponse extends iResponse
     /**
      * Set Token ID and Seller Login from XML response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['CreateExternalOrderResponse']['CreateExternalOrderResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -54,11 +56,10 @@ class CreateExternalOrderResponse extends iResponse
         $objError = $this->_dataResponse['s:Body']['CreateExternalOrderResponse']['CreateExternalOrderResult']['ErrorMessage'];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             return true;
         }
         return false;
     }
- }
+}

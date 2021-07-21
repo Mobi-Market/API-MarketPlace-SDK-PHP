@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,15 +10,12 @@
 
 namespace Sdk\Soap\Offer;
 
-
 class GetOfferListPaginated extends GetOfferList
 {
-
     public function __construct($xmlns = 'xmlns="http://www.cdiscount.com"')
     {
         $this->_xmlns = $xmlns;
         parent::__construct();
         $this->_tag = 'GetOfferListPaginated';
     }
-
 }

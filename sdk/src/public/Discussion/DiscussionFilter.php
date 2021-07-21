@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -20,7 +22,7 @@ class DiscussionFilter extends Filter
     /**
      * @param $status
      */
-    public function addStatus($status)
+    public function addStatus($status): void
     {
         array_push($this->_statusList, $status);
     }
@@ -41,10 +43,10 @@ class DiscussionFilter extends Filter
     /**
      * @param $orderNumber
      */
-    public function addOrderNumber($orderNumber)
+    public function addOrderNumber($orderNumber): void
     {
         if ($this->_orderNumberList == null) {
-            $this->_orderNumberList = array();
+            $this->_orderNumberList = [];
         }
         array_push($this->_orderNumberList, $orderNumber);
     }
@@ -56,5 +58,4 @@ class DiscussionFilter extends Filter
     {
         return $this->_orderNumberList;
     }
-
 }

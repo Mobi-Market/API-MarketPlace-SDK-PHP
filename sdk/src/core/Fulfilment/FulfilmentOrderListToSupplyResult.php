@@ -1,12 +1,15 @@
 <?php
 
-/* 
+declare(strict_types=1);
+
+/*
  * Created by Cdiscount
  * Date : 02/05/2017
  * Time : 12:34
  */
 
 namespace Sdk\Fulfilment;
+
 use Sdk\Common\CommonResult;
 
 class FulfilmentOrderListToSupplyResult extends CommonResult
@@ -14,7 +17,7 @@ class FulfilmentOrderListToSupplyResult extends CommonResult
     /*
      * @var array
      */
-    private $_fulfilmentOrderLineList = array();
+    private $_fulfilmentOrderLineList = [];
 
     /*
      * @return array
@@ -26,16 +29,16 @@ class FulfilmentOrderListToSupplyResult extends CommonResult
     /**
      * @param $fulfilmentOrderLine \Sdk\Fulfilment\SupplyOrder
      */
-    public function addFulfilmentOrderLine($fulfilmentOrderLine)
+    public function addFulfilmentOrderLine($fulfilmentOrderLine): void
     {
         array_push($this->_fulfilmentOrderLineList, $fulfilmentOrderLine);
     }
-       
+
     /*
      * FulfilmentOrderListToSupplyResult constructor
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_errorList = array();
+        $this->_errorList = [];
     }
 }

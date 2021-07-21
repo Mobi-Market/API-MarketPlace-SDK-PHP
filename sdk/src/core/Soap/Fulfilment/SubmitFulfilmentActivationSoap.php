@@ -1,9 +1,11 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 04/05/2017
  */
- 
+
 namespace Sdk\Soap\Fulfilment;
 
 use Sdk\Soap\BaliseTool;
@@ -36,7 +38,7 @@ class SubmitFulfilmentActivationSoap extends BaliseTool
     * SubmitFulfilmentActivationSoap constructor
     * @param string $xmlns
     */
-    public function __construct($xmlns = 'xmlns="http://www.cdiscount.com"') 
+    public function __construct($xmlns = 'xmlns="http://www.cdiscount.com"')
     {
         $this->_xmlns = $xmlns;
         $this->_tag = 'SubmitFulfilmentActivation';
@@ -53,67 +55,58 @@ class SubmitFulfilmentActivationSoap extends BaliseTool
          * Opening tag FulfilmentSupplyOrderRequest
          */
         $xml = $this->_xmlUtil->generateOpenBalise($this->_submitFulfilmentActivationRequestTag);
-        
-        if($request->getProductActivationList() !=null)
-        {
+
+        if ($request->getProductActivationList() !=null) {
             /*
             * Opening tag ProductActivationList
             */
             $xml .= $this->_xmlUtil->generateOpenBalise($this->_productActivationListTAG);
 
-            foreach($request->getProductActivationList() as $productActivation)
-            {
+            foreach ($request->getProductActivationList() as $productActivation) {
                 //Opening tag ProductActivationData
                 $xml .= $this->_xmlUtil->generateOpenBalise($this->_productActivationDataTAG);
-                if($productActivation->getAction() != null)
-                {
+                if ($productActivation->getAction() != null) {
                     //Tag Action
                     $xml .= $this->_xmlUtil->generateBalise($this->_actionTAG, $productActivation->getAction());
                 }
 
-                if($productActivation->getHeight() != null)
-                {
+                if ($productActivation->getHeight() != null) {
                     //Tag Height
                     $xml .= $this->_xmlUtil->generateBalise($this->_heightTAG, $productActivation->getHeight());
                 }
 
-                if($productActivation->getLength() != null)
-                {
+                if ($productActivation->getLength() != null) {
                     //Tag Length
                     $xml .= $this->_xmlUtil->generateBalise($this->_lengthTAG, $productActivation->getLength());
                 }
 
-                if($productActivation->getProductEAN() != null)
-                {
+                if ($productActivation->getProductEAN() != null) {
                     //Tag ProductEAN
                     $xml .= $this->_xmlUtil->generateBalise($this->_productEANTAG, $productActivation->getProductEAN());
                 }
 
-                if($productActivation->getSellerProductReference() != null)
-                {
+                if ($productActivation->getSellerProductReference() != null) {
                     //Tag SellerProductReference
                     $xml .= $this->_xmlUtil->generateBalise($this->_sellerProductReferenceTAG, $productActivation->getSellerProductReference());
                 }
 
-                if($productActivation->getWeight() != null)
-                {
+                if ($productActivation->getWeight() != null) {
                     //Tag Weight
                     $xml .= $this->_xmlUtil->generateBalise($this->_weightTAG, $productActivation->getWeight());
                 }
 
-                if($productActivation->getWidth() != null)
-                {
+                if ($productActivation->getWidth() != null) {
                     //Tag Width
                     $xml .= $this->_xmlUtil->generateBalise($this->_widthTAG, $productActivation->getWidth());
                 }
 
                 //Closing tag ProductActivationData
                 $xml .= $this->_xmlUtil->generateCloseBalise($this->_productActivationDataTAG);
+            }
+
+            $xml .= $this->_xmlUtil->generateCloseBalise($this->_productActivationListTAG);
         }
 
-        $xml .= $this->_xmlUtil->generateCloseBalise($this->_productActivationListTAG);
-        }
-        
 
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_submitFulfilmentActivationRequestTag);
 

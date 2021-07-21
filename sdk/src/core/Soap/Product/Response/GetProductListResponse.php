@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Product\Response;
-
 
 use Sdk\Product\Product;
 use Sdk\Soap\Common\iResponse;
@@ -30,8 +31,7 @@ class GetProductListResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check For error message
@@ -45,7 +45,7 @@ class GetProductListResponse extends iResponse
             /**
              * Product List
              */
-            $this->_productList = array();
+            $this->_productList = [];
 
             $this->_getProductList();
         }
@@ -54,7 +54,7 @@ class GetProductListResponse extends iResponse
     /**
      * Set Token ID and Seller Login from XML response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetProductListResponse']['GetProductListResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -70,7 +70,6 @@ class GetProductListResponse extends iResponse
         $objError = $this->_dataResponse['s:Body']['GetProductListResponse']['GetProductListResult']['ErrorMessage'];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             return true;
@@ -78,10 +77,9 @@ class GetProductListResponse extends iResponse
         return false;
     }
 
-    private function _getProductList()
+    private function _getProductList(): void
     {
         foreach ($this->_dataResponse['s:Body']['GetProductListResponse']['GetProductListResult']['ProductList']['Product'] as $productXML) {
-
             $product = new Product($productXML['SKU']);
             $product->setBrandName($productXML['BrandName']);
 
@@ -111,7 +109,7 @@ class GetProductListResponse extends iResponse
      */
     public function getProductsByName($name)
     {
-        $newList = array();
+        $newList = [];
 
         /** @var \Sdk\Product\Product $product */
         foreach ($this->_productList as $product) {
@@ -131,7 +129,7 @@ class GetProductListResponse extends iResponse
      */
     public function getProductsByBrand($brand)
     {
-        $newList = array();
+        $newList = [];
 
         /** @var \Sdk\Product\Product $product */
         foreach ($this->_productList as $product) {

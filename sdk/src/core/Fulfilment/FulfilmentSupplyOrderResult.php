@@ -1,17 +1,20 @@
 <?php
 
-/* 
+declare(strict_types=1);
+
+/*
  * Created by Cdiscount
  * Date : 02/05/2017
  * Time : 12:34
  */
 
 namespace Sdk\Fulfilment;
+
 use Sdk\Common\CommonResult;
 
 class FulfilmentSupplyOrderResult extends CommonResult
 {
-     /*
+    /*
     * @var int
     */
     private $_currentPageNumber = 0;
@@ -24,7 +27,7 @@ class FulfilmentSupplyOrderResult extends CommonResult
     /*
      * @var array
      */
-    private $_supplyOrderList = array();
+    private $_supplyOrderList = [];
 
     /*
     * return $_currentPageNumber
@@ -37,14 +40,14 @@ class FulfilmentSupplyOrderResult extends CommonResult
     /*
      * @param $currentPageNumber
      */
-    public function setCurrentPageNumber($currentPageNumber)
+    public function setCurrentPageNumber($currentPageNumber): void
     {
         $this->_currentPageNumber = $currentPageNumber;
     }
 
     /*
     * return $_currentPage
-    */              
+    */
     public function getNumberOfPages()
     {
         return $this->_numberOfPages;
@@ -53,7 +56,7 @@ class FulfilmentSupplyOrderResult extends CommonResult
     /*
      * @param $numberOfPages
      */
-    public function setNumberOfPages($numberOfPages)
+    public function setNumberOfPages($numberOfPages): void
     {
         $this->_numberOfPages = $numberOfPages;
     }
@@ -69,16 +72,16 @@ class FulfilmentSupplyOrderResult extends CommonResult
     /**
      * @param $supplyOrder \Sdk\Fulfilment\SupplyOrder
      */
-    public function addSupplyOrderToList($supplyOrder)
+    public function addSupplyOrderToList($supplyOrder): void
     {
         array_push($this->_supplyOrderList, $supplyOrder);
     }
-       
+
     /*
      * SubmitFulfilmentSupplyOrderResult constructor, initialize array erorList the commonResult
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_errorList = array();
+        $this->_errorList = [];
     }
 }

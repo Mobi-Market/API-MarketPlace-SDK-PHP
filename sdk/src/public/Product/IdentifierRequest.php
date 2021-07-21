@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -17,7 +19,7 @@ class IdentifierRequest
      * @var string
      */
     private $_identifierType = null;
-    
+
     /*
      * @return string
      */
@@ -25,16 +27,16 @@ class IdentifierRequest
     {
         return $this->_identifierType;
     }
-    
+
     /*
      * @param $identifierType
      */
-    public function setIdentifierType($identifierType)
+    public function setIdentifierType($identifierType): void
     {
         $this->_identifierType = $identifierType;
-    }    
+    }
 
-    private $_valueList = array();
+    private $_valueList = [];
 
     /**
      * @return array
@@ -47,7 +49,7 @@ class IdentifierRequest
     /**
      * @param $value
      */
-    public function addValue($value)
+    public function addValue($value): void
     {
         array_push($this->_valueList, $value);
     }

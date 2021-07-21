@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 18/05/2017
@@ -9,12 +11,11 @@ namespace Sdk\Fulfilment;
 
 class OfferStateActionRequest
 {
-    
     /*
      * @var string
      */
     private $_sellerProductId = null;
-    
+
     /*
      * @var enum
      */
@@ -23,15 +24,15 @@ class OfferStateActionRequest
     /*
      * @return string
      */
-    public function  getSellerProductId()
+    public function getSellerProductId()
     {
         return $this->_sellerProductId;
     }
 
-     /*
-     * @param $sellerProductId
-     */
-    public function setSellerProductId($sellerProductId)
+    /*
+    * @param $sellerProductId
+    */
+    public function setSellerProductId($sellerProductId): void
     {
         $this->_sellerProductId = $sellerProductId;
     }
@@ -43,25 +44,23 @@ class OfferStateActionRequest
     {
         return $this->_action;
     }
-    
+
     /*
      * @param $offerStateActionType Sdk\Fulfilment\OfferStateActionType
      */
-    public function setAction($offerStateActionType)
+    public function setAction($offerStateActionType): void
     {
         $this->_action = $offerStateActionType;
     }
-    
+
     /*
      * OfferStateActionRequest constructor
      * @param $sellerProductId string
      * @param $action enum
      */
-    public function __construct($sellerProductId, $action) 
+    public function __construct($sellerProductId, $action)
     {
         $this->_sellerProductId = $sellerProductId;
         $this->_action = $action;
     }
 }
-
-

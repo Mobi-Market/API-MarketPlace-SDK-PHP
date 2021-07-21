@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Soap\Seller;
-
 
 use Sdk\Delivey\DeliveryModeInformation;
 use Sdk\Offer\OfferPool;
@@ -39,7 +40,7 @@ class GetSellerInformationResponse extends iResponse
     /**
      * @var array
      */
-    private $_offerPoolList = array();
+    private $_offerPoolList = [];
 
     /**
      * @return null
@@ -52,7 +53,7 @@ class GetSellerInformationResponse extends iResponse
     /**
      * @var array
      */
-    private $_deliveryModes = array();
+    private $_deliveryModes = [];
 
     /**
      * @return null
@@ -69,7 +70,7 @@ class GetSellerInformationResponse extends iResponse
      */
     public function __construct($response)
     {
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check for error messages
@@ -100,9 +101,9 @@ class GetSellerInformationResponse extends iResponse
     /**
      *
      */
-    private function _setSellerInformations()
+    private function _setSellerInformations(): void
     {
-        $objSellerResult = $this->_dataResponse['s:Body']['GetSellerInformationResponse']['GetSellerInformationResult']{'Seller'};
+        $objSellerResult = $this->_dataResponse['s:Body']['GetSellerInformationResponse']['GetSellerInformationResult']['Seller'];
         $this->_seller->setEmail($objSellerResult['Email']);
         $this->_seller->setIsAvailable($objSellerResult['IsAvailable']);
         $this->_seller->setLogin($objSellerResult['Login']);
@@ -136,7 +137,7 @@ class GetSellerInformationResponse extends iResponse
         $this->_seller->setSellerAddress($address);
     }
 
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetSellerInformationResponse']['GetSellerInformationResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -146,14 +147,13 @@ class GetSellerInformationResponse extends iResponse
     /**
      *
      */
-    private function _setOfferPoolList()
+    private function _setOfferPoolList(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetSellerInformationResponse']['GetSellerInformationResult']['OfferPoolList'];
 
         $arrays = false;
         if (isset($objInfoResult['OfferPool'])) {
             foreach ($objInfoResult['OfferPool'] as $offer) {
-
                 if (is_array($offer)) {
                     $arrays = true;
                     array_push($this->_offerPoolList, new OfferPool($offer['Id'], $offer['Description']));
@@ -168,7 +168,7 @@ class GetSellerInformationResponse extends iResponse
     /**
      *
      */
-    private function _setDeliveryModes()
+    private function _setDeliveryModes(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetSellerInformationResponse']['GetSellerInformationResult']['DeliveryModes'];
 
@@ -185,7 +185,6 @@ class GetSellerInformationResponse extends iResponse
         $objError = $this->_dataResponse['s:Body']['GetSellerInformationResponse']['GetSellerInformationResult']['ErrorMessage'];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             return true;

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,12 +10,10 @@
 
 namespace Sdk\Product;
 
-
 use Sdk\Soap\Common\SoapTools;
 
 class CategoryTree
 {
-
     /**
      * @var bool
      */
@@ -30,7 +30,7 @@ class CategoryTree
     /**
      * @param boolean $allowOfferIntegration
      */
-    public function setAllowOfferIntegration($allowOfferIntegration)
+    public function setAllowOfferIntegration($allowOfferIntegration): void
     {
         $this->_allowOfferIntegration = $allowOfferIntegration;
     }
@@ -51,7 +51,7 @@ class CategoryTree
     /**
      * @param boolean $allowProductIntegration
      */
-    public function setAllowProductIntegration($allowProductIntegration)
+    public function setAllowProductIntegration($allowProductIntegration): void
     {
         $this->_allowProductIntegration = $allowProductIntegration;
     }
@@ -72,7 +72,7 @@ class CategoryTree
     /**
      * @param string $code
      */
-    public function setCode($code)
+    public function setCode($code): void
     {
         if (!SoapTools::isSoapValueNull($code)) {
             $this->_code = $code;
@@ -95,7 +95,7 @@ class CategoryTree
     /**
      * @param string $name
      */
-    public function setName($name)
+    public function setName($name): void
     {
         if (!SoapTools::isSoapValueNull($name)) {
             $this->_name = $name;
@@ -118,7 +118,7 @@ class CategoryTree
     /**
      * @param boolean $eanOptional
      */
-    public function setEanOptional($eanOptional)
+    public function setEanOptional($eanOptional): void
     {
         $this->_eanOptional = $eanOptional;
     }
@@ -126,7 +126,7 @@ class CategoryTree
     /**
      * @var array \Sdk\Product\CategoryTree
      */
-    private $_childrenCategoryList = array();
+    private $_childrenCategoryList = [];
 
     /**
      * @return array
@@ -139,7 +139,7 @@ class CategoryTree
     /**
      * @param $child \Sdk\Product\CategoryTree
      */
-    public function addChild($child)
+    public function addChild($child): void
     {
         array_push($this->_childrenCategoryList, $child);
     }

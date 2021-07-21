@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,7 +9,6 @@
  */
 
 namespace Sdk\Discussion;
-
 
 class OfferQuestionFilter extends DiscussionFilter
 {
@@ -27,10 +28,10 @@ class OfferQuestionFilter extends DiscussionFilter
     /**
      * @param $productEan
      */
-    public function addProductEan($productEan)
+    public function addProductEan($productEan): void
     {
         if ($this->_productEanList == null) {
-            $this->_productEanList = array();
+            $this->_productEanList = [];
         }
         array_push($this->_productEanList, $productEan);
     }
@@ -40,8 +41,7 @@ class OfferQuestionFilter extends DiscussionFilter
      */
     public function __construct()
     {
-        $this->_statusList = array();
-
+        $this->_statusList = [];
     }
 
     /**
@@ -60,10 +60,10 @@ class OfferQuestionFilter extends DiscussionFilter
     /**
      * @param $productSellerReference
      */
-    public function addProductSellerReference($productSellerReference)
+    public function addProductSellerReference($productSellerReference): void
     {
         if ($this->_productSellerReferenceList == null) {
-            $this->_productSellerReferenceList = array();
+            $this->_productSellerReferenceList = [];
         }
         array_push($this->_productSellerReferenceList, $productSellerReference);
     }

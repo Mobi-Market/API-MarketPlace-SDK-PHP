@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,13 +10,11 @@
 
 namespace Sdk\Soap\Offer\Response;
 
-
 use Sdk\Soap\Common\iResponse;
 use Sdk\Soap\Common\SoapTools;
 
 class SubmitOfferPackageResponse extends iResponse
 {
-
     /**
      * @var array
      */
@@ -65,11 +65,10 @@ class SubmitOfferPackageResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
-        $this->_productLogList = array();
+        $this->_productLogList = [];
 
         // Check For error message
         if (!$this->_hasErrorMessage()) {
@@ -86,7 +85,7 @@ class SubmitOfferPackageResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['SubmitOfferPackageResponse']['SubmitOfferPackageResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -100,10 +99,9 @@ class SubmitOfferPackageResponse extends iResponse
     private function _hasErrorMessage()
     {
         $objError = $this->_dataResponse['s:Body']['SubmitOfferPackageResponse']['SubmitOfferPackageResult']['ErrorMessage'];
-        $this->_errorList = array();
+        $this->_errorList = [];
 
         if (isset($objError['_']) && strlen($objError['_']) > 0) {
-
             $this->_hasError = true;
             $this->_errorMessage = $objError['_'];
             array_push($this->_errorList, $this->_errorMessage);
@@ -115,7 +113,7 @@ class SubmitOfferPackageResponse extends iResponse
     /**
      * @param $submitProductPackageResult
      */
-    private function _setImportInformationsFromXML($submitProductPackageResult)
+    private function _setImportInformationsFromXML($submitProductPackageResult): void
     {
         $this->_packageId = $submitProductPackageResult['PackageId'];
 

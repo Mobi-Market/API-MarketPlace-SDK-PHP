@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -7,6 +9,7 @@
  */
 
 namespace Sdk\Order\Refund;
+
 use Sdk\Common\CommonResult;
 
 class SellerRefundResult extends CommonResult
@@ -15,28 +18,28 @@ class SellerRefundResult extends CommonResult
      * @var string
      */
     private $_sellerProductId = null;
-    
+
     /*
      * @var string
      */
     private $_ean = null;
-    
+
     /*
      * @var enum
      */
     private $_motive = null;
-    
+
     /*
      * @var decimal
      */
     private $_value = null;
-    
+
     /*
      * SellerRefundResult constructor to initialize the errorList array of the commonResult
      */
-    public function __construct() 
+    public function __construct()
     {
-        $this->_errorList = array();
+        $this->_errorList = [];
     }
 
     /*
@@ -46,15 +49,15 @@ class SellerRefundResult extends CommonResult
     {
         return $this->_sellerProductId;
     }
-    
+
     /*
      * @param $sellerProductId
      */
-    public function setSellerProductIdResult($sellerProductId)
+    public function setSellerProductIdResult($sellerProductId): void
     {
         $this->_sellerProductId = $sellerProductId;
     }
-    
+
     /*
      * @return string
      */
@@ -62,15 +65,15 @@ class SellerRefundResult extends CommonResult
     {
         return $this->_ean;
     }
-    
+
     /*
      * @param $ean
      */
-    public function setEanResult($ean)
+    public function setEanResult($ean): void
     {
         $this->_ean = $ean;
     }
-    
+
     /*
      * @var enum
      */
@@ -78,15 +81,15 @@ class SellerRefundResult extends CommonResult
     {
         return $this->_motive;
     }
-    
+
     /*
      * @param $motive
      */
-    public function setMotiveResult($motive)
+    public function setMotiveResult($motive): void
     {
         $this->_motive = $motive;
     }
-    
+
     /*
      * @return decima
      */
@@ -94,11 +97,11 @@ class SellerRefundResult extends CommonResult
     {
         return $this->_value;
     }
-    
+
     /*
      * @param $value
      */
-    public function setValueResult($value)
+    public function setValueResult($value): void
     {
         $this->_value = $value;
     }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -13,7 +15,6 @@ namespace Sdk\Fulfilment;
  */
 class ProductStockListMessage
 {
-
     /**
      * @var array
      */
@@ -30,9 +31,9 @@ class ProductStockListMessage
     /**
      * @param array $productStockList
      */
-    public function setProductStockList($productStockList)
+    public function setProductStockList($productStockList): void
     {
-        $this->_productStockList = $productStockList;  
+        $this->_productStockList = $productStockList;
     }
 
     /**
@@ -51,7 +52,7 @@ class ProductStockListMessage
     /**
      * @param Enum $status
      */
-    public function setStatus($status)
+    public function setStatus($status): void
     {
         $this->_status = $status;
     }
@@ -72,7 +73,7 @@ class ProductStockListMessage
     /**
      * @param int $totalProductCount
      */
-    public function setTotalProductCount($totalProductCount)
+    public function setTotalProductCount($totalProductCount): void
     {
         $this->_totalProductCount = $totalProductCount;
     }

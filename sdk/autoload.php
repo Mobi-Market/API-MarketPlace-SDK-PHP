@@ -1,12 +1,14 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * User: CDiscount
  * Date: 22/09/2016
  * Time: 12:03
  */
- 
- 
+
+
 require_once __DIR__ . '/src/core/Soap/BaliseTool.php';
 
 require_once __DIR__ . '/src/core/Auth/Token.php';
@@ -308,7 +310,3 @@ require_once __DIR__ . '/src/core/Soap/Fulfilment/SubmitFulfilmentActivationSoap
 require_once __DIR__ . '/src/core/Soap/Fulfilment/SubmitFulfilmentOnDemandSupplyOrderSoap.php';
 require_once __DIR__ . '/src/core/Soap/Fulfilment/SubmitFulfilmentSupplyOrderSoap.php';
 require_once __DIR__ . '/src/core/Soap/Fulfilment/SubmitOfferStateActionSoap.php';
-
-
-
-

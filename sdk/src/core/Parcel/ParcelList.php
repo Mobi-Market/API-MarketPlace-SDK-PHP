@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,18 +10,17 @@
 
 namespace Sdk\Parcel;
 
-
 class ParcelList
 {
     /**
      * @var array \Sdk\Parcel\Parcel
      */
-    private $_parcelList = array();
+    private $_parcelList = [];
 
     /**
      * @param $parcel \Sdk\Parcel\Parcel
      */
-    public function addParcel($parcel)
+    public function addParcel($parcel): void
     {
         array_push($this->_parcelList, $parcel);
     }

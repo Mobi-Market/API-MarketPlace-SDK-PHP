@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -29,7 +31,7 @@ class ProductStock
     /**
      * @param int $blockedStock
      */
-    public function setBlockedStock($blockedStock)
+    public function setBlockedStock($blockedStock): void
     {
         $this->_blockedStock = $blockedStock;
     }
@@ -50,12 +52,12 @@ class ProductStock
     /**
      * @param int $ean
      */
-    public function setEan($ean)
+    public function setEan($ean): void
     {
         $this->_ean = $ean;
     }
 
-      /**
+    /**
      * @var int
      */
     private $_fodStock = null;
@@ -71,7 +73,7 @@ class ProductStock
     /**
      * @param int $fodStock
      */
-    public function setFodStock($fodStock)
+    public function setFodStock($fodStock): void
     {
         $this->_fodStock = $fodStock;
     }
@@ -92,7 +94,7 @@ class ProductStock
     /**
      * @param int $frontStock
      */
-    public function setFrontStock($frontStock)
+    public function setFrontStock($frontStock): void
     {
         $this->_frontStock = $frontStock;
     }
@@ -113,14 +115,14 @@ class ProductStock
     /**
      * @param bool $isReferenced
      */
-    public function setIsReferenced($isReferenced)
+    public function setIsReferenced($isReferenced): void
     {
         $this->_isReferenced = $isReferenced;
     }
 
-     /**
-     * @var string
-     */
+    /**
+    * @var string
+    */
     private $_libelle = null;
 
     /**
@@ -134,14 +136,14 @@ class ProductStock
     /**
      * @param string $libelle
      */
-    public function setLibelle($libelle)
+    public function setLibelle($libelle): void
     {
         $this->_libelle = $libelle;
     }
 
-     /**
-     * @var string
-     */
+    /**
+    * @var string
+    */
     private $_sellerReference = null;
 
     /**
@@ -155,14 +157,14 @@ class ProductStock
     /**
      * @param string $sellerReference
      */
-    public function setSellerReference($sellerReference)
+    public function setSellerReference($sellerReference): void
     {
         $this->_sellerReference = $sellerReference;
     }
 
-     /**
-     * @var string
-     */
+    /**
+    * @var string
+    */
     private $_sku = null;
 
     /**
@@ -176,14 +178,14 @@ class ProductStock
     /**
      * @param string $sku
      */
-    public function setSku($sku)
+    public function setSku($sku): void
     {
         $this->_sku = $sku;
     }
 
-     /**
-     * @var int
-     */
+    /**
+    * @var int
+    */
     private $_stockInWarehouse = null;
 
     /**
@@ -197,7 +199,7 @@ class ProductStock
     /**
      * @param int $stockInWarehouse
      */
-    public function setStockInWarehouse($stockInWarehouse)
+    public function setStockInWarehouse($stockInWarehouse): void
     {
         $this->_stockInWarehouse = $stockInWarehouse;
     }
@@ -218,8 +220,8 @@ class ProductStock
     /**
      * @param string $warehouse
      */
-    public function setWarehouse($warehouse)
+    public function setWarehouse($warehouse): void
     {
         $this->_warehouse = $warehouse;
     }
-}    
+}

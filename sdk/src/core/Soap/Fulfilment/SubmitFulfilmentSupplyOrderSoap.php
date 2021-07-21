@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /*
  * Created by CDiscount
  * Date: 04/05/2017
@@ -14,7 +16,7 @@ class SubmitFulfilmentSupplyOrderSoap extends BaliseTool
      * @var string
      */
     private $_fulfilmentSupplyOrderRequestTag = 'request';
-    
+
     /*
      * @var string
      */
@@ -25,49 +27,49 @@ class SubmitFulfilmentSupplyOrderSoap extends BaliseTool
      */
     private $_fulfilmentProductDescriptionTAG = 'FulfilmentProductDescription';
 
-     /*
-     * @var string
-     */
+    /*
+    * @var string
+    */
     private $_productEanTAG = 'ProductEan';
 
-     /*
-     * @var string
-     */
+    /*
+    * @var string
+    */
     private $_quantityTAG = 'Quantity';
 
-     /*
-     * @var string
-     */
+    /*
+    * @var string
+    */
     private $_extSupplyOrderIDTAG = 'ExtSupplyOrderID';
 
-     /*
-     * @var string
-     */
+    /*
+    * @var string
+    */
     private $_wareHouseReceptionMinDateTAG = 'WareHouseReceptionMinDate';
 
-     /*
-     * @var string
-     */
+    /*
+    * @var string
+    */
     private $_sellerProductReferenceTAG = 'SellerProductReference';
 
     /*
      * @var enum
      */
     private $_warehouseTAG = 'Warehouse';
-    
-    
-  
-   /*
-    * SubmitFulfilmentSupplyOrderSoap constructor
-    * @param string $xmlns
-    */
-    public function __construct($xmlns = 'xmlns="http://www.cdiscount.com"') 
+
+
+
+    /*
+     * SubmitFulfilmentSupplyOrderSoap constructor
+     * @param string $xmlns
+     */
+    public function __construct($xmlns = 'xmlns="http://www.cdiscount.com"')
     {
         $this->_xmlns = $xmlns;
         $this->_tag = 'SubmitFulfilmentSupplyOrder';
         parent::__construct();
     }
-    
+
     /*
      * @param $request \Sdk\Fulfilment\FulfilmentSupplyOrderRequest
      * @return $xml
@@ -77,57 +79,49 @@ class SubmitFulfilmentSupplyOrderSoap extends BaliseTool
         $namespace = 'cdis:';
         /*
          * @param $namespace
-         */        
+         */
         $this->_xmlUtil->setGlobalPrefix($namespace);
         /*
          * Opening tag FulfilmentSupplyOrderRequest
          */
         $xml = $this->_xmlUtil->generateOpenBalise($this->_fulfilmentSupplyOrderRequestTag);
-       
-        if($request->getProductList() != null)
-        {
+
+        if ($request->getProductList() != null) {
             /*
             * Opening tag ProductList
             */
             $xml .= $this->_xmlUtil->generateOpenBalise($this->_productListTAG);
             /** @var \Sdk\Fulfilment\FulfilmentProductDescription $fulfilmentProductDescription */
-            foreach($request->getProductList() as $fulfilmentProductDescription)
-            {
+            foreach ($request->getProductList() as $fulfilmentProductDescription) {
                 $xml .= $this->_xmlUtil->generateOpenBalise($this->_fulfilmentProductDescriptionTAG);
-                
-                if($fulfilmentProductDescription->getExtSupplyOrderID() != null)
-                {
+
+                if ($fulfilmentProductDescription->getExtSupplyOrderID() != null) {
                     //Tag ExtSupplyOrderID
                     $xml .= $this->_xmlUtil->generateBalise($this->_extSupplyOrderIDTAG, $fulfilmentProductDescription->getExtSupplyOrderID());
                 }
-                
-                if($fulfilmentProductDescription->getProductEan() != null)
-                {
+
+                if ($fulfilmentProductDescription->getProductEan() != null) {
                     //Tag ProductEan
                     $xml .= $this->_xmlUtil->generateBalise($this->_productEanTAG, $fulfilmentProductDescription->getProductEan());
                 }
-                
-                if($fulfilmentProductDescription->getQuantity() != null)
-                {
+
+                if ($fulfilmentProductDescription->getQuantity() != null) {
                     //Tag Quantity
                     $xml .= $this->_xmlUtil->generateBalise($this->_quantityTAG, $fulfilmentProductDescription->getQuantity());
                 }
-                
 
-                if($fulfilmentProductDescription->getSellerProductReference() != null)
-                {
+
+                if ($fulfilmentProductDescription->getSellerProductReference() != null) {
                     //Tag SellerProductReference
                     $xml .= $this->_xmlUtil->generateBalise($this->_sellerProductReferenceTAG, $fulfilmentProductDescription->getSellerProductReference());
                 }
-                
-                if($fulfilmentProductDescription->getWarehouseReceptionMinDate() != null)
-                {
+
+                if ($fulfilmentProductDescription->getWarehouseReceptionMinDate() != null) {
                     //Tag WareHouseReceptionMinDate
                     $xml .= $this->_xmlUtil->generateBalise($this->_wareHouseReceptionMinDateTAG, $fulfilmentProductDescription->getWarehouseReceptionMinDate());
                 }
 
-                if($fulfilmentProductDescription->getWarehouse() != null)
-                {
+                if ($fulfilmentProductDescription->getWarehouse() != null) {
                     //Tag Warehouse
                     $xml .= $this->_xmlUtil->generateBalise($this->_warehouseTAG, $fulfilmentProductDescription->getWarehouse());
                 }
@@ -138,13 +132,12 @@ class SubmitFulfilmentSupplyOrderSoap extends BaliseTool
             //Closing tag ProductList
             $xml .= $this->_xmlUtil->generateCloseBalise($this->_productListTAG);
         }
-     
+
         //Closing tag fulfilmentSupplyOrderRequest
         $xml .= $this->_xmlUtil->generateCloseBalise($this->_fulfilmentSupplyOrderRequestTag);
-        
+
         $this->_xmlUtil->setGlobalPrefix('');
-        
+
         return $xml;
     }
 }
-

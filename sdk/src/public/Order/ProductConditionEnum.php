@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,14 +10,12 @@
 
 namespace Sdk\Order;
 
-
 abstract class ProductConditionEnum
 {
-    const NewS = 'New';
-    const Refurbished = 'Refurbished';
-    const LikeNew = 'LikeNew';
-    const VeryGoodState = 'VeryGoodState';
-    const GoodState = 'GoodState';
-    const AverageState = 'AverageState';
-
+    public const NewS = 'New';
+    public const Refurbished = 'Refurbished';
+    public const LikeNew = 'LikeNew';
+    public const VeryGoodState = 'VeryGoodState';
+    public const GoodState = 'GoodState';
+    public const AverageState = 'AverageState';
 }

@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Created by CDiscount
  * Created by CDiscount
@@ -8,7 +10,6 @@
 
 namespace Sdk\Soap\Discussion\Response;
 
-
 use Sdk\Discussion\Message;
 use Sdk\Discussion\OrderClaim;
 use Sdk\Soap\Common\iResponse;
@@ -16,7 +17,6 @@ use Sdk\Soap\Common\SoapTools;
 
 class GetOrderClaimListResponse extends iResponse
 {
-
     /**
      * @var array|null
      */
@@ -41,8 +41,7 @@ class GetOrderClaimListResponse extends iResponse
      */
     public function __construct($response)
     {
-
-        $reader = new \Zend\Config\Reader\Xml();
+        $reader = new \Laminas\Config\Reader\Xml();
         $this->_dataResponse = $reader->fromString($response);
 
         // Check For error message
@@ -52,7 +51,7 @@ class GetOrderClaimListResponse extends iResponse
              */
             $this->_setGlobalInformations();
 
-            $this->_orderClaimList = array();
+            $this->_orderClaimList = [];
 
             if (!SoapTools::isSoapValueNull($this->_dataResponse['s:Body']['GetOrderClaimListResponse']['GetOrderClaimListResult']['OrderClaimList'])) {
                 $this->_generateOrderClaimListFromXML($this->_dataResponse['s:Body']['GetOrderClaimListResponse']['GetOrderClaimListResult']['OrderClaimList']);
@@ -63,7 +62,7 @@ class GetOrderClaimListResponse extends iResponse
     /**
      * Set the token ID and the seller login from the response
      */
-    private function _setGlobalInformations()
+    private function _setGlobalInformations(): void
     {
         $objInfoResult = $this->_dataResponse['s:Body']['GetOrderClaimListResponse']['GetOrderClaimListResult'];
         $this->_tokenID = $objInfoResult['TokenId'];
@@ -73,10 +72,9 @@ class GetOrderClaimListResponse extends iResponse
     /**
      * @param $orderClaimList
      */
-    private function _generateOrderClaimListFromXML($orderClaimList)
+    private function _generateOrderClaimListFromXML($orderClaimList): void
     {
         foreach ($orderClaimList['OrderClaim'] as $orderClaimXML) {
-
             $orderClaim = new OrderClaim($orderClaimXML['Id']);
             $orderClaim->setCloseDate($orderClaimXML['CloseDate']);
             $orderClaim->setCreationDate($orderClaimXML['CreationDate']);
@@ -96,7 +94,6 @@ class GetOrderClaimListResponse extends iResponse
 
             $manyMessage = true;
             foreach ($orderClaimXML['Messages']['Message'] as $messageXML) {
-
                 if (!isset($messageXML['Content'])) {
                     $manyMessage = false;
                     break;
@@ -115,7 +112,6 @@ class GetOrderClaimListResponse extends iResponse
             }
 
             if (!$manyMessage) {
-
                 $message = new Message();
                 $message->setContent($orderClaimXML['Messages']['Message']['Content']);
                 $message->setSender($orderClaimXML['Messages']['Message']['Sender']);
@@ -125,6 +121,4 @@ class GetOrderClaimListResponse extends iResponse
             array_push($this->_orderClaimList, $orderClaim);
         }
     }
-
-
 }
