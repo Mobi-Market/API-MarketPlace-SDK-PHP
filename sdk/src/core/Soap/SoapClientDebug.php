@@ -15,6 +15,7 @@ use SoapClient;
 
 class SoapClientDebug extends SoapClient
 {
+    #[\ReturnTypeWillChange]
     public function __doRequest($request, $location, $action, $version, $one_way = 0)
     {
         // Add code to inspect/dissect/debug/adjust the XML given in $request here
